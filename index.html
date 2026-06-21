@@ -169,6 +169,44 @@
   footer .mono{color:var(--tide)}
   footer a{color:var(--tide);text-decoration:none}
 
+  /* ---- icons ---- */
+  .ico{width:1em;height:1em;display:inline-block;vertical-align:-.125em;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+  .h-ico{width:24px;height:24px;color:var(--tide);flex:none;align-self:center;margin-left:auto}
+  .tile .corner{position:absolute;top:15px;right:15px;width:28px;height:28px;color:var(--brass);opacity:.9}
+  .leg .body h3 .ico{width:17px;height:17px;color:var(--tide);margin-right:7px;vertical-align:-.18em}
+  .tag .ico{width:13px;height:13px;vertical-align:-.15em;margin-right:4px}
+
+  /* ---- photo frames (drop your own JPEGs into /img) ---- */
+  .photos{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 20px}
+  .photo{position:relative;aspect-ratio:3/2;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--harbour-2);margin:0;display:grid;place-items:center}
+  .photo img{grid-area:1/1;width:100%;height:100%;object-fit:cover}
+  .photo figcaption{grid-area:1/1;align-self:end;z-index:2;width:100%;padding:10px 13px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.04em;color:var(--foam);background:linear-gradient(transparent,rgba(15,35,48,.86))}
+  .photo.empty{border-style:dashed;border-color:var(--line-strong)}
+  .photo.empty img,.photo.empty figcaption{display:none}
+  .photo.empty::after{content:attr(data-empty);grid-area:1/1;font-family:"IBM Plex Mono",monospace;font-size:11.5px;line-height:1.6;color:var(--mist);text-align:center;padding:0 18px;letter-spacing:.02em}
+
+  /* ---- loch ness feature ---- */
+  .nessie{margin-top:20px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--harbour-2)}
+  .nessie-art{display:block;line-height:0}
+  .nessie-art svg{display:block;width:100%;height:auto}
+  .nessie-body{padding:24px 22px}
+  .nessie-body .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--harbour);background:var(--brass);border-radius:100px;padding:3px 10px;margin:0 0 12px}
+  .nessie-body h3{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(22px,4.5vw,28px);margin:0 0 12px;letter-spacing:-.01em}
+  .nessie-body p{margin:0 0 14px;color:var(--mist);font-size:14.5px}
+  .nessie-body p:last-of-type{margin-bottom:0}
+  .nessie-body p b{color:var(--foam);font-weight:600}
+  .nessie-body p a{color:var(--tide);text-decoration:none;border-bottom:1px solid var(--line-strong)}
+  .nessie .photo{aspect-ratio:16/7;margin:6px 0 20px}
+  .tours{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .tour{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--harbour-3)}
+  .tour.pick{border-color:var(--brass);box-shadow:0 0 0 1px rgba(232,176,75,.3)}
+  .tour .badge{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);border:1px solid rgba(232,176,75,.5);border-radius:100px;padding:2px 8px;margin-bottom:10px}
+  .tour h4{margin:0 0 7px;font-size:15px;font-weight:600}
+  .tour .meta{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--tide);margin-bottom:8px;line-height:1.55}
+  .tour p{margin:0;font-size:13px;color:var(--mist)}
+  .tour a{color:var(--tide);text-decoration:none;border-bottom:1px solid var(--line-strong)}
+  .fineprint{font-size:13px;color:var(--mist);margin:16px 0 0}
+
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
@@ -178,11 +216,45 @@
     .basecard .grid{grid-template-columns:1fr}
     .day{grid-template-columns:1fr}
     .maybes{grid-template-columns:1fr}
+    .photos{grid-template-columns:1fr}
+    .tours{grid-template-columns:1fr}
     .compass{display:none}
   }
 </style>
 </head>
 <body>
+
+<!-- icon sprite (self-contained, no external assets) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-ferry" viewBox="0 0 24 24">
+    <path d="M3 15.5h18l-1.7 3.6a1 1 0 0 1-.9.6H5.6a1 1 0 0 1-.9-.6L3 15.5Z"/>
+    <path d="M6 15.5V10h8l3 3v2.5"/>
+    <path d="M9.5 10V6.5h2.5V10"/>
+    <path d="M8 13h4"/>
+  </symbol>
+  <symbol id="i-dine" viewBox="0 0 24 24">
+    <path d="M7 3v18"/>
+    <path d="M5 3v4a2 2 0 0 0 4 0V3"/>
+    <path d="M16.4 3c-1.4 0-2.3 1.7-2.3 4.3 0 2.2 1 3.4 2.3 3.6V21"/>
+  </symbol>
+  <symbol id="i-house" viewBox="0 0 24 24">
+    <path d="M4 11 12 5l8 6"/>
+    <path d="M6 9.7V19h12V9.7"/>
+    <path d="M10 19v-4.5h4V19"/>
+  </symbol>
+  <symbol id="i-mtn" viewBox="0 0 24 24">
+    <path d="M3 19 9.5 7l4 6.5L16 10l5 9Z"/>
+  </symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24">
+    <path d="M5.5 8.5h13l-1 11.5h-11l-1-11.5Z"/>
+    <path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"/>
+  </symbol>
+  <symbol id="i-nessie" viewBox="0 0 24 24">
+    <path d="M2.5 16.4c1.4 0 1.6-2.4 3.2-2.4s1.8 2.4 3.2 2.4"/>
+    <path d="M9 16.4c0-3.7 1.6-6.1 3.8-6.1 1.4 0 2.4.8 2.4 2 0 1-.7 1.7-1.6 1.7-.6 0-1-.4-1-.9"/>
+    <path d="M2.5 20c1.6 0 1.8-1.1 3.6-1.1S8 20 9.6 20s1.8-1.1 3.6-1.1S15 20 16.6 20s1.8-1.1 3.6-1.1"/>
+  </symbol>
+</svg>
 
 <header>
   <div class="wrap">
@@ -200,6 +272,7 @@
     </div>
     <div class="board">
       <div class="tile">
+        <svg class="ico corner"><use href="#i-ferry"/></svg>
         <div class="lbl">The fixed sailing</div>
         <div class="time">07:30</div>
         <div class="sub">Belfast → Cairnryan, Fri 11</div>
@@ -251,9 +324,13 @@
         <div class="t">~12:15<small>lunch</small></div>
         <span class="dot"></span>
         <div class="body">
-          <h3>Breakfast / lunch in Bathgate</h3>
+          <h3><svg class="ico"><use href="#i-dine"/></svg>Breakfast / lunch in Bathgate</h3>
           <p>Carry on past Ayr and break later at Bathgate — just off the M8 and only ~40 minutes short of Edinburgh, so it's the last proper stop before the run into Waverley. Sit an hour and push on by ~13:30.</p>
           <div class="note"><b>The 1812</b>, Bathgate — where we want to stop to eat.</div>
+          <figure class="photo" data-empty="▢ add img/1812.jpg — a photo of The 1812, Bathgate" style="aspect-ratio:16/7;margin-top:12px">
+            <img src="img/1812.jpg" alt="The 1812 restaurant, Bathgate" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
+            <figcaption>The 1812 · Bathgate</figcaption>
+          </figure>
         </div>
       </div>
 
@@ -292,8 +369,18 @@
 <!-- BASE CAMP -->
 <section class="reveal">
   <div class="wrap">
-    <div class="s-head"><span class="s-num">02</span><h2>Base camp</h2></div>
+    <div class="s-head"><span class="s-num">02</span><h2>Base camp</h2><svg class="ico h-ico"><use href="#i-house"/></svg></div>
     <p class="s-sub">Five nights on the Fife coast, a short hop from both Edinburgh and the coastal path.</p>
+    <div class="photos">
+      <figure class="photo" data-empty="▢ add img/1881-1.jpg — the house / exterior">
+        <img src="img/1881-1.jpg" alt="The 1881 — A Period Home, Aberdour" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
+        <figcaption>The 1881 · Aberdour</figcaption>
+      </figure>
+      <figure class="photo" data-empty="▢ add img/1881-2.jpg — a room / interior">
+        <img src="img/1881-2.jpg" alt="Inside The 1881 — A Period Home" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
+        <figcaption>Inside · the period rooms</figcaption>
+      </figure>
+    </div>
     <div class="basecard">
       <div class="est">est. 1881</div>
       <h3>The 1881 — A Period Home</h3>
@@ -359,19 +446,84 @@
         <p>A QF could fall on this weekend — the tie isn't set until the earlier rounds finish, so who's playing and where is still open. If it's <b>Rangers</b> at Ibrox (Glasgow) or <b>Hearts</b> at Tynecastle (Edinburgh), it slots in easily. Watch for the draw and grab tickets the moment it's confirmed — they go fast.</p>
       </div>
       <div class="maybe">
-        <div class="tag">Suzanne's shout</div>
+        <div class="tag"><svg class="ico"><use href="#i-mtn"/></svg>Suzanne's shout</div>
         <h3>Climb Arthur's Seat</h3>
         <p>The old volcano above Holyrood Park — a proper little climb to the best view over Edinburgh. About an hour up at a steady pace; pairs naturally with a day in town.</p>
       </div>
       <div class="maybe">
-        <div class="tag">Make something</div>
+        <div class="tag"><svg class="ico"><use href="#i-bag"/></svg>Make something</div>
         <h3>Handbag workshop · Islander Harris Tweed</h3>
         <p>On the <b>Royal Mile</b> at <b>Islander Harris Tweed</b> — pick your cloth and make your own handbag to take home. Worth booking ahead once we settle on a day.</p>
       </div>
-      <div class="maybe wide">
-        <div class="tag">A day's expedition</div>
-        <h3>Loch Ness monster boat tour</h3>
-        <p>The big one — and it <i>is</i> big: Loch Ness is about <b>3 hours' drive each way</b> from Aberdour (~150 miles up the A9), so this swallows a whole day, not an afternoon. Aim at the <b>Urquhart Castle</b> end near Drumnadrochit and make a day of it — castle plus cruise. Pick of the boats: <b><a href="https://www.lochnesscruises.com/">Castle Cruises Loch Ness</a></b> — a small 12-seater from Temple Pier, right below the castle. <b>Loch Ness by Jacobite</b> is the bigger operator (sails from near Inverness), and <b>Cruise Loch Ness</b> runs sonar-equipped boats from the Fort Augustus end. Set off early if we do it.</p>
+    </div>
+
+    <div class="nessie">
+      <div class="nessie-art">
+        <svg viewBox="0 0 760 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Loch Ness at dusk with Urquhart Castle and the monster's humps in the water">
+          <defs>
+            <linearGradient id="ness-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#1B3C4D"/><stop offset="1" stop-color="#15333f"/>
+            </linearGradient>
+            <linearGradient id="ness-water" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#15333f"/><stop offset="1" stop-color="#0F2330"/>
+            </linearGradient>
+          </defs>
+          <rect width="760" height="200" fill="url(#ness-sky)"/>
+          <circle cx="648" cy="50" r="24" fill="#E8B04B" opacity=".18"/>
+          <circle cx="648" cy="50" r="24" fill="none" stroke="#E8B04B" stroke-opacity=".45"/>
+          <path d="M0 118 L120 90 L250 114 L380 84 L520 116 L650 92 L760 116 V200 H0 Z" fill="#1B3C4D" opacity=".75"/>
+          <path d="M0 140 L150 108 L300 138 L470 102 L610 138 L760 116 V200 H0 Z" fill="#163441"/>
+          <rect y="138" width="760" height="62" fill="url(#ness-water)"/>
+          <g fill="#102a36" stroke="#E8B04B" stroke-opacity=".5" stroke-width="1.3" stroke-linejoin="round">
+            <path d="M598 138 q34 -10 70 0 Z"/>
+            <path d="M612 138 V98 h5 v-7 h5 v7 h6 v-10 h5 v10 h5 v40 Z"/>
+            <path d="M636 138 V112 h6 v-6 h6 v6 h6 v-4 h5 v4 h4 v28 Z"/>
+          </g>
+          <g stroke="#E8B04B" stroke-opacity=".55" stroke-width="1.2">
+            <line x1="619" y1="114" x2="619" y2="122"/><line x1="645" y1="122" x2="645" y2="128"/>
+          </g>
+          <g fill="none" stroke="#E8B04B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M150 192 C150 150 176 140 196 150 C210 157 206 171 195 171 C188 171 186 164 190 161"/>
+            <path d="M212 184 C226 166 244 166 258 184"/>
+            <path d="M266 186 C280 169 298 169 312 186"/>
+            <path d="M320 187 C332 172 348 172 360 187"/>
+          </g>
+          <circle cx="191.5" cy="153.5" r="2.3" fill="#E8B04B"/>
+          <g stroke="#5FB0C4" stroke-opacity=".28" stroke-width="1.6" stroke-linecap="round">
+            <line x1="70" y1="172" x2="120" y2="172"/><line x1="430" y1="180" x2="500" y2="180"/>
+            <line x1="540" y1="192" x2="620" y2="192"/><line x1="360" y1="196" x2="430" y2="196"/>
+            <line x1="120" y1="188" x2="175" y2="188"/>
+          </g>
+        </svg>
+      </div>
+      <div class="nessie-body">
+        <p class="tag"><svg class="ico"><use href="#i-nessie"/></svg>A day's expedition</p>
+        <h3>The Loch Ness monster day</h3>
+        <p>A proper Highland day out, chasing the beast. Be honest about the distance, though: Loch Ness sits about <b>three hours' drive north of Aberdour</b> (~150 miles up the A9), so it claims a whole day — an early-ish start and an evening return. The drive through the Cairngorms is half the reward.</p>
+        <p>The classic stretch is the <b>Urquhart Castle</b> end near <b>Drumnadrochit</b> — a ruined castle on a headland over the loch's deepest, most-photographed water. Pair the castle with a boat and you've got the day. Three to weigh up:</p>
+        <figure class="photo" data-empty="▢ add img/loch-ness.jpg — Loch Ness / Urquhart Castle">
+          <img src="img/loch-ness.jpg" alt="Loch Ness and Urquhart Castle" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
+          <figcaption>Loch Ness · Urquhart Castle</figcaption>
+        </figure>
+        <div class="tours">
+          <div class="tour pick">
+            <span class="badge">Our pick</span>
+            <h4>Castle Cruises Loch Ness</h4>
+            <div class="meta">Temple Pier, Drumnadrochit<br>~1 hr · 12 seats</div>
+            <p>Small skippered boat right under the castle — the closest and most personal. Tiny, so book ahead. <a href="https://www.lochnesscruises.com/">lochnesscruises.com →</a></p>
+          </div>
+          <div class="tour">
+            <h4>Loch Ness by Jacobite</h4>
+            <div class="meta">Nr Inverness<br>1–3½ hr · big boats</div>
+            <p>The big, slick operator. Combo tickets bundle the cruise with Urquhart Castle and the visitor centre.</p>
+          </div>
+          <div class="tour">
+            <h4>Cruise Loch Ness</h4>
+            <div class="meta">Fort Augustus (south)<br>~50 min · live sonar</div>
+            <p>South-end departure with sonar screens on board — handy if we come at the loch from that side.</p>
+          </div>
+        </div>
+        <p class="fineprint">▸ If we commit to this, it wants one of the open days (Sat–Tue) to itself — say which and I'll build it into the plan as a full day.</p>
       </div>
     </div>
 
@@ -430,7 +582,7 @@
 <!-- SAILINGS -->
 <section class="reveal">
   <div class="wrap">
-    <div class="s-head"><span class="s-num">05</span><h2>The sailings</h2></div>
+    <div class="s-head"><span class="s-num">05</span><h2>The sailings</h2><svg class="ico h-ico"><use href="#i-ferry"/></svg></div>
     <p class="s-sub">Stena Line, Belfast ⇄ Cairnryan. Crossing ~2h15. Highlighted are the two to book.</p>
     <div class="sail">
       <div class="row">

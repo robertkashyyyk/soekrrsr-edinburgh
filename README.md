@@ -6,6 +6,11 @@ SO & Emily (in by train), based at **The 1881 – A Period Home, Aberdour**.
 The whole plan lives in `index.html`. Edit that file, push, and the website updates.
 No build step, no framework — it's one self-contained page.
 
+**Photos:** the page has framed photo slots (the 1881, The 1812, Loch Ness). Drop JPEGs
+into the [`img/`](img/) folder with the filenames listed in [`img/README.md`](img/README.md)
+and they appear; until then each slot shows a neat placeholder. The ferry / house / Nessie /
+castle artwork is drawn in SVG inside the page, so it needs no files.
+
 ---
 
 ## The shape of it
