@@ -179,6 +179,7 @@
   /* ---- photo frames (drop your own JPEGs into /img) ---- */
   .photos{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 20px}
   .photo{position:relative;aspect-ratio:3/2;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--harbour-2);margin:0;display:grid;place-items:center}
+  .photo.span{grid-column:1/-1;aspect-ratio:16/9}
   .photo img{grid-area:1/1;width:100%;height:100%;object-fit:cover}
   .photo figcaption{grid-area:1/1;align-self:end;z-index:2;width:100%;padding:10px 13px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.04em;color:var(--foam);background:linear-gradient(transparent,rgba(15,35,48,.86))}
   .photo.empty{border-style:dashed;border-color:var(--line-strong)}
@@ -362,10 +363,10 @@
         <div class="body">
           <h3><svg class="ico"><use href="#i-dine"/></svg>Breakfast / lunch in Bathgate</h3>
           <p>Carry on past Ayr and break later at Bathgate — just off the M8 and only ~40 minutes short of Edinburgh, so it's the last proper stop before the run into Waverley. Sit an hour and push on by ~13:30.</p>
-          <div class="note"><b>The 1812</b>, Bathgate — where we want to stop to eat.</div>
-          <figure class="photo" data-empty="▢ add img/1812.jpg — a photo of The 1812, Bathgate" style="aspect-ratio:16/7;margin-top:12px">
-            <img src="img/1812.jpg" alt="The 1812 restaurant, Bathgate" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
-            <figcaption>The 1812 · Bathgate</figcaption>
+          <div class="note"><b>Cafebar 1912</b>, Bathgate — where we want to stop to eat.</div>
+          <figure class="photo" data-empty="▢ add img/cafebar-1912.jpg — a photo of Cafebar 1912, Bathgate" style="aspect-ratio:16/7;margin-top:12px">
+            <img src="img/cafebar-1912.jpg" alt="Cafebar 1912, Bathgate" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
+            <figcaption>Cafebar 1912 · Bathgate</figcaption>
           </figure>
         </div>
       </div>
@@ -408,15 +409,20 @@
     <div class="s-head"><span class="s-num">02</span><h2>Base camp</h2><svg class="ico h-ico"><use href="#i-house"/></svg></div>
     <p class="s-sub">Five nights on the Fife coast, a short hop from both Edinburgh and the coastal path.</p>
     <div class="photos">
-      <figure class="photo" data-empty="▢ add img/1881-1.jpg — the house / exterior">
-        <img src="img/1881-1.jpg" alt="The 1881 — A Period Home, Aberdour" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
-        <figcaption>The 1881 · Aberdour</figcaption>
+      <figure class="photo span" data-empty="▢ add img/1881-view.jpg — the view from the house">
+        <img src="img/1881-view.jpg" alt="The view from The 1881 over Aberdour towards the Forth" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
+        <figcaption>The view — over the old brig and out to the Forth</figcaption>
       </figure>
-      <figure class="photo" data-empty="▢ add img/1881-2.jpg — a room / interior">
-        <img src="img/1881-2.jpg" alt="Inside The 1881 — A Period Home" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
-        <figcaption>Inside · the period rooms</figcaption>
+      <figure class="photo" data-empty="▢ add img/1881-kitchen.jpg — the kitchen">
+        <img src="img/1881-kitchen.jpg" alt="The kitchen at The 1881" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
+        <figcaption>The kitchen</figcaption>
+      </figure>
+      <figure class="photo" data-empty="▢ add img/1881-soso.jpg — the uncanny SO SO salt">
+        <img src="img/1881-soso.jpg" alt="SO SO branded sea salt on the kitchen shelf" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
+        <figcaption>Even the salt's branded SO SO 👀</figcaption>
       </figure>
     </div>
+    <p class="fineprint" style="margin:-6px 0 20px">👀 Yes, that's real — the kitchen came stocked with <b>SO SO</b> sea salt. The house was apparently expecting one of us.</p>
     <div class="basecard">
       <div class="est">est. 1881</div>
       <h3>The 1881 — A Period Home</h3>
@@ -490,6 +496,10 @@
         <div class="tag"><svg class="ico"><use href="#i-bag"/></svg>Make something</div>
         <h3>Handbag workshop · Islander Harris Tweed</h3>
         <p>On the <b>Royal Mile</b> at <b>Islander Harris Tweed</b> — pick your cloth and make your own handbag to take home. Worth booking ahead once we settle on a day.</p>
+        <figure class="photo" data-empty="▢ add img/islander.jpg — Islander Harris Tweed bags" style="aspect-ratio:16/9;margin-top:12px">
+          <img src="img/islander.jpg" alt="Islander Harris Tweed handbag" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
+          <figcaption>Islander · Harris Tweed</figcaption>
+        </figure>
       </div>
     </div>
 
@@ -702,9 +712,15 @@
       </article>
 
       <article class="turn">
-        <div class="turn-head"><span class="step">08</span><span class="commit">latest</span></div>
+        <div class="turn-head"><span class="step">08</span><span class="commit"><a href="https://github.com/robertkashyyyk/soekrrsr-edinburgh/commit/49fac5c">49fac5c</a></span></div>
         <div class="msg you"><div class="who">You</div><div class="bubble"><p>Add an <b>Itinerary / Build</b> toggle at the top — the Build view should show every conversation here on one page.</p><p>Also: SO &amp; Emily aren't flying, they're heading to <b>York</b> — find them a train around 10am or slightly earlier and drop them at <b>Waverley</b>.</p><p>And add a bit of humour: will SO find out who <i>owns</i> the Loch Ness tour, like he tried with the Jack the Ripper tour?</p></div></div>
         <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Built the toggle and this Build view — it logs each exchange and links to its commit. Reworked Wednesday: out of Aberdour a touch earlier, drop SO &amp; Emily at Waverley for a morning LNER to York (~2h25), then Robert &amp; Suzanne carry on to Cairnryan for the 15:30 sailing. And slipped a Nessie-ownership joke into the Loch Ness feature.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">09</span><span class="commit">latest</span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>Quick correction — the Bathgate place is <b>Cafebar 1912</b>, not 1812. And here are real photos: Cafebar 1912, the 1881 (the kitchen, the view, and — uncannily — a tub of <b>SO SO</b> sea salt), Urquhart Castle for the Loch Ness day, and the Islander Harris Tweed bags.</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Renamed it to Cafebar 1912 everywhere, added a third base-camp photo for the view and flagged the SO SO coincidence, and wired photo frames for the lot.</p><p>One catch: pasted images reach me as pictures, not files — so the frames stay as placeholders until the JPEGs are dropped into <b>/img</b> with the listed names.</p></div></div>
       </article>
 
       <p class="editme" style="margin-top:24px">▸ this log grows by hand each time we change something — newest at the bottom</p>

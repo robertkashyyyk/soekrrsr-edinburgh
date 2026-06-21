@@ -6,7 +6,7 @@ SO & Emily (in by train), based at **The 1881 – A Period Home, Aberdour**.
 The whole plan lives in `index.html`. Edit that file, push, and the website updates.
 No build step, no framework — it's one self-contained page.
 
-**Photos:** the page has framed photo slots (the 1881, The 1812, Loch Ness). Drop JPEGs
+**Photos:** the page has framed photo slots (the 1881, Cafebar 1912, Loch Ness). Drop JPEGs
 into the [`img/`](img/) folder with the filenames listed in [`img/README.md`](img/README.md)
 and they appear; until then each slot shows a neat placeholder. The ferry / house / Nessie /
 castle artwork is drawn in SVG inside the page, so it needs no files.
@@ -16,7 +16,7 @@ castle artwork is drawn in SVG inside the page, so it needs no files.
 ## The shape of it
 
 - **Fri 11** — Robert & Suzanne sail Belfast → Cairnryan (07:30), drive up via a lunch
-  stop in Bathgate (The 1812), park at Waverley and meet SO & Emily off their train
+  stop in Bathgate (Cafebar 1912), park at Waverley and meet SO & Emily off their train
   (~15:30), then over the Forth to Aberdour.
 - **Sat 12 – Tue 15** — five nights in Fife. The "days in between" are the open part,
   meant to be filled in together.
