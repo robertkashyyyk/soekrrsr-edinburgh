@@ -210,6 +210,18 @@
   .tour a{color:var(--tide);text-decoration:none;border-bottom:1px solid var(--line-strong)}
   .fineprint{font-size:13px;color:var(--mist);margin:16px 0 0}
 
+  /* ---- split tracks (diverging routes) ---- */
+  .tracks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+  .track{border:1px solid var(--line);border-radius:14px;background:var(--harbour-2);padding:16px 18px}
+  .track h4{margin:0 0 14px;font-size:12.5px;font-family:"IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--tide)}
+  .track ol{list-style:none;margin:0;padding:0}
+  .track li{position:relative;padding:0 0 16px 18px;border-left:2px solid var(--line-strong);margin-left:4px}
+  .track li:last-child{padding-bottom:0;border-left-color:transparent}
+  .track li::before{content:"";position:absolute;left:-5px;top:3px;width:8px;height:8px;border-radius:50%;background:var(--harbour);border:2px solid var(--tide)}
+  .track li.dest::before{background:var(--brass);border-color:var(--brass)}
+  .track li b{display:block;font-size:14.5px;color:var(--foam);font-weight:600;margin-bottom:2px}
+  .track li span{font-size:13.5px;color:var(--mist)}
+
   /* ---- view switch (itinerary / build) ---- */
   .switch{position:sticky;top:0;z-index:50;display:flex;justify-content:center;gap:8px;padding:11px 12px;background:rgba(15,35,48,.86);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
   .switch button{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);background:transparent;border:1px solid var(--line-strong);border-radius:100px;padding:8px 20px;cursor:pointer;transition:color .2s,background .2s,border-color .2s}
@@ -249,6 +261,7 @@
     .maybes{grid-template-columns:1fr}
     .photos{grid-template-columns:1fr}
     .tours{grid-template-columns:1fr}
+    .tracks{grid-template-columns:1fr}
     .msg{grid-template-columns:1fr;gap:5px}
     .msg .who{padding-top:0}
     .compass{display:none}
@@ -641,8 +654,8 @@
 <!-- DAY BACK -->
 <section class="reveal">
   <div class="wrap">
-    <div class="s-head"><span class="s-num">04</span><h2>Wednesday 16 — back across</h2></div>
-    <p class="s-sub">SO &amp; Emily catch a morning train on to York; you and Suzanne sail home and meet back up with them later.</p>
+    <div class="s-head"><span class="s-num">04</span><h2>Wednesday 16 — onward to Crete</h2></div>
+    <p class="s-sub">Out of the house, a shared run into Edinburgh, then the group splits for Crete by two different routes — and meets back up out there.</p>
     <div class="rail">
 
       <div class="leg key">
@@ -650,7 +663,7 @@
         <span class="dot"></span>
         <div class="body">
           <h3>Away from Aberdour</h3>
-          <p>Checkout's by 10:00, but we slip away earlier to make SO &amp; Emily's York train. Pack the car, lock up, back over the Forth.</p>
+          <p>Checkout's by 10:00, but we slip away earlier to make SO &amp; Emily's onward train. Pack the car, lock up, back over the Forth.</p>
         </div>
       </div>
 
@@ -659,29 +672,29 @@
         <span class="dot"></span>
         <div class="body">
           <h3>Drop SO &amp; Emily at Waverley</h3>
-          <p>Back to where it all started on Friday — drop them at the station for their train south, then you and Suzanne point for the coast.</p>
-          <div class="note"><b>Edinburgh → York</b> runs direct on <b>LNER</b>, roughly every half hour and about <b>2h25</b> end to end. Aim for one around <b>09:45–10:00</b>; book on the live timetable nearer the day.</div>
+          <p>Back to where it all started on Friday — drop them at the station, then you and Suzanne point for the coast. From here the routes split.</p>
         </div>
       </div>
 
-      <div class="leg">
-        <div class="t">~13:00<small>arrive</small></div>
-        <span class="dot"></span>
-        <div class="body">
-          <h3>Cairnryan</h3>
-          <p>From Edinburgh down through Ayrshire — about 2¾–3 hours. Time for a bite at the port before boarding.</p>
-        </div>
-      </div>
+    </div>
 
-      <div class="leg key">
-        <div class="t">15:30<small>sail</small></div>
-        <span class="dot"></span>
-        <div class="body">
-          <h3>Sail to Belfast ⛴</h3>
-          <p>Into Belfast around 17:45. (Prefer a slow last morning? The 19:30 lands ~21:45.)</p>
-        </div>
+    <p class="maybe-head">From here the routes split — both ending in Crete</p>
+    <div class="tracks">
+      <div class="track">
+        <h4>SO &amp; Emily · via London</h4>
+        <ol>
+          <li><b>Edinburgh → London</b><span>LNER to King's Cross is ~4h20, or a short EDI→London hop if the Crete connection runs from there.</span></li>
+          <li class="dest"><b>London → Crete ✈</b><span>Onward flight — to confirm once dates &amp; airport are set.</span></li>
+        </ol>
       </div>
-
+      <div class="track">
+        <h4>Robert &amp; Suzanne · via Belfast</h4>
+        <ol>
+          <li><b>~13:00 · Cairnryan</b><span>From Edinburgh down through Ayrshire, ~2¾–3 hours. A bite at the port before boarding.</span></li>
+          <li><b>15:30 · Sail to Belfast ⛴</b><span>Into Belfast around 17:45 on the booked Stena crossing.</span></li>
+          <li class="dest"><b>Belfast → Crete ✈</b><span>Onward flight — to confirm once dates are set.</span></li>
+        </ol>
+      </div>
     </div>
   </div>
 </section>
@@ -784,9 +797,15 @@
       </article>
 
       <article class="turn">
-        <div class="turn-head"><span class="step">10</span><span class="commit">latest</span></div>
+        <div class="turn-head"><span class="step">10</span><span class="commit"><a href="https://github.com/robertkashyyyk/soekrrsr-edinburgh/commit/fdb0e2c">fdb0e2c</a></span></div>
         <div class="msg you"><div class="who">You</div><div class="bubble"><p>Reframe the hero — it's me &amp; Suzanne from <b>Belfast</b>; the others come from <b>Buffalo via London</b>. Everyone meets at Aberdour, then on to <b>Crete</b>. Show both journeys (one Aberdour, one Crete).</p><p>Add an evening <b>ghost tour</b> (preferred) or a Mountebank comedy walk, <b>Edinburgh Castle</b>, and the <b>Royal Yacht Britannia</b>. And are my photos actually connected?</p></div></div>
         <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Redrew the hero as two journeys converging on Aberdour and carrying on to Crete, with a little route-map and updated crew lines. Added Edinburgh Castle, a ghost-or-comedy evening tour (leaning ghostly), and the Royal Yacht Britannia at Leith.</p><p>Photos: sorted — you'd saved them in, I matched each to its slot, converted the AVIFs to JPEG and renamed them, so the frames are now live (no more placeholders). One thing still open: the Wednesday "back across" section still shows the old Belfast/York plan — that needs reworking for the Crete departure once we have the details.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">11</span><span class="commit">latest</span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>For the Crete leg, <b>separate routes</b> — me &amp; Suzanne via Belfast, SO &amp; Emily via London, both meeting in Crete.</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Reworked Wednesday into a shared morning (run into Edinburgh, drop SO &amp; Emily at Waverley) and then <b>two diverging tracks to Crete</b> — SO &amp; Emily via London, Robert &amp; Suzanne via Belfast on the booked Stena crossing. The onward Crete flights are marked "to confirm" until the dates and airports are set.</p></div></div>
       </article>
 
       <p class="editme" style="margin-top:24px">▸ this log grows by hand each time we change something — newest at the bottom</p>

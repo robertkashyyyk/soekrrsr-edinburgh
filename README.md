@@ -4,9 +4,6 @@ A living itinerary for Robert & Suzanne (over from Belfast by ferry) and SO & Em
 (in from Buffalo via London), meeting at **The 1881 – A Period Home, Aberdour** for the
 week — then everyone onward to Crete.
 
-> Note: the day-by-day departure section (Wed 16) still reflects the earlier
-> Belfast/York plan and needs reworking for the Crete leg once the travel details are set.
-
 The whole plan lives in `index.html`. Edit that file, push, and the website updates.
 No build step, no framework — it's one self-contained page.
 
@@ -24,9 +21,9 @@ castle artwork is drawn in SVG inside the page, so it needs no files.
   (~15:30), then over the Forth to Aberdour.
 - **Sat 12 – Tue 15** — five nights in Fife. The "days in between" are the open part,
   meant to be filled in together.
-- **Wed 16** — away early; drop SO & Emily at Edinburgh Waverley for a morning train on
-  to York, then Robert & Suzanne sail Cairnryan → Belfast (15:30) and meet back up with
-  them later.
+- **Wed 16** — away early; drop SO & Emily at Edinburgh Waverley, then the group splits
+  for Crete: SO & Emily via London, Robert & Suzanne via Belfast (Stena 15:30), meeting
+  back up out in Crete.
 
 Full timings, addresses and the Stena timetable are all in the page.
 
@@ -85,14 +82,14 @@ you can carry it forward:
 - **Fixed points:** the **07:30** Belfast→Cairnryan sailing on the 11th, and meeting
   SO & Emily at **Edinburgh Waverley ~15:30** the same day. The return is the **15:30**
   Cairnryan→Belfast on the 16th.
-- **Roles:** Robert & Suzanne do both ferry crossings with the car. SO & Emily arrive by
-  train, leave on the 16th by train to York, and rejoin Robert & Suzanne later.
+- **Roles:** Robert & Suzanne do both ferry crossings with the car. SO & Emily arrive from
+  Buffalo via London, leave on the 16th via London, and everyone reconvenes in Crete.
 - **What's still open / where help is wanted:**
   - The **Sat 12 – Tue 15** days are unplanned — suggestions welcome (Edinburgh, Fife
     coast, East Neuk, Stirling, etc.).
-  - **SO & Emily head to York on the 16th** — dropped at Edinburgh Waverley for a morning
-    LNER (direct, ~2h25). The exact train and the "meet back up later" leg are still to pin
-    down.
+  - **Onward Crete flights** aren't booked yet — SO & Emily route via London, Robert &
+    Suzanne via Belfast. Once the dates and airports are set, the Wed 16 tracks can be
+    firmed up.
 - **To contribute:** edit `index.html` (the structure is plain, labelled sections) and
   push. Keep the departures-board style; times are in the mono font for a reason.
 
