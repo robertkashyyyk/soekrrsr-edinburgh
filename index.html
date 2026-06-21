@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Belfast → Aberdour → Belfast · Sep 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --harbour:#0F2330;
+    --harbour-2:#14303F;
+    --harbour-3:#1B3C4D;
+    --paper:#F3EEE0;
+    --brass:#E8B04B;
+    --tide:#5FB0C4;
+    --foam:#F4F0E6;
+    --mist:#90A6B0;
+    --line:rgba(244,240,230,.12);
+    --line-strong:rgba(244,240,230,.22);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--harbour);
+    color:var(--foam);
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+
+  /* ---- eyebrow / mono utility ---- */
+  .mono{font-family:"IBM Plex Mono",monospace}
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--tide);margin:0 0 10px;
+  }
+
+  /* ---- hero ---- */
+  header{padding:64px 0 38px;position:relative;overflow:hidden}
+  .compass{
+    position:absolute;right:-60px;top:-40px;width:240px;height:240px;
+    border-radius:50%;border:1px solid var(--line);opacity:.5;
+  }
+  .compass::after{
+    content:"";position:absolute;inset:26px;border-radius:50%;
+    border:1px dashed var(--line);
+  }
+  h1{
+    font-family:"Fraunces",serif;font-weight:500;
+    font-size:clamp(34px,8vw,58px);line-height:1.02;letter-spacing:-.01em;
+    margin:0 0 18px;
+  }
+  h1 .arrow{color:var(--brass);font-weight:400}
+  .dates{
+    font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--mist);
+    display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:26px;
+  }
+  .dates b{color:var(--foam);font-weight:500}
+  .crew{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
+  .crew span{
+    font-size:13px;border:1px solid var(--line-strong);border-radius:100px;
+    padding:5px 13px;color:var(--mist);
+  }
+  .crew span b{color:var(--foam);font-weight:600}
+
+  /* ---- board (split-flap fixed points) ---- */
+  .board{
+    display:grid;grid-template-columns:1fr 1fr;gap:12px;
+  }
+  .tile{
+    background:var(--harbour-2);border:1px solid var(--line);
+    border-radius:14px;padding:18px 18px 16px;position:relative;
+  }
+  .tile .lbl{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--tide);margin-bottom:10px}
+  .tile .time{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:30px;color:var(--brass);line-height:1}
+  .tile .sub{font-size:13.5px;color:var(--mist);margin-top:7px}
+
+  /* ---- section frame ---- */
+  section{padding:46px 0;border-top:1px solid var(--line)}
+  .s-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+  .s-num{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--brass);padding-top:4px}
+  h2{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(24px,5vw,34px);margin:0;letter-spacing:-.01em}
+  .s-sub{color:var(--mist);font-size:15px;margin:4px 0 28px}
+
+  /* ---- timetable rail ---- */
+  .rail{position:relative;margin-left:4px}
+  .leg{
+    position:relative;display:grid;grid-template-columns:64px 1fr;gap:18px;
+    padding-bottom:26px;
+  }
+  .leg::before{ /* the tide line */
+    content:"";position:absolute;left:71px;top:8px;bottom:-6px;width:2px;
+    background:linear-gradient(var(--tide),rgba(95,176,196,.15));
+  }
+  .leg:last-child::before{display:none}
+  .leg .t{
+    font-family:"IBM Plex Mono",monospace;font-size:14px;font-weight:600;
+    color:var(--brass);text-align:right;padding-top:1px;
+  }
+  .leg .t small{display:block;color:var(--mist);font-weight:400;font-size:11px;letter-spacing:.04em}
+  .leg .dot{
+    position:absolute;left:65px;top:5px;width:14px;height:14px;border-radius:50%;
+    background:var(--harbour);border:2px solid var(--tide);z-index:2;
+  }
+  .leg.key .dot{background:var(--brass);border-color:var(--brass);box-shadow:0 0 0 4px rgba(232,176,75,.18)}
+  .leg .body h3{margin:0 0 3px;font-size:16.5px;font-weight:600}
+  .leg .body p{margin:0;color:var(--mist);font-size:14.5px}
+  .leg .body .note{
+    margin-top:9px;font-size:13.5px;color:var(--foam);
+    background:var(--harbour-2);border-left:2px solid var(--brass);
+    padding:9px 13px;border-radius:0 8px 8px 0;
+  }
+  .leg .body a{color:var(--tide);text-decoration:none;border-bottom:1px solid var(--line-strong)}
+
+  /* ---- base camp paper card ---- */
+  .basecard{
+    background:var(--paper);color:#23303a;border-radius:18px;padding:26px 24px;
+    position:relative;overflow:hidden;
+  }
+  .basecard .est{font-family:"Fraunces",serif;font-style:italic;font-size:15px;color:#7a6a48}
+  .basecard h3{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:4px 0 14px;letter-spacing:-.01em}
+  .basecard .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 22px;margin-top:6px}
+  .basecard .field .k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9a8d6e;margin-bottom:3px}
+  .basecard .field .v{font-size:15px;font-weight:500}
+  .basecard .addr{grid-column:1/-1}
+
+  /* ---- open days ---- */
+  .days{display:grid;gap:12px}
+  .day{
+    border:1px dashed var(--line-strong);border-radius:14px;padding:16px 18px;
+    display:grid;grid-template-columns:84px 1fr;gap:16px;align-items:start;
+  }
+  .day .d{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--brass)}
+  .day .d small{display:block;color:var(--mist);font-size:11px}
+  .day .ideas{font-size:14.5px;color:var(--mist)}
+  .day .ideas b{color:var(--foam);font-weight:600}
+  .editme{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--tide);margin-top:14px}
+
+  /* ---- sailings table ---- */
+  .sail{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .sail .row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+  .sail .col{background:var(--harbour-2);padding:16px 18px}
+  .sail .col h4{margin:0 0 12px;font-size:13px;font-family:"IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--tide)}
+  .sail ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:7px}
+  .sail li{font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--mist);border:1px solid var(--line);border-radius:8px;padding:5px 9px}
+  .sail li.pick{color:var(--harbour);background:var(--brass);border-color:var(--brass);font-weight:600}
+  .sail .foot{padding:14px 18px;font-size:13.5px;color:var(--mist);background:var(--harbour-2)}
+
+  /* ---- footer ---- */
+  footer{padding:46px 0 70px;border-top:1px solid var(--line);color:var(--mist);font-size:14px}
+  footer .mono{color:var(--tide)}
+  footer a{color:var(--tide);text-decoration:none}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  @media (max-width:560px){
+    .board{grid-template-columns:1fr}
+    .basecard .grid{grid-template-columns:1fr}
+    .day{grid-template-columns:1fr}
+    .compass{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="compass"></div>
+    <p class="eyebrow">Two crossings · one period house · Fife</p>
+    <h1>Belfast <span class="arrow">→</span> Aberdour <span class="arrow">→</span> Belfast</h1>
+    <div class="dates">
+      <span><b>Fri 11</b> – <b>Wed 16</b> Sep 2026</span>
+      <span>5 nights</span>
+      <span>Stena Line · car</span>
+    </div>
+    <div class="crew">
+      <span><b>Robert</b> &amp; Suzanne — over by ferry</span>
+      <span><b>SO</b> &amp; Emily — in by train</span>
+    </div>
+    <div class="board">
+      <div class="tile">
+        <div class="lbl">The fixed sailing</div>
+        <div class="time">07:30</div>
+        <div class="sub">Belfast → Cairnryan, Fri 11</div>
+      </div>
+      <div class="tile">
+        <div class="lbl">The fixed meeting</div>
+        <div class="time">15:30</div>
+        <div class="sub">Waverley pickup, Fri 11</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- DAY OUT -->
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="s-num">01</span><h2>Friday 11 — over the water</h2></div>
+    <p class="s-sub">Everything keys off catching the 07:30 and being parked at Waverley before SO &amp; Emily's train lands at half three.</p>
+    <div class="rail">
+
+      <div class="leg">
+        <div class="t">06:15<small>arrive</small></div>
+        <span class="dot"></span>
+        <div class="body">
+          <h3>Belfast ferry terminal</h3>
+          <p>Victoria Terminal 2, West Bank Road. Car check-in closes well before the sailing, so aim to be there ~75 min ahead.</p>
+        </div>
+      </div>
+
+      <div class="leg key">
+        <div class="t">07:30<small>sail</small></div>
+        <span class="dot"></span>
+        <div class="body">
+          <h3>Sail to Cairnryan ⛴</h3>
+          <p>Stena Superfast. Crossing is about 2h15 — breakfast on board.</p>
+        </div>
+      </div>
+
+      <div class="leg">
+        <div class="t">09:52<small>land</small></div>
+        <span class="dot"></span>
+        <div class="body">
+          <h3>Cairnryan · onto the A77</h3>
+          <p>Off the boat and north up the Ayrshire coast. Edinburgh is roughly 2½–3 hours from here.</p>
+        </div>
+      </div>
+
+      <div class="leg">
+        <div class="t">11:00<small>lunch</small></div>
+        <span class="dot"></span>
+        <div class="body">
+          <h3>Lunch in Ayr</h3>
+          <p>A proper town right on the route, about 50 minutes up. Break for an hour and push on by ~12:15.</p>
+          <div class="note"><b>The Fox &amp; Willow</b> — gastropub, generous, dog-friendly. Or <b>The Tree House</b> on Sandgate if you want central and quick.</div>
+        </div>
+      </div>
+
+      <div class="leg key">
+        <div class="t">~14:00<small>park</small></div>
+        <span class="dot"></span>
+        <div class="body">
+          <h3>Park at Waverley</h3>
+          <p>APCOA car park, New Street, EH8 8BH — right at the station for meeting them off the train.</p>
+          <div class="note">Tight entrance and only ~15 min free, so you'll pay for the time parked. Buffer's there in case Glasgow snarls up.</div>
+        </div>
+      </div>
+
+      <div class="leg key">
+        <div class="t">15:30<small>meet</small></div>
+        <span class="dot"></span>
+        <div class="body">
+          <h3>SO &amp; Emily land at Waverley</h3>
+          <p>The whole day's been built around this moment. Bags in, four up.</p>
+        </div>
+      </div>
+
+      <div class="leg">
+        <div class="t">~16:15<small>arrive</small></div>
+        <span class="dot"></span>
+        <div class="body">
+          <h3>Over the Forth to Aberdour</h3>
+          <p>About 30 minutes over the Queensferry Crossing. Self check-in's open from 2pm, so the house is ready when you get there.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BASE CAMP -->
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="s-num">02</span><h2>Base camp</h2></div>
+    <p class="s-sub">Five nights on the Fife coast, a short hop from both Edinburgh and the coastal path.</p>
+    <div class="basecard">
+      <div class="est">est. 1881</div>
+      <h3>The 1881 — A Period Home</h3>
+      <div class="grid">
+        <div class="field addr">
+          <div class="k">Address</div>
+          <div class="v">44 Main St, Aberdour, KY3 0UG</div>
+        </div>
+        <div class="field">
+          <div class="k">Check-in</div>
+          <div class="v">After 2:00 PM · self check-in</div>
+        </div>
+        <div class="field">
+          <div class="k">Checkout</div>
+          <div class="v">By 10:00 AM, Wed 16</div>
+        </div>
+        <div class="field">
+          <div class="k">Whole place</div>
+          <div class="v">3 beds · 4 guests</div>
+        </div>
+        <div class="field">
+          <div class="k">Host</div>
+          <div class="v">Jak</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN DAYS -->
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="s-num">03</span><h2>The days in between</h2></div>
+    <p class="s-sub">Wide open — this is the part to draw out together. A few seeds to start:</p>
+    <div class="days">
+      <div class="day">
+        <div class="d">Sat 12<small>day 1</small></div>
+        <div class="ideas"><b>Edinburgh.</b> Train from Aberdour into Waverley is ~35 min — Old Town, castle, a long lunch, no car needed.</div>
+      </div>
+      <div class="day">
+        <div class="d">Sun 13<small>day 2</small></div>
+        <div class="ideas"><b>Fife coast.</b> The Aberdour–Burntisland coastal path, Silver Sands beach, or push on to the East Neuk villages.</div>
+      </div>
+      <div class="day">
+        <div class="d">Mon 14<small>day 3</small></div>
+        <div class="ideas"><b>Open.</b> Stirling Castle, the Kelpies, or a slow one in the village.</div>
+      </div>
+      <div class="day">
+        <div class="d">Tue 15<small>day 4</small></div>
+        <div class="ideas"><b>Open.</b> Last full day — save it for whatever you've all been meaning to do.</div>
+      </div>
+    </div>
+    <p class="editme">▸ edit this section in the repo — it's meant to grow</p>
+  </div>
+</section>
+
+<!-- DAY BACK -->
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="s-num">04</span><h2>Wednesday 16 — back across</h2></div>
+    <p class="s-sub">SO &amp; Emily head on for their flight; you and Suzanne sail home and catch up with them later.</p>
+    <div class="rail">
+
+      <div class="leg key">
+        <div class="t">10:00<small>out</small></div>
+        <span class="dot"></span>
+        <div class="body">
+          <h3>Checkout, Aberdour</h3>
+          <p>Pack the car, lock up, point south.</p>
+        </div>
+      </div>
+
+      <div class="leg">
+        <div class="t">~10:40<small>optional</small></div>
+        <span class="dot"></span>
+        <div class="body">
+          <h3>Drop SO &amp; Emily at Edinburgh Airport?</h3>
+          <p>It sits almost on your route south — if they're flying from EDI, this is the easy handover before you carry on.</p>
+          <div class="note">Confirm their flight &amp; airport and this slots straight in.</div>
+        </div>
+      </div>
+
+      <div class="leg">
+        <div class="t">~13:00<small>arrive</small></div>
+        <span class="dot"></span>
+        <div class="body">
+          <h3>Cairnryan</h3>
+          <p>About 3 hours from Fife down the A77. Time for a bite at the port before boarding.</p>
+        </div>
+      </div>
+
+      <div class="leg key">
+        <div class="t">15:30<small>sail</small></div>
+        <span class="dot"></span>
+        <div class="body">
+          <h3>Sail to Belfast ⛴</h3>
+          <p>Into Belfast around 17:45. (Prefer a slow last morning? The 19:30 lands ~21:45.)</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SAILINGS -->
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="s-num">05</span><h2>The sailings</h2></div>
+    <p class="s-sub">Stena Line, Belfast ⇄ Cairnryan. Crossing ~2h15. Highlighted are the two to book.</p>
+    <div class="sail">
+      <div class="row">
+        <div class="col">
+          <h4>Belfast → Cairnryan · Fri 11</h4>
+          <ul>
+            <li>03:30</li><li class="pick">07:30</li><li>11:30</li><li>15:30</li><li>19:30</li><li>23:30</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Cairnryan → Belfast · Wed 16</h4>
+          <ul>
+            <li>03:30</li><li>07:30</li><li>11:30</li><li class="pick">15:30</li><li>19:30</li><li>23:30</li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot">⚓ Book the car on both crossings sooner rather than later — vehicle deck spaces go first, and a return fare usually beats two singles.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>A living plan for the Fife run — <span class="mono">edit it in the repo and it updates here.</span></p>
+    <p style="margin-top:6px">Sailing times can shift by season; reconfirm on Stena before the day. Last drawn up June 2026.</p>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target);} });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
