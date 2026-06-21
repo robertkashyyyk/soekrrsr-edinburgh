@@ -11,8 +11,8 @@ No build step, no framework — it's one self-contained page.
 ## The shape of it
 
 - **Fri 11** — Robert & Suzanne sail Belfast → Cairnryan (07:30), drive up via a lunch
-  stop in Ayr, park at Waverley and meet SO & Emily off their train (~15:30), then over
-  the Forth to Aberdour.
+  stop in Bathgate (The 1812), park at Waverley and meet SO & Emily off their train
+  (~15:30), then over the Forth to Aberdour.
 - **Sat 12 – Tue 15** — five nights in Fife. The "days in between" are the open part,
   meant to be filled in together.
 - **Wed 16** — checkout by 10:00; SO & Emily head on for their flight, Robert & Suzanne
