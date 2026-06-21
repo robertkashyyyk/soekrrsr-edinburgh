@@ -142,6 +142,16 @@
   .day .ideas b{color:var(--foam);font-weight:600}
   .editme{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--tide);margin-top:14px}
 
+  /* ---- maybe list (loose possibilities) ---- */
+  .maybe-head{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--tide);margin:32px 0 14px}
+  .maybes{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .maybe{background:var(--harbour-2);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .maybe.wide{grid-column:1/-1}
+  .maybe .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--harbour);background:var(--tide);border-radius:100px;padding:3px 9px;margin-bottom:11px}
+  .maybe h3{margin:0 0 5px;font-size:16.5px;font-weight:600}
+  .maybe p{margin:0;color:var(--mist);font-size:14px}
+  .maybe p b{color:var(--foam);font-weight:600}
+
   /* ---- sailings table ---- */
   .sail{border:1px solid var(--line);border-radius:14px;overflow:hidden}
   .sail .row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
@@ -165,6 +175,7 @@
     .board{grid-template-columns:1fr}
     .basecard .grid{grid-template-columns:1fr}
     .day{grid-template-columns:1fr}
+    .maybes{grid-template-columns:1fr}
     .compass{display:none}
   }
 </style>
@@ -333,6 +344,26 @@
         <div class="ideas"><b>Open.</b> Last full day — save it for whatever you've all been meaning to do.</div>
       </div>
     </div>
+
+    <p class="maybe-head">Still loose — possibilities on the table</p>
+    <div class="maybes">
+      <div class="maybe wide">
+        <div class="tag">Match day</div>
+        <h3>Premier Sports Cup quarter-final</h3>
+        <p>A QF could fall on this weekend — the tie isn't set until the earlier rounds finish, so who's playing and where is still open. If it's <b>Rangers</b> at Ibrox (Glasgow) or <b>Hearts</b> at Tynecastle (Edinburgh), it slots in easily. Watch for the draw and grab tickets the moment it's confirmed — they go fast.</p>
+      </div>
+      <div class="maybe">
+        <div class="tag">Suzanne's shout</div>
+        <h3>Climb Arthur's Seat</h3>
+        <p>The old volcano above Holyrood Park — a proper little climb to the best view over Edinburgh. About an hour up at a steady pace; pairs naturally with a day in town.</p>
+      </div>
+      <div class="maybe">
+        <div class="tag">Make something</div>
+        <h3>Tartan handbag workshop</h3>
+        <p>Up around the <b>Royal Mile</b> — pick your tartan and make your own handbag to take home. Worth booking ahead once we pin down the place and the day.</p>
+      </div>
+    </div>
+
     <p class="editme">▸ edit this section in the repo — it's meant to grow</p>
   </div>
 </section>
