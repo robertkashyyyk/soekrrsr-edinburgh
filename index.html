@@ -207,6 +207,34 @@
   .tour a{color:var(--tide);text-decoration:none;border-bottom:1px solid var(--line-strong)}
   .fineprint{font-size:13px;color:var(--mist);margin:16px 0 0}
 
+  /* ---- view switch (itinerary / build) ---- */
+  .switch{position:sticky;top:0;z-index:50;display:flex;justify-content:center;gap:8px;padding:11px 12px;background:rgba(15,35,48,.86);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+  .switch button{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);background:transparent;border:1px solid var(--line-strong);border-radius:100px;padding:8px 20px;cursor:pointer;transition:color .2s,background .2s,border-color .2s}
+  .switch button:hover{color:var(--foam);border-color:var(--mist)}
+  .switch button[aria-selected="true"]{color:var(--harbour);background:var(--brass);border-color:var(--brass);font-weight:600}
+  .view[hidden]{display:none}
+
+  /* ---- build log ---- */
+  .build-head{padding:54px 0 6px}
+  .build-intro{color:var(--mist);font-size:15px;margin:6px 0 8px;max-width:60ch}
+  .turn{border-top:1px solid var(--line);padding:26px 0}
+  .turn-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+  .turn-head .step{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--brass)}
+  .turn-head .commit{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--mist);border:1px solid var(--line-strong);border-radius:6px;padding:2px 8px}
+  .turn-head .commit a{color:var(--tide);text-decoration:none;border:none}
+  .msg{display:grid;grid-template-columns:72px 1fr;gap:14px;margin-bottom:13px}
+  .msg:last-child{margin-bottom:0}
+  .msg .who{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;padding-top:5px}
+  .msg.you .who{color:var(--tide)}
+  .msg.claude .who{color:var(--brass)}
+  .msg .bubble{border:1px solid var(--line);border-radius:2px 12px 12px 12px;padding:13px 16px;background:var(--harbour-2)}
+  .msg.you .bubble{background:rgba(95,176,196,.07);border-color:rgba(95,176,196,.18)}
+  .msg .bubble p{margin:0 0 8px;font-size:14px}
+  .msg .bubble p:last-child{margin-bottom:0}
+  .msg.you .bubble p{color:var(--foam)}
+  .msg.claude .bubble p{color:var(--mist)}
+  .msg .bubble b{color:var(--foam);font-weight:600}
+
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
@@ -218,6 +246,8 @@
     .maybes{grid-template-columns:1fr}
     .photos{grid-template-columns:1fr}
     .tours{grid-template-columns:1fr}
+    .msg{grid-template-columns:1fr;gap:5px}
+    .msg .who{padding-top:0}
     .compass{display:none}
   }
 </style>
@@ -256,6 +286,12 @@
   </symbol>
 </svg>
 
+<nav class="switch" role="tablist" aria-label="View">
+  <button data-view="itinerary" role="tab" aria-selected="true">Itinerary</button>
+  <button data-view="build" role="tab" aria-selected="false">Build</button>
+</nav>
+
+<div id="view-itinerary" class="view">
 <header>
   <div class="wrap">
     <div class="compass"></div>
@@ -523,6 +559,7 @@
             <p>South-end departure with sonar screens on board — handy if we come at the loch from that side.</p>
           </div>
         </div>
+        <p class="fineprint">🔎 Open question: will SO manage to find out who actually <i>owns</i> the Loch Ness tour — the way he once went down the rabbit hole on who owns the Jack the Ripper tour? Some mysteries run deeper than the loch.</p>
         <p class="fineprint">▸ If we commit to this, it wants one of the open days (Sat–Tue) to itself — say which and I'll build it into the plan as a full day.</p>
       </div>
     </div>
@@ -535,25 +572,25 @@
 <section class="reveal">
   <div class="wrap">
     <div class="s-head"><span class="s-num">04</span><h2>Wednesday 16 — back across</h2></div>
-    <p class="s-sub">SO &amp; Emily head on for their flight; you and Suzanne sail home and catch up with them later.</p>
+    <p class="s-sub">SO &amp; Emily catch a morning train on to York; you and Suzanne sail home and meet back up with them later.</p>
     <div class="rail">
 
       <div class="leg key">
-        <div class="t">10:00<small>out</small></div>
+        <div class="t">~09:00<small>out</small></div>
         <span class="dot"></span>
         <div class="body">
-          <h3>Checkout, Aberdour</h3>
-          <p>Pack the car, lock up, point south.</p>
+          <h3>Away from Aberdour</h3>
+          <p>Checkout's by 10:00, but we slip away earlier to make SO &amp; Emily's York train. Pack the car, lock up, back over the Forth.</p>
         </div>
       </div>
 
-      <div class="leg">
-        <div class="t">~10:40<small>optional</small></div>
+      <div class="leg key">
+        <div class="t">~09:45<small>drop</small></div>
         <span class="dot"></span>
         <div class="body">
-          <h3>Drop SO &amp; Emily at Edinburgh Airport?</h3>
-          <p>It sits almost on your route south — if they're flying from EDI, this is the easy handover before you carry on.</p>
-          <div class="note">Confirm their flight &amp; airport and this slots straight in.</div>
+          <h3>Drop SO &amp; Emily at Waverley</h3>
+          <p>Back to where it all started on Friday — drop them at the station for their train south, then you and Suzanne point for the coast.</p>
+          <div class="note"><b>Edinburgh → York</b> runs direct on <b>LNER</b>, roughly every half hour and about <b>2h25</b> end to end. Aim for one around <b>09:45–10:00</b>; book on the live timetable nearer the day.</div>
         </div>
       </div>
 
@@ -562,7 +599,7 @@
         <span class="dot"></span>
         <div class="body">
           <h3>Cairnryan</h3>
-          <p>About 3 hours from Fife down the A77. Time for a bite at the port before boarding.</p>
+          <p>From Edinburgh down through Ayrshire — about 2¾–3 hours. Time for a bite at the port before boarding.</p>
         </div>
       </div>
 
@@ -611,12 +648,96 @@
     <p style="margin-top:6px">Sailing times can shift by season; reconfirm on Stena before the day. Last drawn up June 2026.</p>
   </div>
 </footer>
+</div><!-- /view-itinerary -->
+
+<div id="view-build" class="view" hidden>
+  <section>
+    <div class="wrap">
+      <div class="build-head">
+        <p class="eyebrow">How this page got made</p>
+        <h2>The build</h2>
+        <p class="build-intro">Every exchange that shaped this itinerary — each request, what changed, and the commit it landed in. It grows as we keep going.</p>
+      </div>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">01</span><span class="commit"><a href="https://github.com/robertkashyyyk/soekrrsr-edinburgh/commit/e5e3d5c">e5e3d5c</a></span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>Here's my repo — clone it (it's empty), copy <b>index.html</b> and <b>README.md</b> from my zip, commit them as "First draft of the Fife itinerary", push to main, then list the remote files.</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>A few things didn't match the brief, so I checked before acting: the files were actually in a zip in the working folder (not where described), the repo wasn't empty (it already had a starter file), and the active GitHub login only had read access.</p><p>So I cloned the repo, copied the two verified files in, committed, used the account that <i>did</i> have write access to push, listed the remote (<b>index.html, README.md, opening.text</b>), and left your setup as I found it.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">02</span><span class="commit">chat</span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>I can log you in as the repo owner if needed — I'll switch accounts over.</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>No need — the push had already gone through on the right account, which was already logged in. Nothing to re-auth.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">03</span><span class="commit">chat</span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>I've changed over the GitHub connector — you should be good now.</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Set your account as the active one and confirmed it has full access, so pushes work straight from here now.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">04</span><span class="commit"><a href="https://github.com/robertkashyyyk/soekrrsr-edinburgh/commit/65aa3ac">65aa3ac</a></span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>Add some possibilities: a <b>Premier Sports Cup quarter-final</b> that weekend (maybe Rangers or Hearts), Suzanne possibly climbing <b>Arthur's Seat</b>, and a <b>handbag-making</b> thing on the Royal Mile.</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Added a "Still loose — possibilities" block to the days-in-between with three cards — framed as undecided, with no invented match, venue, or booking details.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">05</span><span class="commit"><a href="https://github.com/robertkashyyyk/soekrrsr-edinburgh/commit/d1414f5">d1414f5</a></span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>Change the Friday food stop — not Ayr, we want Bathgate, <b>The 1812</b>. And the handbag place is <b>Islander Harris Tweed</b>.</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Swapped the Ayr stop for The 1812 in Bathgate and moved its timing later to match (Bathgate is much nearer Edinburgh), named the handbag workshop, and updated the README to stay in sync.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">06</span><span class="commit"><a href="https://github.com/robertkashyyyk/soekrrsr-edinburgh/commit/60ce224">60ce224</a></span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>Add the link for the <b>1881</b> at the end of the page. And we want a <b>Loch Ness monster boat tour</b> — how long to drive up, and some good options.</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Found the real Airbnb listing (a same-named site that came up was a different place in the US), and added it to the Base camp card and the footer. Added Loch Ness as a possibility with the honest ~3-hour drive and three boat options.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">07</span><span class="commit"><a href="https://github.com/robertkashyyyk/soekrrsr-edinburgh/commit/d7a5246">d7a5246</a></span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>Bring the page to life with <b>photos and iconography</b> — the ferry, the Bathgate restaurant, the 1881, and the Loch Ness day. Build up the Loch Ness copy and tour options too.</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Checked how you wanted photos sourced ("whatever you recommend"), so: drew self-contained SVG icons and a custom Loch Ness illustration, added framed photo slots you fill with your own JPEGs from an <b>/img</b> folder, and expanded Loch Ness into a full feature with a three-way tour comparison.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">08</span><span class="commit">latest</span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>Add an <b>Itinerary / Build</b> toggle at the top — the Build view should show every conversation here on one page.</p><p>Also: SO &amp; Emily aren't flying, they're heading to <b>York</b> — find them a train around 10am or slightly earlier and drop them at <b>Waverley</b>.</p><p>And add a bit of humour: will SO find out who <i>owns</i> the Loch Ness tour, like he tried with the Jack the Ripper tour?</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Built the toggle and this Build view — it logs each exchange and links to its commit. Reworked Wednesday: out of Aberdour a touch earlier, drop SO &amp; Emily at Waverley for a morning LNER to York (~2h25), then Robert &amp; Suzanne carry on to Cairnryan for the 15:30 sailing. And slipped a Nessie-ownership joke into the Loch Ness feature.</p></div></div>
+      </article>
+
+      <p class="editme" style="margin-top:24px">▸ this log grows by hand each time we change something — newest at the bottom</p>
+    </div>
+  </section>
+</div>
 
 <script>
+  const views = {
+    itinerary: document.getElementById('view-itinerary'),
+    build: document.getElementById('view-build')
+  };
+  const tabs = document.querySelectorAll('.switch button');
+
   const obs = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target);} });
   }, {threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  document.querySelectorAll('#view-itinerary .reveal').forEach(el=>obs.observe(el));
+
+  function show(name){
+    views.itinerary.hidden = name !== 'itinerary';
+    views.build.hidden = name !== 'build';
+    tabs.forEach(b=>b.setAttribute('aria-selected', String(b.dataset.view === name)));
+    if(history.replaceState){ history.replaceState(null, '', name === 'build' ? '#build' : location.pathname + location.search); }
+    if(name === 'itinerary'){
+      document.querySelectorAll('#view-itinerary .reveal:not(.in)').forEach(e=>{
+        if(e.getBoundingClientRect().top < window.innerHeight * 1.1) e.classList.add('in');
+      });
+    }
+    window.scrollTo(0,0);
+  }
+  tabs.forEach(b=>b.addEventListener('click', ()=>show(b.dataset.view)));
+  if(location.hash === '#build'){ show('build'); }
 </script>
 </body>
 </html>

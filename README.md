@@ -20,8 +20,9 @@ castle artwork is drawn in SVG inside the page, so it needs no files.
   (~15:30), then over the Forth to Aberdour.
 - **Sat 12 – Tue 15** — five nights in Fife. The "days in between" are the open part,
   meant to be filled in together.
-- **Wed 16** — checkout by 10:00; SO & Emily head on for their flight, Robert & Suzanne
-  sail Cairnryan → Belfast (15:30) and meet back up with them later.
+- **Wed 16** — away early; drop SO & Emily at Edinburgh Waverley for a morning train on
+  to York, then Robert & Suzanne sail Cairnryan → Belfast (15:30) and meet back up with
+  them later.
 
 Full timings, addresses and the Stena timetable are all in the page.
 
@@ -81,13 +82,13 @@ you can carry it forward:
   SO & Emily at **Edinburgh Waverley ~15:30** the same day. The return is the **15:30**
   Cairnryan→Belfast on the 16th.
 - **Roles:** Robert & Suzanne do both ferry crossings with the car. SO & Emily arrive by
-  train, leave on the 16th for an onward flight, and rejoin Robert & Suzanne later.
+  train, leave on the 16th by train to York, and rejoin Robert & Suzanne later.
 - **What's still open / where help is wanted:**
   - The **Sat 12 – Tue 15** days are unplanned — suggestions welcome (Edinburgh, Fife
     coast, East Neuk, Stirling, etc.).
-  - **SO & Emily's outbound flight and onward flight details** aren't captured yet —
-    if SO can supply them, factor in the airport drop on the 16th (Edinburgh Airport is
-    on the route south) and the "meet back up later" leg.
+  - **SO & Emily head to York on the 16th** — dropped at Edinburgh Waverley for a morning
+    LNER (direct, ~2h25). The exact train and the "meet back up later" leg are still to pin
+    down.
 - **To contribute:** edit `index.html` (the structure is plain, labelled sections) and
   push. Keep the departures-board style; times are in the mono font for a reason.
 
