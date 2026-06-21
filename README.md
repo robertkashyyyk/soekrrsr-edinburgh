@@ -1,7 +1,11 @@
 # Fife Run — Sep 11–16, 2026 🛳️
 
-A living itinerary for Robert & Suzanne (over from Northern Ireland by ferry) and
-SO & Emily (in by train), based at **The 1881 – A Period Home, Aberdour**.
+A living itinerary for Robert & Suzanne (over from Belfast by ferry) and SO & Emily
+(in from Buffalo via London), meeting at **The 1881 – A Period Home, Aberdour** for the
+week — then everyone onward to Crete.
+
+> Note: the day-by-day departure section (Wed 16) still reflects the earlier
+> Belfast/York plan and needs reworking for the Crete leg once the travel details are set.
 
 The whole plan lives in `index.html`. Edit that file, push, and the website updates.
 No build step, no framework — it's one self-contained page.
