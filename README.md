@@ -24,6 +24,9 @@ castle artwork is drawn in SVG inside the page, so it needs no files.
 - **Wed 16** — away early; drop SO & Emily at Edinburgh Waverley, then the group splits
   for Crete: SO & Emily via London, Robert & Suzanne via Belfast (Stena 15:30), meeting
   back up out in Crete.
+- **Crete** — both parties at **Castello Village Resort** (Heraklion area, 3★, Jet2holidays).
+  Robert & Suzanne fly **Belfast Intl ⇄ Heraklion** with Jet2 (out **Thu 17 Sep 2026**);
+  SO & Emily fly in via London (flights TBC). Exact flight times/numbers still to confirm.
 
 Full timings, addresses and the Stena timetable are all in the page.
 

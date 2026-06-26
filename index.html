@@ -222,6 +222,14 @@
   .track li b{display:block;font-size:14.5px;color:var(--foam);font-weight:600;margin-bottom:2px}
   .track li span{font-size:13.5px;color:var(--mist)}
 
+  /* ---- flights card ---- */
+  .flights{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:8px}
+  .flights .fr{display:grid;grid-template-columns:48px 1fr;gap:14px;padding:14px 18px;background:var(--harbour-2)}
+  .flights .fr + .fr{border-top:1px solid var(--line)}
+  .flights .fdir{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--tide);padding-top:2px}
+  .flights .fmain{font-size:15px;color:var(--foam);font-weight:600}
+  .flights .fmeta{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--mist);margin-top:4px}
+
   /* ---- view switch (itinerary / build) ---- */
   .switch{position:sticky;top:0;z-index:50;display:flex;justify-content:center;gap:8px;padding:11px 12px;background:rgba(15,35,48,.86);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
   .switch button{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);background:transparent;border:1px solid var(--line-strong);border-radius:100px;padding:8px 20px;cursor:pointer;transition:color .2s,background .2s,border-color .2s}
@@ -574,6 +582,21 @@
         <h3>Royal Yacht Britannia</h3>
         <p>The Queen's former royal yacht, berthed at Ocean Terminal in Leith — a self-guided wander across five decks with the tea room on board. Half a day, and easy to pair with a mooch round Leith.</p>
       </div>
+      <div class="maybe">
+        <div class="tag"><svg class="ico"><use href="#i-castle"/></svg>Hidden gem</div>
+        <h3>Mansfield Traquair</h3>
+        <p>Edinburgh's "Sistine Chapel" — a former church off Broughton Street covered wall-to-ceiling in Phoebe Anna Traquair's murals. Only open on select days, so check the dates before banking on it.</p>
+      </div>
+      <div class="maybe">
+        <div class="tag">Two minutes</div>
+        <h3>Greyfriars Bobby's nose</h3>
+        <p>A wee run past the little statue by Greyfriars Kirkyard and a rub of Bobby's nose for luck — the loyal Skye terrier who's said to have guarded his master's grave for years. Right on the edge of the Old Town.</p>
+      </div>
+      <div class="maybe">
+        <div class="tag"><svg class="ico"><use href="#i-dine"/></svg>Chippy</div>
+        <h3>Cafe Piccante</h3>
+        <p>The shout for the <b>best fish &amp; chips</b> — a proper Edinburgh chipper on Broughton Street (and yes, home of the deep-fried Mars bar, if anyone's brave). Conveniently next door to Mansfield Traquair.</p>
+      </div>
     </div>
 
     <div class="nessie">
@@ -692,17 +715,64 @@
         <ol>
           <li><b>~13:00 · Cairnryan</b><span>From Edinburgh down through Ayrshire, ~2¾–3 hours. A bite at the port before boarding.</span></li>
           <li><b>15:30 · Sail to Belfast ⛴</b><span>Into Belfast around 17:45 on the booked Stena crossing.</span></li>
-          <li class="dest"><b>Belfast → Crete ✈</b><span>Onward flight — to confirm once dates are set.</span></li>
+          <li class="dest"><b>Belfast → Crete ✈</b><span>Thu 17 Sep on Jet2 (Belfast Intl → Heraklion) — see the Crete section below. Times to confirm.</span></li>
         </ol>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CRETE -->
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="s-num">05</span><h2>Out in Crete</h2><svg class="ico h-ico"><use href="#i-house"/></svg></div>
+    <p class="s-sub">Where it all lands — everyone back together at the same hotel in the Heraklion area: Robert &amp; Suzanne in from Belfast, SO &amp; Emily in from London.</p>
+
+    <figure class="photo span" data-empty="▢ add img/castello.jpg — Castello Village Resort">
+      <img src="img/castello.jpg" alt="Castello Village Resort, Crete" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
+      <figcaption>Castello Village Resort · Crete</figcaption>
+    </figure>
+
+    <div class="basecard">
+      <div class="est">Jet2holidays</div>
+      <h3>Castello Village Resort</h3>
+      <div class="grid">
+        <div class="field addr">
+          <div class="k">Where</div>
+          <div class="v">Crete · Heraklion Area</div>
+        </div>
+        <div class="field">
+          <div class="k">Rating</div>
+          <div class="v">★★★</div>
+        </div>
+        <div class="field">
+          <div class="k">The hotel</div>
+          <div class="v">Same for both parties</div>
+        </div>
+        <div class="field">
+          <div class="k">Booked with</div>
+          <div class="v">Jet2holidays</div>
+        </div>
+        <div class="field">
+          <div class="k">Booking</div>
+          <div class="v">Robert &amp; Suzanne — see Jet2</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="maybe-head">Robert &amp; Suzanne's flights</p>
+    <div class="flights">
+      <div class="fr"><span class="fdir">Out</span><div><div class="fmain">Belfast Intl → Heraklion (HER)</div><div class="fmeta">Thu 17 Sep 2026 · Jet2 · time &amp; flight no. to confirm</div></div></div>
+      <div class="fr"><span class="fdir">Back</span><div><div class="fmain">Heraklion (HER) → Belfast Intl</div><div class="fmeta">~Fri 25 Sep 2026 · Jet2 · date, time &amp; flight no. to confirm</div></div></div>
+    </div>
+    <p class="fineprint">✈ <b>SO &amp; Emily</b> fly in separately via London — those flights still to confirm. Same hotel, so we all land in the same place.</p>
+  </div>
+</section>
+
 <!-- SAILINGS -->
 <section class="reveal">
   <div class="wrap">
-    <div class="s-head"><span class="s-num">05</span><h2>The sailings</h2><svg class="ico h-ico"><use href="#i-ferry"/></svg></div>
+    <div class="s-head"><span class="s-num">06</span><h2>The sailings</h2><svg class="ico h-ico"><use href="#i-ferry"/></svg></div>
     <p class="s-sub">Stena Line, Belfast ⇄ Cairnryan. Crossing ~2h15. Highlighted are the two to book.</p>
     <div class="sail">
       <div class="row">
@@ -803,9 +873,15 @@
       </article>
 
       <article class="turn">
-        <div class="turn-head"><span class="step">11</span><span class="commit">latest</span></div>
+        <div class="turn-head"><span class="step">11</span><span class="commit"><a href="https://github.com/robertkashyyyk/soekrrsr-edinburgh/commit/0457103">0457103</a></span></div>
         <div class="msg you"><div class="who">You</div><div class="bubble"><p>For the Crete leg, <b>separate routes</b> — me &amp; Suzanne via Belfast, SO &amp; Emily via London, both meeting in Crete.</p></div></div>
         <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Reworked Wednesday into a shared morning (run into Edinburgh, drop SO &amp; Emily at Waverley) and then <b>two diverging tracks to Crete</b> — SO &amp; Emily via London, Robert &amp; Suzanne via Belfast on the booked Stena crossing. The onward Crete flights are marked "to confirm" until the dates and airports are set.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">12</span><span class="commit">latest</span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>Here are RR &amp; SR's <b>Jet2</b> flights and hotel to <b>Crete (Heraklion)</b> — <b>Castello Village Resort</b>, same hotel for both parties.</p><p>Also add <b>Britannia</b> (yes), <b>Mansfield Traquair</b>, a wee run of <b>Greyfriars Bobby's nose</b>, and the best fish &amp; chips, <b>Cafe Piccante</b>.</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Added a <b>Crete</b> section — the shared Castello Village Resort (Heraklion, 3★, Jet2holidays) and Robert &amp; Suzanne's Belfast⇄Heraklion flights (out Thu 17 Sep), with SO &amp; Emily's London flights marked to confirm. Britannia was already in; added Mansfield Traquair, Greyfriars Bobby and Cafe Piccante to the ideas.</p><p>I couldn't read the exact flight times and numbers off the booking screenshot, so those are flagged "to confirm" — send them over and I'll drop them in.</p></div></div>
       </article>
 
       <p class="editme" style="margin-top:24px">▸ this log grows by hand each time we change something — newest at the bottom</p>
