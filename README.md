@@ -25,8 +25,13 @@ castle artwork is drawn in SVG inside the page, so it needs no files.
   for Crete: SO & Emily via London, Robert & Suzanne via Belfast (Stena 15:30), meeting
   back up out in Crete.
 - **Crete** — both parties at **Castello Village Resort** (Heraklion area, 3★, Jet2holidays).
-  Robert & Suzanne fly **Belfast Intl ⇄ Heraklion** with Jet2 (out **Thu 17 Sep 2026**);
-  SO & Emily fly in via London (flights TBC). Exact flight times/numbers still to confirm.
+  Robert & Suzanne fly **Belfast Intl ⇄ Heraklion** with Jet2 (out **Thu 17 Sep 2026**, times TBC);
+  SO & Emily fly **London Gatwick ⇄ Heraklion** with easyJet (EZY8217 out Thu 17 Sep 16:45,
+  EZY8218 back Thu 24 Sep). Full door-to-door legs live on the **Travel** tab.
+
+The page has three tabs: **Itinerary** (the plan), **Travel** (every flight/crossing in one
+place), and **Build** (the running log of how it was made). Booking references and payment
+details are deliberately kept off this public page.
 
 Full timings, addresses and the Stena timetable are all in the page.
 

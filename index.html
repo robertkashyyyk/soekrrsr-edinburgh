@@ -230,6 +230,33 @@
   .flights .fmain{font-size:15px;color:var(--foam);font-weight:600}
   .flights .fmeta{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--mist);margin-top:4px}
 
+  /* ---- travel dossier ---- */
+  .travel-head{padding:54px 0 6px}
+  .tparty{margin-top:34px}
+  .tparty:first-of-type{margin-top:26px}
+  .tparty .name{display:flex;align-items:center;gap:10px;font-family:"Fraunces",serif;font-weight:600;font-size:22px;margin:0 0 4px;letter-spacing:-.01em}
+  .tparty .route{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--mist);letter-spacing:.03em;margin:0 0 18px}
+  .journey{margin:0 0 18px}
+  .journey .jhead{display:flex;align-items:baseline;gap:10px;margin:0 0 10px}
+  .journey .jhead .jt{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--tide)}
+  .journey .jhead .jd{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--mist)}
+  .jlegs{display:grid;gap:7px}
+  .jleg{display:grid;grid-template-columns:1fr minmax(98px,1.1fr) 1fr;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;background:var(--harbour-2);padding:15px 12px}
+  .jleg .end{text-align:center;min-width:0}
+  .jleg .end .code{font-family:"IBM Plex Mono",monospace;font-size:21px;font-weight:600;color:var(--brass);letter-spacing:.03em}
+  .jleg.sea .end .code{font-size:15px;letter-spacing:0}
+  .jleg .end .time{font-family:"IBM Plex Mono",monospace;font-size:13.5px;color:var(--foam);margin-top:3px}
+  .jleg .end .time .nd{color:var(--tide);font-size:9px;vertical-align:super;margin-left:1px}
+  .jleg .end .city{font-size:11px;color:var(--mist);margin-top:1px;line-height:1.3}
+  .jleg .mid{text-align:center}
+  .jleg .mid .carrier{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--tide);letter-spacing:.04em}
+  .jleg .mid .bar{position:relative;height:1px;background:linear-gradient(90deg,transparent,var(--line-strong) 22%,var(--line-strong) 78%,transparent);margin:8px 2px}
+  .jleg .mid .bar span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--harbour-2);padding:0 7px;font-size:12px;color:var(--mist)}
+  .jleg .mid .op{font-size:10px;color:var(--mist)}
+  .xfer{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mist);text-align:center;padding:2px 0}
+  .tnote{font-size:13px;color:var(--mist);margin:9px 0 0}
+  .tnote b{color:var(--foam);font-weight:600}
+
   /* ---- view switch (itinerary / build) ---- */
   .switch{position:sticky;top:0;z-index:50;display:flex;justify-content:center;gap:8px;padding:11px 12px;background:rgba(15,35,48,.86);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
   .switch button{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);background:transparent;border:1px solid var(--line-strong);border-radius:100px;padding:8px 20px;cursor:pointer;transition:color .2s,background .2s,border-color .2s}
@@ -270,6 +297,10 @@
     .photos{grid-template-columns:1fr}
     .tours{grid-template-columns:1fr}
     .tracks{grid-template-columns:1fr}
+    .jleg{padding:13px 8px;gap:5px}
+    .jleg .end .code{font-size:18px}
+    .jleg.sea .end .code{font-size:13px}
+    .jleg .mid .carrier{font-size:10px}
     .msg{grid-template-columns:1fr;gap:5px}
     .msg .who{padding-top:0}
     .compass{display:none}
@@ -322,6 +353,7 @@
 
 <nav class="switch" role="tablist" aria-label="View">
   <button data-view="itinerary" role="tab" aria-selected="true">Itinerary</button>
+  <button data-view="travel" role="tab" aria-selected="false">Travel</button>
   <button data-view="build" role="tab" aria-selected="false">Build</button>
 </nav>
 
@@ -453,6 +485,7 @@
         <div class="body">
           <h3>SO &amp; Emily land at Waverley</h3>
           <p>The whole day's been built around this moment. Bags in, four up.</p>
+          <div class="note">Off the overnight from Buffalo via Boston (into Heathrow that morning), then up to Edinburgh — full legs on the <b>Travel</b> tab.</div>
         </div>
       </div>
 
@@ -707,7 +740,7 @@
         <h4>SO &amp; Emily · via London</h4>
         <ol>
           <li><b>Edinburgh → London</b><span>LNER to King's Cross is ~4h20, or a short EDI→London hop if the Crete connection runs from there.</span></li>
-          <li class="dest"><b>London → Crete ✈</b><span>Onward flight — to confirm once dates &amp; airport are set.</span></li>
+          <li class="dest"><b>London → Crete ✈</b><span>Thu 17 Sep · Gatwick → Heraklion on easyJet EZY8217, 16:45 (overnight in London first). See Crete &amp; Travel.</span></li>
         </ol>
       </div>
       <div class="track">
@@ -765,7 +798,13 @@
       <div class="fr"><span class="fdir">Out</span><div><div class="fmain">Belfast Intl → Heraklion (HER)</div><div class="fmeta">Thu 17 Sep 2026 · Jet2 · time &amp; flight no. to confirm</div></div></div>
       <div class="fr"><span class="fdir">Back</span><div><div class="fmain">Heraklion (HER) → Belfast Intl</div><div class="fmeta">~Fri 25 Sep 2026 · Jet2 · date, time &amp; flight no. to confirm</div></div></div>
     </div>
-    <p class="fineprint">✈ <b>SO &amp; Emily</b> fly in separately via London — those flights still to confirm. Same hotel, so we all land in the same place.</p>
+
+    <p class="maybe-head">SO &amp; Emily's flights</p>
+    <div class="flights">
+      <div class="fr"><span class="fdir">Out</span><div><div class="fmain">London Gatwick → Heraklion (HER)</div><div class="fmeta">Thu 17 Sep 2026 · 16:45 → 22:45 · easyJet EZY8217</div></div></div>
+      <div class="fr"><span class="fdir">Back</span><div><div class="fmain">Heraklion (HER) → London Gatwick</div><div class="fmeta">Thu 24 Sep 2026 · 23:40 → 01:40⁺¹ · easyJet EZY8218</div></div></div>
+    </div>
+    <p class="fineprint">Same hotel, so everyone lands in the same place. The full door-to-door legs for both parties — flights, ferry and all — live on the <b>Travel</b> tab.</p>
   </div>
 </section>
 
@@ -802,6 +841,134 @@
   </div>
 </footer>
 </div><!-- /view-itinerary -->
+
+<div id="view-travel" class="view" hidden>
+  <section>
+    <div class="wrap">
+      <div class="travel-head">
+        <p class="eyebrow">Every leg, in one place</p>
+        <h2>Travel</h2>
+        <p class="build-intro">All the flights and crossings for both parties — the same journeys woven through the itinerary, gathered here end to end. Booking references and payment details are deliberately kept off this public page.</p>
+      </div>
+
+      <div class="tparty">
+        <p class="name"><svg class="ico" style="width:20px;height:20px;color:var(--tide)"><use href="#i-ferry"/></svg>Robert &amp; Suzanne</p>
+        <p class="route">Belfast → Aberdour → Crete · ferry, car &amp; Jet2</p>
+
+        <div class="journey">
+          <div class="jhead"><span class="jt">To Scotland</span><span class="jd">Fri 11 Sep</span></div>
+          <div class="jlegs">
+            <div class="jleg sea">
+              <div class="end"><div class="code">Belfast</div><div class="time">07:30</div></div>
+              <div class="mid"><div class="carrier">Stena Line</div><div class="bar"><span>⛴</span></div><div class="op">~2h15</div></div>
+              <div class="end"><div class="code">Cairnryan</div><div class="time">~09:52</div></div>
+            </div>
+          </div>
+          <p class="xfer">then ~2½ hr drive up to Aberdour, lunch at Bathgate</p>
+        </div>
+
+        <div class="journey">
+          <div class="jhead"><span class="jt">Back to Belfast</span><span class="jd">Wed 16 Sep</span></div>
+          <div class="jlegs">
+            <div class="jleg sea">
+              <div class="end"><div class="code">Cairnryan</div><div class="time">15:30</div></div>
+              <div class="mid"><div class="carrier">Stena Line</div><div class="bar"><span>⛴</span></div><div class="op">~2h15</div></div>
+              <div class="end"><div class="code">Belfast</div><div class="time">~17:45</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="journey">
+          <div class="jhead"><span class="jt">To Crete</span><span class="jd">Thu 17 Sep</span></div>
+          <div class="jlegs">
+            <div class="jleg">
+              <div class="end"><div class="code">BFS</div><div class="time">··:··</div><div class="city">Belfast Intl</div></div>
+              <div class="mid"><div class="carrier">Jet2</div><div class="bar"><span>✈</span></div><div class="op">time TBC</div></div>
+              <div class="end"><div class="code">HER</div><div class="time">··:··</div><div class="city">Heraklion</div></div>
+            </div>
+          </div>
+          <p class="tnote">Jet2 flight number &amp; times still to confirm from the booking.</p>
+        </div>
+
+        <div class="journey">
+          <div class="jhead"><span class="jt">Home from Crete</span><span class="jd">~Fri 25 Sep · TBC</span></div>
+          <div class="jlegs">
+            <div class="jleg">
+              <div class="end"><div class="code">HER</div><div class="time">··:··</div><div class="city">Heraklion</div></div>
+              <div class="mid"><div class="carrier">Jet2</div><div class="bar"><span>✈</span></div><div class="op">TBC</div></div>
+              <div class="end"><div class="code">BFS</div><div class="time">··:··</div><div class="city">Belfast Intl</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tparty">
+        <p class="name"><svg class="ico" style="width:20px;height:20px;color:var(--tide)"><use href="#i-ferry"/></svg>SO &amp; Emily</p>
+        <p class="route">Buffalo → London → Aberdour → Crete · American, BA &amp; easyJet</p>
+
+        <div class="journey">
+          <div class="jhead"><span class="jt">Buffalo → London</span><span class="jd">Thu 10 → Fri 11 Sep</span></div>
+          <div class="jlegs">
+            <div class="jleg">
+              <div class="end"><div class="code">BUF</div><div class="time">17:26</div><div class="city">Buffalo</div></div>
+              <div class="mid"><div class="carrier">AA 4068</div><div class="bar"><span>✈</span></div><div class="op">American Eagle</div></div>
+              <div class="end"><div class="code">BOS</div><div class="time">18:56</div><div class="city">Boston</div></div>
+            </div>
+            <p class="xfer">— connect at Boston —</p>
+            <div class="jleg">
+              <div class="end"><div class="code">BOS</div><div class="time">20:15</div><div class="city">Boston</div></div>
+              <div class="mid"><div class="carrier">AA 108</div><div class="bar"><span>✈</span></div><div class="op">overnight</div></div>
+              <div class="end"><div class="code">LHR</div><div class="time">08:00<span class="nd">+1</span></div><div class="city">London Heathrow</div></div>
+            </div>
+          </div>
+          <p class="tnote">Lands Heathrow Fri 11 morning, then on up to Edinburgh to meet Robert &amp; Suzanne at Waverley ~15:30.</p>
+        </div>
+
+        <div class="journey">
+          <div class="jhead"><span class="jt">London → Crete</span><span class="jd">Thu 17 Sep</span></div>
+          <div class="jlegs">
+            <div class="jleg">
+              <div class="end"><div class="code">LGW</div><div class="time">16:45</div><div class="city">London Gatwick</div></div>
+              <div class="mid"><div class="carrier">easyJet EZY8217</div><div class="bar"><span>✈</span></div><div class="op">seats 9A · 9B</div></div>
+              <div class="end"><div class="code">HER</div><div class="time">22:45</div><div class="city">Heraklion</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="journey">
+          <div class="jhead"><span class="jt">Crete → London</span><span class="jd">Thu 24 → Fri 25 Sep</span></div>
+          <div class="jlegs">
+            <div class="jleg">
+              <div class="end"><div class="code">HER</div><div class="time">23:40</div><div class="city">Heraklion</div></div>
+              <div class="mid"><div class="carrier">easyJet EZY8218</div><div class="bar"><span>✈</span></div><div class="op">seats 9A · 9B</div></div>
+              <div class="end"><div class="code">LGW</div><div class="time">01:40<span class="nd">+1</span></div><div class="city">London Gatwick</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="journey">
+          <div class="jhead"><span class="jt">London → Buffalo</span><span class="jd">Fri 25 Sep</span></div>
+          <div class="jlegs">
+            <div class="jleg">
+              <div class="end"><div class="code">LHR</div><div class="time">13:45</div><div class="city">London Heathrow</div></div>
+              <div class="mid"><div class="carrier">AA 6912</div><div class="bar"><span>✈</span></div><div class="op">by British Airways</div></div>
+              <div class="end"><div class="code">PHL</div><div class="time">16:40</div><div class="city">Philadelphia</div></div>
+            </div>
+            <p class="xfer">— connect at Philadelphia —</p>
+            <div class="jleg">
+              <div class="end"><div class="code">PHL</div><div class="time">19:45</div><div class="city">Philadelphia</div></div>
+              <div class="mid"><div class="carrier">AA 5819</div><div class="bar"><span>✈</span></div><div class="op">American Eagle</div></div>
+              <div class="end"><div class="code">BUF</div><div class="time">21:18</div><div class="city">Buffalo</div></div>
+            </div>
+          </div>
+          <p class="tnote">Tight one: the overnight from Crete lands Gatwick ~01:40, then it's a <b>Gatwick → Heathrow transfer</b> for the 13:45 home.</p>
+        </div>
+      </div>
+
+      <p class="editme" style="margin-top:24px">▸ booking references &amp; payment details are deliberately kept off this public page</p>
+    </div>
+  </section>
+</div>
 
 <div id="view-build" class="view" hidden>
   <section>
@@ -879,9 +1046,15 @@
       </article>
 
       <article class="turn">
-        <div class="turn-head"><span class="step">12</span><span class="commit">latest</span></div>
+        <div class="turn-head"><span class="step">12</span><span class="commit"><a href="https://github.com/robertkashyyyk/soekrrsr-edinburgh/commit/3e5a3c0">3e5a3c0</a></span></div>
         <div class="msg you"><div class="who">You</div><div class="bubble"><p>Here are RR &amp; SR's <b>Jet2</b> flights and hotel to <b>Crete (Heraklion)</b> — <b>Castello Village Resort</b>, same hotel for both parties.</p><p>Also add <b>Britannia</b> (yes), <b>Mansfield Traquair</b>, a wee run of <b>Greyfriars Bobby's nose</b>, and the best fish &amp; chips, <b>Cafe Piccante</b>.</p></div></div>
         <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Added a <b>Crete</b> section — the shared Castello Village Resort (Heraklion, 3★, Jet2holidays) and Robert &amp; Suzanne's Belfast⇄Heraklion flights (out Thu 17 Sep), with SO &amp; Emily's London flights marked to confirm. Britannia was already in; added Mansfield Traquair, Greyfriars Bobby and Cafe Piccante to the ideas.</p><p>I couldn't read the exact flight times and numbers off the booking screenshot, so those are flagged "to confirm" — send them over and I'll drop them in.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">13</span><span class="commit">latest</span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>Here are SO &amp; Emily's US⇄UK flights (American/BA) and their Crete flights (easyJet). Use it all to make the page flow better.</p><p>Bring in a third tab named <b>TRAVEL</b> — segment the travel into its own defined area, without removing it from the itinerary.</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Added a <b>Travel</b> tab — a full door-to-door dossier of every leg for both parties: Robert &amp; Suzanne's ferry + Jet2, and SO &amp; Emily's Buffalo→Boston→Heathrow, Gatwick→Heraklion, and the way home. The itinerary keeps all its travel inline too.</p><p>Firmed up SO &amp; Emily's confirmed easyJet flights (EZY8217/8218) in the Crete section and Wednesday track. Booking references and payment details deliberately left off — this repo is public.</p></div></div>
       </article>
 
       <p class="editme" style="margin-top:24px">▸ this log grows by hand each time we change something — newest at the bottom</p>
@@ -892,6 +1065,7 @@
 <script>
   const views = {
     itinerary: document.getElementById('view-itinerary'),
+    travel: document.getElementById('view-travel'),
     build: document.getElementById('view-build')
   };
   const tabs = document.querySelectorAll('.switch button');
@@ -902,10 +1076,9 @@
   document.querySelectorAll('#view-itinerary .reveal').forEach(el=>obs.observe(el));
 
   function show(name){
-    views.itinerary.hidden = name !== 'itinerary';
-    views.build.hidden = name !== 'build';
+    Object.keys(views).forEach(k=>{ views[k].hidden = k !== name; });
     tabs.forEach(b=>b.setAttribute('aria-selected', String(b.dataset.view === name)));
-    if(history.replaceState){ history.replaceState(null, '', name === 'build' ? '#build' : location.pathname + location.search); }
+    if(history.replaceState){ history.replaceState(null, '', name === 'itinerary' ? location.pathname + location.search : '#' + name); }
     if(name === 'itinerary'){
       document.querySelectorAll('#view-itinerary .reveal:not(.in)').forEach(e=>{
         if(e.getBoundingClientRect().top < window.innerHeight * 1.1) e.classList.add('in');
@@ -914,7 +1087,8 @@
     window.scrollTo(0,0);
   }
   tabs.forEach(b=>b.addEventListener('click', ()=>show(b.dataset.view)));
-  if(location.hash === '#build'){ show('build'); }
+  const initial = location.hash.replace('#','');
+  if(views[initial]){ show(initial); }
 </script>
 </body>
 </html>
