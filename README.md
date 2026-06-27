@@ -16,9 +16,12 @@ castle artwork is drawn in SVG inside the page, so it needs no files.
 
 ## The shape of it
 
-- **Fri 11** — Robert & Suzanne sail Belfast → Cairnryan (07:30), drive up via a lunch
-  stop in Bathgate (Cafebar 1912), park at Waverley and meet SO & Emily off their train
-  (~15:30), then over the Forth to Aberdour.
+- **Thu 10** — SO & Emily fly out of Buffalo (via Boston) overnight to London, a day ahead
+  of everyone else.
+- **Fri 11** — the two journeys converge at Edinburgh Waverley (~15:30): Robert & Suzanne
+  over on the Stena ferry (Belfast → Cairnryan 07:30) and up by car via Bathgate (Cafebar
+  1912); SO & Emily in off the overnight via Heathrow and the train north. Then over the
+  Forth to base camp — The 1881, Aberdour.
 - **Sat 12 – Tue 15** — the four middle days, now firmed: a flexible Glasgow/Edinburgh
   weekend (the Sat/Sun order flexes around the Premier Sports Cup quarter-final), Loch Ness
   on Monday, and a second Edinburgh day on Tuesday.
