@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Belfast &amp; Buffalo → Aberdour → Crete · Sep 2026</title>
+<title>Belfast &amp; Buffalo → Edinburgh → Crete · Sep 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -362,46 +362,60 @@
   <div class="wrap">
     <div class="compass"></div>
     <p class="eyebrow">Two journeys · one house in Fife · onward to Crete</p>
-    <h1>Belfast <span class="arrow">&amp;</span> Buffalo <span class="arrow">→</span> Aberdour <span class="arrow">→</span> Crete</h1>
+    <h1>Belfast <span class="arrow">&amp;</span> Buffalo <span class="arrow">→</span> Edinburgh <span class="arrow">→</span> Crete</h1>
     <div class="dates">
       <span><b>Fri 11</b> – <b>Wed 16</b> Sep 2026</span>
       <span>5 nights</span>
       <span>Stena Line · car</span>
     </div>
     <div class="crew">
-      <span><b>Robert</b> &amp; Suzanne — Belfast → Aberdour → Crete</span>
-      <span><b>SO</b> &amp; Emily — Buffalo → London → Aberdour → Crete</span>
+      <span><b>Robert</b> &amp; Suzanne — Belfast → Edinburgh → Belfast → Crete</span>
+      <span><b>SO</b> &amp; Emily — Buffalo → London → Edinburgh → London → Crete</span>
     </div>
     <div class="routemap">
-      <svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two journeys converging on Aberdour and continuing to Crete. SO and Emily: Buffalo to London to Aberdour. Robert and Suzanne: Belfast to Aberdour. Both then on to Crete.">
+      <svg viewBox="0 0 760 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Everyone meets at Edinburgh, then parts for Crete by separate routes — SO and Emily back via London, Robert and Suzanne back via Belfast — reuniting in Crete.">
         <defs>
           <marker id="ah-tide" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0 0 L7 4.5 L0 9 z" fill="#5FB0C4"/></marker>
           <marker id="ah-brass" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0 0 L7 4.5 L0 9 z" fill="#E8B04B"/></marker>
         </defs>
+        <!-- inbound: converge on Edinburgh -->
         <g fill="none" stroke="#5FB0C4" stroke-width="2.4" stroke-linecap="round">
-          <path d="M96 56 H232" marker-end="url(#ah-tide)"/>
-          <path d="M266 58 C346 76 372 90 430 99" marker-end="url(#ah-tide)"/>
-          <path d="M96 150 C250 150 322 120 430 105" marker-end="url(#ah-tide)"/>
+          <path d="M84 64 H210" marker-end="url(#ah-tide)"/>
+          <path d="M232 67 L366 129" marker-end="url(#ah-tide)"/>
+          <path d="M80 203 L365 141" marker-end="url(#ah-tide)"/>
         </g>
-        <path d="M462 102 H630" fill="none" stroke="#E8B04B" stroke-width="2.6" stroke-linecap="round" marker-end="url(#ah-brass)"/>
+        <!-- outbound: diverge through the hubs, reconverge on Crete -->
+        <g fill="none" stroke="#E8B04B" stroke-width="2.4" stroke-linecap="round">
+          <path d="M392 129 L528 67" marker-end="url(#ah-brass)"/>
+          <path d="M544 67 L674 129" marker-end="url(#ah-brass)"/>
+          <path d="M392 141 L528 203" marker-end="url(#ah-brass)"/>
+          <path d="M544 203 L674 141" marker-end="url(#ah-brass)"/>
+        </g>
         <g>
-          <circle cx="84" cy="56" r="5" fill="#0F2330" stroke="#5FB0C4" stroke-width="2"/>
-          <circle cx="250" cy="56" r="5" fill="#0F2330" stroke="#5FB0C4" stroke-width="2"/>
-          <circle cx="84" cy="150" r="5" fill="#0F2330" stroke="#5FB0C4" stroke-width="2"/>
-          <circle cx="446" cy="102" r="8.5" fill="#E8B04B"/>
-          <circle cx="650" cy="102" r="8.5" fill="#E8B04B"/>
+          <circle cx="72" cy="64" r="6" fill="#0F2330" stroke="#5FB0C4" stroke-width="2"/>
+          <circle cx="224" cy="64" r="6" fill="#0F2330" stroke="#5FB0C4" stroke-width="2"/>
+          <circle cx="72" cy="206" r="6" fill="#0F2330" stroke="#5FB0C4" stroke-width="2"/>
+          <circle cx="536" cy="64" r="6" fill="#0F2330" stroke="#5FB0C4" stroke-width="2"/>
+          <circle cx="536" cy="206" r="6" fill="#0F2330" stroke="#5FB0C4" stroke-width="2"/>
+          <circle cx="380" cy="135" r="9" fill="#E8B04B"/>
+          <circle cx="688" cy="135" r="9" fill="#E8B04B"/>
         </g>
         <g font-family="'IBM Plex Mono',monospace" font-size="13.5" fill="#F4F0E6">
-          <text x="84" y="40" text-anchor="middle">Buffalo</text>
-          <text x="250" y="40" text-anchor="middle">London</text>
-          <text x="84" y="174" text-anchor="middle">Belfast</text>
-          <text x="446" y="83" text-anchor="middle" fill="#E8B04B" font-weight="600">Aberdour</text>
-          <text x="650" y="83" text-anchor="middle" fill="#E8B04B" font-weight="600">Crete</text>
+          <text x="72" y="48" text-anchor="middle">Buffalo</text>
+          <text x="224" y="48" text-anchor="middle">London</text>
+          <text x="72" y="228" text-anchor="middle">Belfast</text>
+          <text x="536" y="48" text-anchor="middle">London</text>
+          <text x="536" y="228" text-anchor="middle">Belfast</text>
+          <text x="380" y="116" text-anchor="middle" fill="#E8B04B" font-weight="600">Edinburgh</text>
+          <text x="688" y="116" text-anchor="middle" fill="#E8B04B" font-weight="600">Crete</text>
         </g>
         <g font-family="'IBM Plex Mono',monospace" font-size="10" fill="#90A6B0" letter-spacing="1">
-          <text x="164" y="48" text-anchor="middle">FLY</text>
-          <text x="250" y="140" text-anchor="middle">FERRY</text>
-          <text x="548" y="92" text-anchor="middle">FLY</text>
+          <text x="148" y="56" text-anchor="middle">FLY</text>
+          <text x="206" y="160" text-anchor="middle">FERRY</text>
+          <text x="612" y="88" text-anchor="middle">FLY</text>
+          <text x="612" y="186" text-anchor="middle">FLY</text>
+          <text x="458" y="86" text-anchor="middle">back</text>
+          <text x="458" y="188" text-anchor="middle">back</text>
         </g>
       </svg>
     </div>
@@ -1052,9 +1066,15 @@
       </article>
 
       <article class="turn">
-        <div class="turn-head"><span class="step">13</span><span class="commit">latest</span></div>
+        <div class="turn-head"><span class="step">13</span><span class="commit"><a href="https://github.com/robertkashyyyk/soekrrsr-edinburgh/commit/b427b53">b427b53</a></span></div>
         <div class="msg you"><div class="who">You</div><div class="bubble"><p>Here are SO &amp; Emily's US⇄UK flights (American/BA) and their Crete flights (easyJet). Use it all to make the page flow better.</p><p>Bring in a third tab named <b>TRAVEL</b> — segment the travel into its own defined area, without removing it from the itinerary.</p></div></div>
         <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Added a <b>Travel</b> tab — a full door-to-door dossier of every leg for both parties: Robert &amp; Suzanne's ferry + Jet2, and SO &amp; Emily's Buffalo→Boston→Heathrow, Gatwick→Heraklion, and the way home. The itinerary keeps all its travel inline too.</p><p>Firmed up SO &amp; Emily's confirmed easyJet flights (EZY8217/8218) in the Crete section and Wednesday track. Booking references and payment details deliberately left off — this repo is public.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">14</span><span class="commit">latest</span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>Two map fixes: (1) <b>Aberdour → Edinburgh</b> in the title and route map — the base camp's in Aberdour, but to everything else it's Edinburgh.</p><p>(2) We don't go Aberdour→Crete directly: SO &amp; Emily go <b>back to London</b> then Crete; RR &amp; SR go <b>back to Belfast</b> then Crete. Make it visually correct.</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Renamed the hub to <b>Edinburgh</b> in the title, route map and crew lines (Base camp stays Aberdour). Redrew the map as a <b>converge-then-diverge</b>: both parties meet at Edinburgh, then split back out through their own hub — SO &amp; Emily via London, Robert &amp; Suzanne via Belfast — before reuniting in Crete.</p></div></div>
       </article>
 
       <p class="editme" style="margin-top:24px">▸ this log grows by hand each time we change something — newest at the bottom</p>
