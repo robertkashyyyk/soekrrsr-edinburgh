@@ -76,7 +76,7 @@
 
   /* ---- board (split-flap fixed points) ---- */
   .board{
-    display:grid;grid-template-columns:1fr 1fr;gap:12px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;
   }
   .tile{
     background:var(--harbour-2);border:1px solid var(--line);
@@ -462,15 +462,19 @@
     </div>
     <div class="board">
       <div class="tile">
-        <svg class="ico corner"><use href="#i-ferry"/></svg>
-        <div class="lbl">The fixed sailing</div>
-        <div class="time">07:30</div>
-        <div class="sub">Belfast → Cairnryan, Fri 11</div>
+        <div class="lbl">Trip begins</div>
+        <div class="time">Thu 10</div>
+        <div class="sub">SO &amp; Emily fly out of Buffalo</div>
       </div>
       <div class="tile">
-        <div class="lbl">The fixed meeting</div>
+        <div class="lbl">Everyone meets</div>
         <div class="time">15:30</div>
-        <div class="sub">Waverley pickup, Fri 11</div>
+        <div class="sub">Waverley · Fri 11</div>
+      </div>
+      <div class="tile">
+        <div class="lbl">Onward to Crete</div>
+        <div class="time">Thu 17</div>
+        <div class="sub">both fly in to Heraklion</div>
       </div>
     </div>
   </div>
@@ -1265,9 +1269,15 @@
       </article>
 
       <article class="turn">
-        <div class="turn-head"><span class="step">21</span><span class="commit">latest</span></div>
+        <div class="turn-head"><span class="step">21</span><span class="commit"><a href="https://github.com/robertkashyyyk/soekrrsr-edinburgh/commit/3a1565e">3a1565e</a></span></div>
         <div class="msg you"><div class="who">You</div><div class="bubble"><p>Booked the sailings — Stena Superfast VIII out (Fri 11, 07:30), Superfast VII back (Wed 16, 15:30), car + two adults, Stena Plus. [ booking ref &amp; reg supplied ]</p></div></div>
         <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Marked the ferries as <b>booked</b> across Friday, Wednesday and the Travel tab — ship names in (Superfast VIII / VII), the Stena Plus lounge noted, and the real car check-in window (closes 45 min before, so ~06:15 at Belfast). Kept the booking reference and the car reg off the page — public repo.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">22</span><span class="commit">latest</span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>Those hero cards feel redundant now — drop them, or bring in some highlight "card" dates and times?</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Repurposed rather than dropped — they were a good anchor but only framed Friday. Now they're the trip's three pivots at a glance: <b>Trip begins</b> (Thu 10, SO &amp; Emily out), <b>Everyone meets</b> (15:30 Waverley, Fri 11), and <b>Onward to Crete</b> (Thu 17). Earns its place across the whole timeline instead of repeating one day.</p></div></div>
       </article>
 
       <p class="editme" style="margin-top:24px">▸ this log grows by hand each time we change something — newest at the bottom</p>
