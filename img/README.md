@@ -11,7 +11,9 @@ Until a file exists, the page shows a tidy dashed placeholder in its slot — no
 | `cafebar-1912.jpg`   | Friday — Bathgate leg        | Cafebar 1912, Bathgate                    |
 | `loch-ness.jpg`      | The Loch Ness monster day    | Loch Ness / Urquhart Castle               |
 | `islander.jpg`       | Handbag possibility          | Islander Harris Tweed bags                |
-| `castello.jpg`       | Out in Crete                 | Castello Village Resort, Crete            |
+| `castello.jpg`       | Crete + Stay (wide)          | Castello Village Resort pool / sea        |
+| `castello-2.jpg`     | Crete gallery                | Castello sea-view terrace                 |
+| `castello-3.jpg`     | Crete gallery                | Castello sea-view room                    |
 
 Tips:
 - Landscape orientation works best (portrait shots get cropped to fit the frame).
