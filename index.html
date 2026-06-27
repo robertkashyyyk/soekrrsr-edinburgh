@@ -330,6 +330,22 @@
   .msg.claude .bubble p{color:var(--mist)}
   .msg .bubble b{color:var(--foam);font-weight:600}
 
+  /* ---- still-to-book checklist ---- */
+  .ck-group{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--tide);margin:28px 0 4px}
+  .ck-group:first-of-type{margin-top:4px}
+  .ck-group.now{color:var(--brass)}
+  .ck-group.wait{color:var(--mist)}
+  .ck{position:relative;display:grid;grid-template-columns:24px 1fr;gap:13px;align-items:start;padding:13px 2px;border-top:1px solid var(--line);cursor:pointer}
+  .ck input{position:absolute;opacity:0;width:0;height:0;margin:0}
+  .ck .box{width:21px;height:21px;border:2px solid var(--line-strong);border-radius:6px;margin-top:1px;display:grid;place-items:center;transition:background .15s,border-color .15s}
+  .ck:hover .box{border-color:var(--mist)}
+  .ck input:checked + .box{background:var(--brass);border-color:var(--brass)}
+  .ck input:checked + .box::after{content:"✓";color:var(--harbour);font-size:13px;font-weight:700;line-height:1}
+  .ck-body{font-size:14.5px;color:var(--mist);line-height:1.5}
+  .ck-body b{color:var(--foam);font-weight:600}
+  .ck-cost{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--brass)}
+  .ck input:checked ~ .ck-body{opacity:.45;text-decoration:line-through;text-decoration-color:var(--line-strong)}
+
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
@@ -979,6 +995,34 @@
   </div>
 </section>
 
+<!-- STILL TO BOOK -->
+<section class="reveal">
+  <div class="wrap">
+    <div class="s-head"><span class="s-num">06</span><h2>Still to book</h2></div>
+    <p class="s-sub">A standstill checklist — grouped by how soon it needs doing. Tick them off as they're done.</p>
+
+    <div class="checklist">
+      <p class="ck-group now">Book now — don't wait</p>
+      <label class="ck"><input type="checkbox" data-ck="avis"><span class="box"></span><span class="ck-body"><b>Avis Crete car hire.</b> Collect Heraklion ~22:30 Thu 17 (after LS321 lands 21:55), drop back Thu 24. Aim for mid-size / VW T-Roc class (<span class="ck-cost">~£360</span> online) — fits 4 adults + four 22kg bags; the superminis won't. Book refundable while it's flexible, and check the fuel policy.</span></label>
+
+      <p class="ck-group">Book ahead — once, soon</p>
+      <label class="ck"><input type="checkbox" data-ck="castle-cruises"><span class="box"></span><span class="ck-body"><b>Castle Cruises, Loch Ness boat.</b> Mon 14, ~midday. Only 12 seats — book early and build the loch timings around the slot.</span></label>
+      <label class="ck"><input type="checkbox" data-ck="ed-castle"><span class="box"></span><span class="ck-body"><b>Edinburgh Castle.</b> Timed ticket, pre-book — it's busy. Falls on the Edinburgh weekend day.</span></label>
+      <label class="ck"><input type="checkbox" data-ck="islander"><span class="box"></span><span class="ck-body"><b>Islander Harris Tweed — handbag workshop.</b> Royal Mile, Tue 15. Book now the day's fixed.</span></label>
+      <label class="ck"><input type="checkbox" data-ck="ghost"><span class="box"></span><span class="ck-body"><b>Ghost tour.</b> An Edinburgh evening through the Old Town closes &amp; vaults — book the slot.</span></label>
+      <label class="ck"><input type="checkbox" data-ck="britannia"><span class="box"></span><span class="ck-body"><b>Royal Yacht Britannia</b> <i>(optional)</i>. Leith, Tue 15 — pre-book skips the queue.</span></label>
+
+      <p class="ck-group">Check first, then book</p>
+      <label class="ck"><input type="checkbox" data-ck="mansfield"><span class="box"></span><span class="ck-body"><b>Mansfield Traquair.</b> Open select days only — confirm the September 2026 dates before pinning it to Tuesday; it may force its own slot.</span></label>
+
+      <p class="ck-group wait">Waiting on the draw</p>
+      <label class="ck"><input type="checkbox" data-ck="football"><span class="box"></span><span class="ck-body"><b>Premier Sports Cup QF tickets.</b> Can't book until the draw (~17 Aug, after the last-16 on 15–16 Aug). When it lands, book same-day — they go fast. Weekend 12 / 13 Sep.</span></label>
+    </div>
+
+    <p class="fineprint">Everything else — flights, ferry, house, Crete hotel — is booked. This is what's left.</p>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <p>A living plan for the trip — <span class="mono">edit it in the repo and it updates here.</span></p>
@@ -1043,6 +1087,7 @@
               <div class="end"><div class="code">BFS</div><div class="time">01:40<span class="nd">+1</span></div><div class="city">Belfast Intl</div></div>
             </div>
           </div>
+          <p class="tnote">Nice symmetry — both parties leave Heraklion the same night: this LS322 at 22:55, SO &amp; Emily's easyJet EZY8218 at 23:40.</p>
         </div>
       </div>
 
@@ -1347,9 +1392,15 @@
       </article>
 
       <article class="turn">
-        <div class="turn-head"><span class="step">24</span><span class="commit">latest</span></div>
+        <div class="turn-head"><span class="step">24</span><span class="commit"><a href="https://github.com/robertkashyyyk/soekrrsr-edinburgh/commit/6e01e4e">6e01e4e</a></span></div>
         <div class="msg you"><div class="who">You</div><div class="bubble"><p>[ photos for the Loch Ness food stops — the Garden Cafe in Pitlochry and Z's Bistro in Dunkeld ]. And don't forget to update the Build page.</p></div></div>
         <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Dropped both food-stop photos straight into the Loch Ness timing run — the Garden Cafe on the breakfast leg, Z's Bistro on the dinner leg. Converted the webp and kept them in the same frames. (And yes — logging it here, as ever. 😄)</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">25</span><span class="commit">latest</span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>Fill in R&amp;S's Jet2 Crete flights (already done — LS321/LS322). And add a <b>"Still to book"</b> section: a standstill checklist grouped by urgency, footer line "everything else is booked, this is what's left".</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>R&amp;S flights were already in from before, so I just added the symmetry note on the Travel tab — both parties leave Heraklion the same night (LS322 22:55 / EZY8218 23:40). Built the <b>Still to book</b> section: a tickable checklist (saved per-browser) grouped Book&nbsp;now → Book&nbsp;ahead → Check&nbsp;first → Waiting on the draw. Dropped the Stena ferry from it — it's already booked, so listing it would've been wrong (your footer line agrees).</p></div></div>
       </article>
 
       <p class="editme" style="margin-top:24px">▸ this log grows by hand each time we change something — newest at the bottom</p>
@@ -1385,6 +1436,15 @@
   tabs.forEach(b=>b.addEventListener('click', ()=>show(b.dataset.view)));
   const initial = location.hash.replace('#','');
   if(views[initial]){ show(initial); }
+
+  // still-to-book checklist — remember ticks in this browser
+  document.querySelectorAll('.ck input[data-ck]').forEach(cb=>{
+    try{
+      const key = 'ckbook:' + cb.dataset.ck;
+      if(localStorage.getItem(key) === '1') cb.checked = true;
+      cb.addEventListener('change', ()=>{ try{ localStorage.setItem(key, cb.checked ? '1' : '0'); }catch(e){} });
+    }catch(e){}
+  });
 </script>
 </body>
 </html>
