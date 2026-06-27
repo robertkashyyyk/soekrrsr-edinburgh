@@ -174,6 +174,12 @@
   .dayplan li b{color:var(--foam);font-weight:600}
   .dayplan .dnote{margin-top:14px;font-size:13px;color:var(--foam);background:var(--harbour-3);border-left:2px solid var(--brass);padding:9px 12px;border-radius:0 8px 8px 0}
   .trigger{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.03em;color:var(--brass);margin:11px 0 0}
+  .daypix{display:grid;gap:6px;margin:0 0 14px}
+  .daypix.dp2{grid-template-columns:1fr 1fr}
+  .daypix.dp4{grid-template-columns:repeat(4,1fr)}
+  .daypix .photo{margin:0;aspect-ratio:4/3;border-radius:10px}
+  .daypix .photo.wide{grid-column:1/-1;aspect-ratio:16/7}
+  .daypix .photo figcaption{padding:5px 8px;font-size:9.5px;letter-spacing:0}
 
   /* ---- sailings table ---- */
   .sail{border:1px solid var(--line);border-radius:14px;overflow:hidden}
@@ -331,6 +337,7 @@
     .day{grid-template-columns:1fr}
     .maybes{grid-template-columns:1fr}
     .daygrid{grid-template-columns:1fr}
+    .daypix.dp4{grid-template-columns:1fr 1fr}
     .photos{grid-template-columns:1fr}
     .tours{grid-template-columns:1fr}
     .tracks{grid-template-columns:1fr}
@@ -614,17 +621,24 @@
       <div class="dayplan">
         <div class="dwhen"><span>Edinburgh</span><span class="v">one of Sat / Sun</span></div>
         <h3>The Old Town classic</h3>
+        <div class="daypix dp2">
+          <figure class="photo"><img src="img/ed-castle.jpg" alt="Edinburgh Castle" loading="lazy" onerror="this.closest('.photo').classList.add('empty')"><figcaption>Edinburgh Castle</figcaption></figure>
+          <figure class="photo"><img src="img/greyfriars.jpg" alt="Greyfriars Bobby statue" loading="lazy" onerror="this.closest('.photo').classList.add('empty')"><figcaption>Greyfriars Bobby</figcaption></figure>
+          <figure class="photo"><img src="img/vaults.jpg" alt="Edinburgh vaults ghost tour" loading="lazy" onerror="this.closest('.photo').classList.add('empty')"><figcaption>The vaults · ghost tour</figcaption></figure>
+          <figure class="photo"><img src="img/mountebank.jpg" alt="Mountebank comedy walking tour guide" loading="lazy" onerror="this.closest('.photo').classList.add('empty')"><figcaption>Mountebank · comedy alt</figcaption></figure>
+        </div>
         <ul>
           <li><b>Edinburgh Castle</b> — pre-booked timed ticket, and the One O'Clock Gun</li>
           <li>Down the <b>Royal Mile</b></li>
           <li>A rub of <b>Greyfriars Bobby's</b> nose for luck</li>
           <li>A long lunch</li>
-          <li>An evening <b>ghost tour</b> of the closes &amp; vaults</li>
+          <li>An evening <b>ghost tour</b> of the closes &amp; vaults — or the <b>Mountebank</b> comedy walk</li>
         </ul>
       </div>
       <div class="dayplan">
         <div class="dwhen"><span>Glasgow</span><span class="v">the other day</span></div>
         <h3>West End &amp; the city</h3>
+        <figure class="photo"><img src="img/glasgow.jpg" alt="Buchanan Street, Glasgow" loading="lazy" onerror="this.closest('.photo').classList.add('empty')"><figcaption>Buchanan Street</figcaption></figure>
         <ul>
           <li><b>Kelvingrove</b> Art Gallery — free, and brilliant</li>
           <li>The <b>Riverside Museum</b></li>
@@ -639,6 +653,7 @@
     <div class="maybe" style="margin-top:12px">
       <div class="tag">Match day · the variable</div>
       <h3>Premier Sports Cup quarter-final</h3>
+      <figure class="photo" style="aspect-ratio:16/7;margin:0 0 13px"><img src="img/ibrox.jpg" alt="Ibrox Stadium, Glasgow" loading="lazy" onerror="this.closest('.photo').classList.add('empty')"><figcaption>Ibrox · if it's a Glasgow tie</figcaption></figure>
       <p>The quarter-final lands on <b>this exact weekend</b> (Sat 12 / Sun 13) — but the fixture isn't known until the last-16 is played (<b>15–16 Aug</b>) and the draw follows. If there's a tie worth travelling for, it drops onto the matching city's day: a Glasgow ground (<b>Rangers at Ibrox</b>) → the Glasgow day; <b>Hearts or Hibs</b> in Edinburgh → the Edinburgh day. We arrange the Sat/Sun order so the match day's city matches when the fixture is actually scheduled. If nothing appeals, the weekend's simply Glasgow + Edinburgh, no match.</p>
       <p class="trigger">📅 calendar nudge ~17 Aug — check the draw, grab tickets same-day.</p>
     </div>
@@ -720,10 +735,13 @@
     <div class="dayplan">
       <div class="dwhen"><span>Tuesday 15 · Edinburgh</span><span class="v">anchored by the workshop</span></div>
       <h3>Tweed, a royal yacht &amp; a hill</h3>
-      <figure class="photo" data-empty="▢ add img/islander.jpg — Islander Harris Tweed bags">
-        <img src="img/islander.jpg" alt="Islander Harris Tweed handbag" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
-        <figcaption>Islander · Harris Tweed</figcaption>
-      </figure>
+      <div class="daypix dp4">
+        <figure class="photo wide"><img src="img/arthurs-seat.jpg" alt="View over Edinburgh from Arthur's Seat" loading="lazy" onerror="this.closest('.photo').classList.add('empty')"><figcaption>Arthur's Seat · the view over Edinburgh</figcaption></figure>
+        <figure class="photo"><img src="img/islander.jpg" alt="Islander Harris Tweed handbag" loading="lazy" onerror="this.closest('.photo').classList.add('empty')"><figcaption>Islander tweed</figcaption></figure>
+        <figure class="photo"><img src="img/britannia.jpg" alt="Royal Yacht Britannia at Leith" loading="lazy" onerror="this.closest('.photo').classList.add('empty')"><figcaption>Britannia</figcaption></figure>
+        <figure class="photo"><img src="img/mansfield.jpg" alt="Mansfield Traquair murals" loading="lazy" onerror="this.closest('.photo').classList.add('empty')"><figcaption>Mansfield Traquair</figcaption></figure>
+        <figure class="photo"><img src="img/cafe-piccante.jpg" alt="Fish and chips from Cafe Piccante" loading="lazy" onerror="this.closest('.photo').classList.add('empty')"><figcaption>Cafe Piccante</figcaption></figure>
+      </div>
       <ul>
         <li><b>Islander Harris Tweed</b> handbag workshop on the Royal Mile — pick your cloth, make your own bag <i>(book once dated)</i></li>
         <li><b>Royal Yacht Britannia</b> at Leith</li>
@@ -1212,9 +1230,15 @@
       </article>
 
       <article class="turn">
-        <div class="turn-head"><span class="step">18</span><span class="commit">latest</span></div>
+        <div class="turn-head"><span class="step">18</span><span class="commit"><a href="https://github.com/robertkashyyyk/soekrrsr-edinburgh/commit/e712508">e712508</a></span></div>
         <div class="msg you"><div class="who">You</div><div class="bubble"><p>Recast "the days in between" — the four middle days are firmed now. A flexible <b>Glasgow/Edinburgh weekend</b> (order flexes around the football), <b>Loch Ness Monday</b>, <b>Edinburgh #2 Tuesday</b>. Fold the possibilities into their days; drop the Fife coast and Stirling/Kelpies. No green-and-gold anywhere.</p></div></div>
         <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Recast the whole section into committed day plans: the interchangeable weekend pair (Edinburgh Old Town + Glasgow West End) with the football logic and a ~17 Aug ticket-draw nudge; Loch Ness committed to Monday; and a Tuesday Edinburgh day anchored by the tweed workshop (Britannia, Mansfield Traquair, Arthur's Seat, Cafe Piccante, with the select-days flag). Folded the old possibility cards into their days, dropped the coast and Stirling/Kelpies. Kept to the existing navy/brass/tide palette — no green-and-gold.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">19</span><span class="commit">latest</span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>[ photos for the day cards — Edinburgh Castle, Greyfriars Bobby, the vaults, the Mountebank guide, Glasgow, Ibrox, Arthur's Seat, Britannia, Mansfield Traquair, the chippy ]</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Brought the day plans to life with your photos: a 2×2 strip on the Edinburgh weekend card (Castle, Greyfriars, vaults, Mountebank), Buchanan Street on Glasgow, Ibrox on the match-day card, and a gallery on the Tuesday card led by the Arthur's Seat view (tweed, Britannia, Mansfield, the chippy). Converted the webp/avif ones to JPEG and kept everything in the same navy/brass/tide frames.</p></div></div>
       </article>
 
       <p class="editme" style="margin-top:24px">▸ this log grows by hand each time we change something — newest at the bottom</p>

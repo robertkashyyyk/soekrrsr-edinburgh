@@ -14,6 +14,16 @@ Until a file exists, the page shows a tidy dashed placeholder in its slot — no
 | `castello.jpg`       | Crete + Stay (wide)          | Castello Village Resort pool / sea        |
 | `castello-2.jpg`     | Crete gallery                | Castello sea-view terrace                 |
 | `castello-3.jpg`     | Crete gallery                | Castello sea-view room                    |
+| `ed-castle.jpg`      | Sat/Sun · Edinburgh          | Edinburgh Castle                          |
+| `greyfriars.jpg`     | Sat/Sun · Edinburgh          | Greyfriars Bobby statue                   |
+| `vaults.jpg`         | Sat/Sun · Edinburgh          | The vaults (ghost tour)                   |
+| `mountebank.jpg`     | Sat/Sun · Edinburgh          | Mountebank comedy-tour guide              |
+| `glasgow.jpg`        | Sat/Sun · Glasgow            | Buchanan Street                           |
+| `ibrox.jpg`          | Weekend · match day          | Ibrox Stadium                             |
+| `arthurs-seat.jpg`   | Tue 15 · Edinburgh           | View from Arthur's Seat                   |
+| `britannia.jpg`      | Tue 15 · Edinburgh           | Royal Yacht Britannia                     |
+| `mansfield.jpg`      | Tue 15 · Edinburgh           | Mansfield Traquair murals                 |
+| `cafe-piccante.jpg`  | Tue 15 · Edinburgh           | Fish & chips                              |
 
 Tips:
 - Landscape orientation works best (portrait shots get cropped to fit the frame).
