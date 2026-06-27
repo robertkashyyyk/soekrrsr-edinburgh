@@ -234,6 +234,9 @@
   .tour p{margin:0;font-size:13px;color:var(--mist)}
   .tour a{color:var(--tide);text-decoration:none;border-bottom:1px solid var(--line-strong)}
   .fineprint{font-size:13px;color:var(--mist);margin:16px 0 0}
+  .nessie-body .flag{margin-top:12px;font-size:13.5px;color:var(--foam);background:var(--harbour-3);border-left:2px solid var(--brass);padding:10px 13px;border-radius:0 8px 8px 0}
+  .nessie-body .flag b{color:var(--foam);font-weight:600}
+  .nessie-body .rail{margin-top:6px}
 
   /* ---- split tracks (diverging routes) ---- */
   .tracks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
@@ -704,7 +707,7 @@
       <p class="trigger">📅 calendar nudge ~17 Aug — check the draw, grab tickets same-day.</p>
     </div>
 
-    <p class="maybe-head">Mon 14 · Loch Ness — fixed</p>
+    <p class="maybe-head">Mon 14 · Loch Ness — the full-day expedition</p>
 
     <div class="nessie">
       <div class="nessie-art">
@@ -746,34 +749,84 @@
         </svg>
       </div>
       <div class="nessie-body">
-        <p class="tag"><svg class="ico"><use href="#i-nessie"/></svg>A day's expedition</p>
-        <h3>The Loch Ness monster day</h3>
-        <p>A proper Highland day out, chasing the beast. Be honest about the distance, though: Loch Ness sits about <b>three hours' drive north of Aberdour</b> (~150 miles up the A9), so it claims a whole day — an early-ish start and an evening return. The drive through the Cairngorms is half the reward.</p>
-        <p>The classic stretch is the <b>Urquhart Castle</b> end near <b>Drumnadrochit</b> — a ruined castle on a headland over the loch's deepest, most-photographed water. Pair the castle with a boat and you've got the day. Three to weigh up:</p>
+        <p class="tag"><svg class="ico"><use href="#i-nessie"/></svg>Fixed day</p>
+        <h3>Leave 07:30, back by bedtime</h3>
+        <p>The one big day out — about <b>3h20 each way</b> up the A9. Both food stops are locked, and the boat's booked for the middle of the day; everything else flexes around that slot.</p>
         <figure class="photo" data-empty="▢ add img/loch-ness.jpg — Loch Ness / Urquhart Castle">
           <img src="img/loch-ness.jpg" alt="Loch Ness and Urquhart Castle" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
           <figcaption>Loch Ness · Urquhart Castle</figcaption>
         </figure>
-        <div class="tours">
-          <div class="tour pick">
-            <span class="badge">Our pick</span>
-            <h4>Castle Cruises Loch Ness</h4>
-            <div class="meta">Temple Pier, Drumnadrochit<br>~1 hr · 12 seats</div>
-            <p>Small skippered boat right under the castle — the closest and most personal. Tiny, so book ahead. <a href="https://www.lochnesscruises.com/">lochnesscruises.com →</a></p>
+        <div class="rail">
+
+          <div class="leg key">
+            <div class="t">07:30<small>away</small></div>
+            <span class="dot"></span>
+            <div class="body">
+              <h3>Away from Aberdour</h3>
+              <p>Out early, over the Forth and up the M90 onto the A9.</p>
+            </div>
           </div>
-          <div class="tour">
-            <h4>Loch Ness by Jacobite</h4>
-            <div class="meta">Nr Inverness<br>1–3½ hr · big boats</div>
-            <p>The big, slick operator. Combo tickets bundle the cruise with Urquhart Castle and the visitor centre.</p>
+
+          <div class="leg">
+            <div class="t">~09:00<small>breakfast</small></div>
+            <span class="dot"></span>
+            <div class="body">
+              <h3>Breakfast · Garden Cafe, Pitlochry</h3>
+              <p>43 Atholl Rd, PH16 5BX — a proper Scottish breakfast: full Scottish, eggs Benedict with salmon, French toast. ~1h30 from Aberdour; it opens at 9, so allow an hour.</p>
+            </div>
           </div>
-          <div class="tour">
-            <h4>Cruise Loch Ness</h4>
-            <div class="meta">Fort Augustus (south)<br>~50 min · live sonar</div>
-            <p>South-end departure with sonar screens on board — handy if we come at the loch from that side.</p>
+
+          <div class="leg">
+            <div class="t">~10:15<small>on</small></div>
+            <span class="dot"></span>
+            <div class="body">
+              <h3>Back on the road</h3>
+              <p>North through the Cairngorms — the drive's half the reward.</p>
+            </div>
           </div>
+
+          <div class="leg key">
+            <div class="t">~12:00<small>the loch</small></div>
+            <span class="dot"></span>
+            <div class="body">
+              <h3>The loch · Urquhart Castle</h3>
+              <p>Drumnadrochit: the <b>Castle Cruises</b> boat (12 seats), the castle itself, and lunch by the water. Give it ~4 hours. <a href="https://www.lochnesscruises.com/">lochnesscruises.com →</a></p>
+            </div>
+          </div>
+
+          <div class="leg">
+            <div class="t">16:00<small>turn</small></div>
+            <span class="dot"></span>
+            <div class="body">
+              <h3>Turn for home</h3>
+              <p>Back south down the A9.</p>
+            </div>
+          </div>
+
+          <div class="leg">
+            <div class="t">~18:10<small>dinner</small></div>
+            <span class="dot"></span>
+            <div class="body">
+              <h3>Dinner · Z's Bistro, Dunkeld</h3>
+              <p>Tay Terrace, PH8 0AQ — venison, steak, cullen skink by the fire. Open till 10pm, so no rush. ~1h10 home from here.</p>
+            </div>
+          </div>
+
+          <div class="leg key">
+            <div class="t">~20:40<small>home</small></div>
+            <span class="dot"></span>
+            <div class="body">
+              <h3>Home to Aberdour</h3>
+              <p>Back over the Forth, day done.</p>
+            </div>
+          </div>
+
         </div>
+
+        <div class="flag">⚓ <b>Book the Castle Cruises boat ahead</b> — 12 seats, and it's the one fixed point in the middle of the day. Build the loch timings around that slot.</div>
+        <div class="flag">✓ Both food stops <b>confirmed open Monday</b> — Garden Cafe from 9am, Z's Bistro till 10pm.</div>
+
         <p class="fineprint">🔎 Open question: will SO manage to find out who actually <i>owns</i> the Loch Ness tour — the way he once went down the rabbit hole on who owns the Jack the Ripper tour? Some mysteries run deeper than the loch.</p>
-        <p class="fineprint">▸ This is the day — <b>Monday's the pick</b>: fresh legs after the weekend, and quieter midweek roads up and back.</p>
       </div>
     </div>
 
@@ -920,9 +973,8 @@
 
 <footer>
   <div class="wrap">
-    <p>A living plan for the Fife run — <span class="mono">edit it in the repo and it updates here.</span></p>
-    <p style="margin-top:10px">The house — <a href="https://www.airbnb.com/rooms/960093597611475317">The 1881, A Period Home on Airbnb →</a></p>
-    <p style="margin-top:6px">Sailing times can shift by season; reconfirm on Stena before the day. Last drawn up June 2026.</p>
+    <p>A living plan for the trip — <span class="mono">edit it in the repo and it updates here.</span></p>
+    <p style="margin-top:6px">Flights, sailings &amp; the house all booked. Last drawn up June 2026.</p>
   </div>
 </footer>
 </div><!-- /view-itinerary -->
@@ -1275,9 +1327,15 @@
       </article>
 
       <article class="turn">
-        <div class="turn-head"><span class="step">22</span><span class="commit">latest</span></div>
+        <div class="turn-head"><span class="step">22</span><span class="commit"><a href="https://github.com/robertkashyyyk/soekrrsr-edinburgh/commit/2996ab3">2996ab3</a></span></div>
         <div class="msg you"><div class="who">You</div><div class="bubble"><p>Those hero cards feel redundant now — drop them, or bring in some highlight "card" dates and times?</p></div></div>
         <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Repurposed rather than dropped — they were a good anchor but only framed Friday. Now they're the trip's three pivots at a glance: <b>Trip begins</b> (Thu 10, SO &amp; Emily out), <b>Everyone meets</b> (15:30 Waverley, Fri 11), and <b>Onward to Crete</b> (Thu 17). Earns its place across the whole timeline instead of repeating one day.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">23</span><span class="commit">latest</span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>Build the Monday 14 — Loch Ness day card: it commits to Monday now, both food stops locked. Recast it into a fixed-day card with a timing run (Friday-style vertical timeline). And maybe drop that stale footer at the bottom?</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Recast the Loch Ness feature into a committed day with a full timing run — 07:30 away, breakfast at the Garden Cafe in Pitlochry, the loch &amp; Castle Cruises boat at noon (~4 hrs), then dinner at Z's Bistro in Dunkeld, home ~20:40 — same vertical-timeline style as Friday. Dropped the old "weigh up three boats" comparison and the "if we commit" line; surfaced the two booking flags (boat ahead = the fixed point; both food stops open Monday).</p><p>Trimmed the footer too: cut the redundant house link and the now-wrong "reconfirm on Stena" line (it's booked), kept a tidy one-line signature.</p></div></div>
       </article>
 
       <p class="editme" style="margin-top:24px">▸ this log grows by hand each time we change something — newest at the bottom</p>
