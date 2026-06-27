@@ -24,6 +24,8 @@ Until a file exists, the page shows a tidy dashed placeholder in its slot — no
 | `britannia.jpg`      | Tue 15 · Edinburgh           | Royal Yacht Britannia                     |
 | `mansfield.jpg`      | Tue 15 · Edinburgh           | Mansfield Traquair murals                 |
 | `cafe-piccante.jpg`  | Tue 15 · Edinburgh           | Fish & chips                              |
+| `garden-cafe.jpg`    | Mon 14 · Loch Ness           | Garden Cafe, Pitlochry (breakfast)        |
+| `zs-bistro.jpg`      | Mon 14 · Loch Ness           | Z's Bistro, Dunkeld (dinner)              |
 
 Tips:
 - Landscape orientation works best (portrait shots get cropped to fit the frame).
