@@ -19,8 +19,9 @@ castle artwork is drawn in SVG inside the page, so it needs no files.
 - **Fri 11** — Robert & Suzanne sail Belfast → Cairnryan (07:30), drive up via a lunch
   stop in Bathgate (Cafebar 1912), park at Waverley and meet SO & Emily off their train
   (~15:30), then over the Forth to Aberdour.
-- **Sat 12 – Tue 15** — five nights in Fife. The "days in between" are the open part,
-  meant to be filled in together.
+- **Sat 12 – Tue 15** — the four middle days, now firmed: a flexible Glasgow/Edinburgh
+  weekend (the Sat/Sun order flexes around the Premier Sports Cup quarter-final), Loch Ness
+  on Monday, and a second Edinburgh day on Tuesday.
 - **Wed 16** — away early; drop SO & Emily at Edinburgh Waverley, then the group splits
   for Crete: SO & Emily via London, Robert & Suzanne via Belfast (Stena 15:30), meeting
   back up out in Crete.

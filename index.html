@@ -159,6 +159,22 @@
   .maybe p b{color:var(--foam);font-weight:600}
   .maybe p a{color:var(--tide);text-decoration:none;border-bottom:1px solid var(--line-strong)}
 
+  /* ---- committed day plans ---- */
+  .weekend-intro{color:var(--mist);font-size:14.5px;margin:0 0 14px;max-width:64ch}
+  .weekend-intro b{color:var(--foam);font-weight:600}
+  .daygrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .dayplan{border:1px solid var(--line);border-radius:14px;background:var(--harbour-2);padding:18px 20px}
+  .dayplan .dwhen{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--tide);margin-bottom:10px;display:flex;flex-wrap:wrap;gap:4px 10px;justify-content:space-between}
+  .dayplan .dwhen .v{color:var(--mist)}
+  .dayplan h3{font-family:"Fraunces",serif;font-weight:600;font-size:19px;margin:0 0 13px;letter-spacing:-.01em}
+  .dayplan .photo{margin:0 0 14px;aspect-ratio:16/9}
+  .dayplan ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+  .dayplan li{position:relative;padding-left:17px;font-size:14px;color:var(--mist);line-height:1.5}
+  .dayplan li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--brass)}
+  .dayplan li b{color:var(--foam);font-weight:600}
+  .dayplan .dnote{margin-top:14px;font-size:13px;color:var(--foam);background:var(--harbour-3);border-left:2px solid var(--brass);padding:9px 12px;border-radius:0 8px 8px 0}
+  .trigger{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.03em;color:var(--brass);margin:11px 0 0}
+
   /* ---- sailings table ---- */
   .sail{border:1px solid var(--line);border-radius:14px;overflow:hidden}
   .sail .row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
@@ -314,6 +330,7 @@
     .basecard .grid{grid-template-columns:1fr}
     .day{grid-template-columns:1fr}
     .maybes{grid-template-columns:1fr}
+    .daygrid{grid-template-columns:1fr}
     .photos{grid-template-columns:1fr}
     .tours{grid-template-columns:1fr}
     .tracks{grid-template-columns:1fr}
@@ -590,78 +607,43 @@
 <section class="reveal">
   <div class="wrap">
     <div class="s-head"><span class="s-num">03</span><h2>The days in between</h2></div>
-    <p class="s-sub">Wide open — this is the part to draw out together. A few seeds to start:</p>
-    <div class="days">
-      <div class="day">
-        <div class="d">Sat 12<small>day 1</small></div>
-        <div class="ideas"><b>Edinburgh.</b> Train from Aberdour into Waverley is ~35 min — Old Town, castle, a long lunch, no car needed.</div>
+    <p class="s-sub">The four middle days, now firmed — a flexible city <b>weekend</b>, <b>Loch Ness</b> on Monday, and a <b>second Edinburgh day</b> on Tuesday.</p>
+    <p class="maybe-head">The weekend · Sat 12 &amp; Sun 13 — an interchangeable pair</p>
+    <p class="weekend-intro">One day Glasgow, one day Edinburgh — which lands on Saturday vs Sunday flexes around the football. <b>Glasgow is fixed</b>: it happens with or without a match.</p>
+    <div class="daygrid">
+      <div class="dayplan">
+        <div class="dwhen"><span>Edinburgh</span><span class="v">one of Sat / Sun</span></div>
+        <h3>The Old Town classic</h3>
+        <ul>
+          <li><b>Edinburgh Castle</b> — pre-booked timed ticket, and the One O'Clock Gun</li>
+          <li>Down the <b>Royal Mile</b></li>
+          <li>A rub of <b>Greyfriars Bobby's</b> nose for luck</li>
+          <li>A long lunch</li>
+          <li>An evening <b>ghost tour</b> of the closes &amp; vaults</li>
+        </ul>
       </div>
-      <div class="day">
-        <div class="d">Sun 13<small>day 2</small></div>
-        <div class="ideas"><b>Fife coast.</b> The Aberdour–Burntisland coastal path, Silver Sands beach, or push on to the East Neuk villages.</div>
-      </div>
-      <div class="day">
-        <div class="d">Mon 14<small>day 3</small></div>
-        <div class="ideas"><b>Open.</b> Stirling Castle, the Kelpies, or a slow one in the village.</div>
-      </div>
-      <div class="day">
-        <div class="d">Tue 15<small>day 4</small></div>
-        <div class="ideas"><b>Open.</b> Last full day — save it for whatever you've all been meaning to do.</div>
+      <div class="dayplan">
+        <div class="dwhen"><span>Glasgow</span><span class="v">the other day</span></div>
+        <h3>West End &amp; the city</h3>
+        <ul>
+          <li><b>Kelvingrove</b> Art Gallery — free, and brilliant</li>
+          <li>The <b>Riverside Museum</b></li>
+          <li>The <b>West End</b> &amp; Ashton Lane</li>
+          <li><b>George Square</b> &amp; the city centre</li>
+          <li><b>Glasgow Cathedral</b> &amp; the Necropolis</li>
+        </ul>
+        <div class="dnote">If a match is on, it anchors the day.</div>
       </div>
     </div>
 
-    <p class="maybe-head">Still loose — possibilities on the table</p>
-    <div class="maybes">
-      <div class="maybe wide">
-        <div class="tag">Match day</div>
-        <h3>Premier Sports Cup quarter-final</h3>
-        <p>A QF could fall on this weekend — the tie isn't set until the earlier rounds finish, so who's playing and where is still open. If it's <b>Rangers</b> at Ibrox (Glasgow) or <b>Hearts</b> at Tynecastle (Edinburgh), it slots in easily. Watch for the draw and grab tickets the moment it's confirmed — they go fast.</p>
-      </div>
-      <div class="maybe">
-        <div class="tag"><svg class="ico"><use href="#i-mtn"/></svg>Suzanne's shout</div>
-        <h3>Climb Arthur's Seat</h3>
-        <p>The old volcano above Holyrood Park — a proper little climb to the best view over Edinburgh. About an hour up at a steady pace; pairs naturally with a day in town.</p>
-      </div>
-      <div class="maybe">
-        <div class="tag"><svg class="ico"><use href="#i-bag"/></svg>Make something</div>
-        <h3>Handbag workshop · Islander Harris Tweed</h3>
-        <p>On the <b>Royal Mile</b> at <b>Islander Harris Tweed</b> — pick your cloth and make your own handbag to take home. Worth booking ahead once we settle on a day.</p>
-        <figure class="photo" data-empty="▢ add img/islander.jpg — Islander Harris Tweed bags" style="aspect-ratio:16/9;margin-top:12px">
-          <img src="img/islander.jpg" alt="Islander Harris Tweed handbag" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
-          <figcaption>Islander · Harris Tweed</figcaption>
-        </figure>
-      </div>
-      <div class="maybe">
-        <div class="tag"><svg class="ico"><use href="#i-castle"/></svg>Old Town</div>
-        <h3>Edinburgh Castle</h3>
-        <p>The one everyone means — up on the rock above Princes Street: the crown jewels, the One O'Clock Gun, big views over the city. Pre-book a timed ticket (it's busy) and fold it into an Edinburgh day.</p>
-      </div>
-      <div class="maybe">
-        <div class="tag"><svg class="ico"><use href="#i-ghost"/></svg>One evening</div>
-        <h3>Ghost tour — or the comedy one</h3>
-        <p>An evening walk through the Old Town's closes and vaults, leaning to the <b>ghostly</b> end. The <b>Mountebank</b>-style <b>comedy walking tour</b> is the cheerier alternative — we'd do one or the other, and the spooky one's winning.</p>
-      </div>
-      <div class="maybe">
-        <div class="tag"><svg class="ico"><use href="#i-ferry"/></svg>Down at Leith</div>
-        <h3>Royal Yacht Britannia</h3>
-        <p>The Queen's former royal yacht, berthed at Ocean Terminal in Leith — a self-guided wander across five decks with the tea room on board. Half a day, and easy to pair with a mooch round Leith.</p>
-      </div>
-      <div class="maybe">
-        <div class="tag"><svg class="ico"><use href="#i-castle"/></svg>Hidden gem</div>
-        <h3>Mansfield Traquair</h3>
-        <p>Edinburgh's "Sistine Chapel" — a former church off Broughton Street covered wall-to-ceiling in Phoebe Anna Traquair's murals. Only open on select days, so check the dates before banking on it.</p>
-      </div>
-      <div class="maybe">
-        <div class="tag">Two minutes</div>
-        <h3>Greyfriars Bobby's nose</h3>
-        <p>A wee run past the little statue by Greyfriars Kirkyard and a rub of Bobby's nose for luck — the loyal Skye terrier who's said to have guarded his master's grave for years. Right on the edge of the Old Town.</p>
-      </div>
-      <div class="maybe">
-        <div class="tag"><svg class="ico"><use href="#i-dine"/></svg>Chippy</div>
-        <h3>Cafe Piccante</h3>
-        <p>The shout for the <b>best fish &amp; chips</b> — a proper Edinburgh chipper on Broughton Street (and yes, home of the deep-fried Mars bar, if anyone's brave). Conveniently next door to Mansfield Traquair.</p>
-      </div>
+    <div class="maybe" style="margin-top:12px">
+      <div class="tag">Match day · the variable</div>
+      <h3>Premier Sports Cup quarter-final</h3>
+      <p>The quarter-final lands on <b>this exact weekend</b> (Sat 12 / Sun 13) — but the fixture isn't known until the last-16 is played (<b>15–16 Aug</b>) and the draw follows. If there's a tie worth travelling for, it drops onto the matching city's day: a Glasgow ground (<b>Rangers at Ibrox</b>) → the Glasgow day; <b>Hearts or Hibs</b> in Edinburgh → the Edinburgh day. We arrange the Sat/Sun order so the match day's city matches when the fixture is actually scheduled. If nothing appeals, the weekend's simply Glasgow + Edinburgh, no match.</p>
+      <p class="trigger">📅 calendar nudge ~17 Aug — check the draw, grab tickets same-day.</p>
     </div>
+
+    <p class="maybe-head">Mon 14 · Loch Ness — fixed</p>
 
     <div class="nessie">
       <div class="nessie-art">
@@ -730,8 +712,26 @@
           </div>
         </div>
         <p class="fineprint">🔎 Open question: will SO manage to find out who actually <i>owns</i> the Loch Ness tour — the way he once went down the rabbit hole on who owns the Jack the Ripper tour? Some mysteries run deeper than the loch.</p>
-        <p class="fineprint">▸ If we commit to this, it wants one of the open days (Sat–Tue) to itself — say which and I'll build it into the plan as a full day.</p>
+        <p class="fineprint">▸ This is the day — <b>Monday's the pick</b>: fresh legs after the weekend, and quieter midweek roads up and back.</p>
       </div>
+    </div>
+
+    <p class="maybe-head">Tue 15 · Edinburgh, take two — fixed</p>
+    <div class="dayplan">
+      <div class="dwhen"><span>Tuesday 15 · Edinburgh</span><span class="v">anchored by the workshop</span></div>
+      <h3>Tweed, a royal yacht &amp; a hill</h3>
+      <figure class="photo" data-empty="▢ add img/islander.jpg — Islander Harris Tweed bags">
+        <img src="img/islander.jpg" alt="Islander Harris Tweed handbag" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
+        <figcaption>Islander · Harris Tweed</figcaption>
+      </figure>
+      <ul>
+        <li><b>Islander Harris Tweed</b> handbag workshop on the Royal Mile — pick your cloth, make your own bag <i>(book once dated)</i></li>
+        <li><b>Royal Yacht Britannia</b> at Leith</li>
+        <li><b>Mansfield Traquair</b> — the Phoebe Anna Traquair murals</li>
+        <li>Climb <b>Arthur's Seat</b> for the view over the city</li>
+        <li><b>Cafe Piccante</b> — the best fish &amp; chips, handy by Mansfield Traquair</li>
+      </ul>
+      <div class="dnote">⚠ <b>Mansfield Traquair</b> opens select days only — confirm the Sep 2026 dates before pinning; it may force the slot.</div>
     </div>
 
     <p class="editme">▸ edit this section in the repo — it's meant to grow</p>
@@ -1206,9 +1206,15 @@
       </article>
 
       <article class="turn">
-        <div class="turn-head"><span class="step">17</span><span class="commit">latest</span></div>
+        <div class="turn-head"><span class="step">17</span><span class="commit"><a href="https://github.com/robertkashyyyk/soekrrsr-edinburgh/commit/361751d">361751d</a></span></div>
         <div class="msg you"><div class="who">You</div><div class="bubble"><p>Oh and we need a nice favicon lol</p></div></div>
         <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Made a wee <b>brass ferry</b> on a harbour-navy tile — a self-contained SVG favicon that stays sharp right down to 16px. Wired it into the page with a matching theme-colour for mobile browser chrome.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">18</span><span class="commit">latest</span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>Recast "the days in between" — the four middle days are firmed now. A flexible <b>Glasgow/Edinburgh weekend</b> (order flexes around the football), <b>Loch Ness Monday</b>, <b>Edinburgh #2 Tuesday</b>. Fold the possibilities into their days; drop the Fife coast and Stirling/Kelpies. No green-and-gold anywhere.</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Recast the whole section into committed day plans: the interchangeable weekend pair (Edinburgh Old Town + Glasgow West End) with the football logic and a ~17 Aug ticket-draw nudge; Loch Ness committed to Monday; and a Tuesday Edinburgh day anchored by the tweed workshop (Britannia, Mansfield Traquair, Arthur's Seat, Cafe Piccante, with the select-days flag). Folded the old possibility cards into their days, dropped the coast and Stirling/Kelpies. Kept to the existing navy/brass/tide palette — no green-and-gold.</p></div></div>
       </article>
 
       <p class="editme" style="margin-top:24px">▸ this log grows by hand each time we change something — newest at the bottom</p>
