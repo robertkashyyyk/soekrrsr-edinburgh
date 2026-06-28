@@ -437,7 +437,7 @@
       <span><b>SO</b> &amp; Emily — Buffalo → London → Edinburgh → London → Crete</span>
     </div>
     <div class="routemap">
-      <svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Everyone travels in to Edinburgh, then returns the same way to their hub — SO and Emily to London, Robert and Suzanne to Belfast — before looping on to Crete, and flying home again from Crete at the end.">
+      <svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Everyone travels in to Edinburgh, then returns the same way to their hub — SO and Emily to London, Robert and Suzanne to Belfast — before looping on to Crete. At the end, Robert and Suzanne fly Crete to Belfast direct, while SO and Emily fly Crete to London then on to Buffalo.">
         <defs>
           <marker id="ah-tide" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0 0 L7 4.5 L0 9 z" fill="#5FB0C4"/></marker>
           <marker id="ah-brass" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0 0 L7 4.5 L0 9 z" fill="#E8B04B"/></marker>
@@ -459,6 +459,7 @@
         <!-- flying home from Crete at the end of the trip (dashed, muted) -->
         <g fill="none" stroke="#C9C2B0" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="2 6">
           <path d="M682 144 C 600 56 420 56 252 96" marker-end="url(#ah-home)"/>
+          <path d="M224 108 H86" marker-end="url(#ah-home)"/>
           <path d="M682 178 C 600 296 420 326 88 246" marker-end="url(#ah-home)"/>
         </g>
         <g>
@@ -485,6 +486,7 @@
         </g>
         <g font-family="'IBM Plex Mono',monospace" font-size="10" fill="#C9C2B0" letter-spacing="1">
           <text x="478" y="60" text-anchor="middle">home ✈</text>
+          <text x="150" y="100" text-anchor="middle">home ✈</text>
           <text x="478" y="284" text-anchor="middle">home ✈</text>
         </g>
       </svg>
@@ -1444,6 +1446,12 @@
         <div class="turn-head"><span class="step">27</span><span class="commit">latest</span></div>
         <div class="msg you"><div class="who">You</div><div class="bubble"><p>Hero route map only showed the outbound leg to Crete, not the flight home. Friday 11's "everyone converges" wording was vague now that we have real times — and it muddled the Bathgate meal as if SO &amp; Emily shared it, when they're actually eating on the train.</p></div></div>
         <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Added dashed "home ✈" return arrows from Crete back to Buffalo and Belfast on the hero map. Updated the Friday 11 meet time to the confirmed 15:34 everywhere it appears (subhead, timeline, hero tile, Travel tab note), and noted Robert &amp; Suzanne park up by ~14:00. Labelled the Bathgate stop as Robert &amp; Suzanne's only, and added a note that SO &amp; Emily eat on the train instead.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">28</span><span class="commit">latest</span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>The map's "home" arrow went straight from Crete to Buffalo — but SO &amp; Emily actually fly Crete → London first, then separately London → Buffalo.</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Added the missing London → Buffalo leg to the dashed home-arrow path, so SO &amp; Emily's return now reads Crete → London → Buffalo (matching Robert &amp; Suzanne's direct Crete → Belfast). Updated the map's alt text to describe both return routes accurately.</p></div></div>
       </article>
 
       <p class="editme" style="margin-top:24px">▸ this log grows by hand each time we change something — newest at the bottom</p>
