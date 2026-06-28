@@ -437,10 +437,11 @@
       <span><b>SO</b> &amp; Emily — Buffalo → London → Edinburgh → London → Crete</span>
     </div>
     <div class="routemap">
-      <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Everyone travels in to Edinburgh, then returns the same way to their hub — SO and Emily to London, Robert and Suzanne to Belfast — before looping on to Crete and reuniting there.">
+      <svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Everyone travels in to Edinburgh, then returns the same way to their hub — SO and Emily to London, Robert and Suzanne to Belfast — before looping on to Crete, and flying home again from Crete at the end.">
         <defs>
           <marker id="ah-tide" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0 0 L7 4.5 L0 9 z" fill="#5FB0C4"/></marker>
           <marker id="ah-brass" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0 0 L7 4.5 L0 9 z" fill="#E8B04B"/></marker>
+          <marker id="ah-home" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0 0 L7 4.5 L0 9 z" fill="#C9C2B0"/></marker>
         </defs>
         <!-- inbound to Edinburgh (tide) -->
         <g fill="none" stroke="#5FB0C4" stroke-width="2.2" stroke-linecap="round">
@@ -454,6 +455,11 @@
           <path d="M356 173 L94 236" marker-end="url(#ah-brass)"/>
           <path d="M252 84 C 412 6 604 16 680 148" marker-end="url(#ah-brass)"/>
           <path d="M86 240 C 360 334 602 300 680 172" marker-end="url(#ah-brass)"/>
+        </g>
+        <!-- flying home from Crete at the end of the trip (dashed, muted) -->
+        <g fill="none" stroke="#C9C2B0" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="2 6">
+          <path d="M682 144 C 600 56 420 56 252 96" marker-end="url(#ah-home)"/>
+          <path d="M682 178 C 600 296 420 326 88 246" marker-end="url(#ah-home)"/>
         </g>
         <g>
           <circle cx="74" cy="92" r="6" fill="#0F2330" stroke="#5FB0C4" stroke-width="2"/>
@@ -477,6 +483,10 @@
           <text x="478" y="34" text-anchor="middle">to Crete ✈</text>
           <text x="478" y="304" text-anchor="middle">to Crete ✈</text>
         </g>
+        <g font-family="'IBM Plex Mono',monospace" font-size="10" fill="#C9C2B0" letter-spacing="1">
+          <text x="478" y="60" text-anchor="middle">home ✈</text>
+          <text x="478" y="284" text-anchor="middle">home ✈</text>
+        </g>
       </svg>
     </div>
     <div class="board">
@@ -487,7 +497,7 @@
       </div>
       <div class="tile">
         <div class="lbl">Everyone meets</div>
-        <div class="time">15:30</div>
+        <div class="time">15:34</div>
         <div class="sub">Waverley · Fri 11</div>
       </div>
       <div class="tile">
@@ -533,7 +543,7 @@
 <section class="reveal">
   <div class="wrap">
     <div class="s-head"><span class="s-num">02</span><h2>Friday 11 — everyone converges</h2></div>
-    <p class="s-sub">Two journeys meet at Waverley at half three: Robert &amp; Suzanne over on the ferry and up by car, SO &amp; Emily in off the overnight via Heathrow — then over the Forth to the house.</p>
+    <p class="s-sub">Two journeys meet at Waverley at 15:34: Robert &amp; Suzanne over on the ferry and up by car, parking up by ~14:00; SO &amp; Emily off the overnight flight into Heathrow, then the LNER train up to Edinburgh — then over the Forth to the house.</p>
     <div class="rail">
 
       <div class="leg">
@@ -560,7 +570,7 @@
         <span class="dot"></span>
         <div class="body">
           <h3>SO &amp; Emily land at Heathrow</h3>
-          <p>Off the overnight from Boston (<b>AA 108</b>) — through the border and across London to pick up the train north.</p>
+          <p>Off the overnight flight from Boston (<b>AA 108</b>) — through the border and across London to Kings Cross to pick up the train north.</p>
         </div>
       </div>
 
@@ -579,6 +589,7 @@
         <div class="body">
           <h3>Kings Cross → Edinburgh by train</h3>
           <p>LNER up the East Coast Main Line, 11:03 → 15:34 into Waverley — lands just after Robert &amp; Suzanne pull in.</p>
+          <div class="note">SO &amp; Emily eat on the train — no separate food stop needed for this leg.</div>
         </div>
       </div>
 
@@ -586,9 +597,9 @@
         <div class="t">~12:15<small>lunch</small></div>
         <span class="dot"></span>
         <div class="body">
-          <h3><svg class="ico"><use href="#i-dine"/></svg>Breakfast / lunch in Bathgate</h3>
+          <h3><svg class="ico"><use href="#i-dine"/></svg>Breakfast / lunch in Bathgate — Robert &amp; Suzanne</h3>
           <p>Carry on past Ayr and break later at Bathgate — just off the M8 and only ~40 minutes short of Edinburgh, so it's the last proper stop before the run into Waverley. Sit an hour and push on by ~13:30.</p>
-          <div class="note"><b>Cafebar 1912</b>, Bathgate — where we want to stop to eat.</div>
+          <div class="note"><b>Cafebar 1912</b>, Bathgate — Robert &amp; Suzanne's stop only; SO &amp; Emily eat on the train instead.</div>
           <figure class="photo" data-empty="▢ add img/cafebar-1912.jpg — a photo of Cafebar 1912, Bathgate" style="aspect-ratio:16/7;margin-top:12px">
             <img src="img/cafebar-1912.jpg" alt="Cafebar 1912, Bathgate" loading="lazy" onerror="this.closest('.photo').classList.add('empty')">
             <figcaption>Cafebar 1912 · Bathgate</figcaption>
@@ -607,11 +618,11 @@
       </div>
 
       <div class="leg key">
-        <div class="t">15:30<small>meet</small></div>
+        <div class="t">15:34<small>meet</small></div>
         <span class="dot"></span>
         <div class="body">
           <h3>Everyone meets at Waverley</h3>
-          <p>The moment the two journeys join — Robert &amp; Suzanne off the car, SO &amp; Emily off the train. Bags in, four up.</p>
+          <p>The moment the two journeys join — Robert &amp; Suzanne off the car (parked since ~14:00), SO &amp; Emily off the train. Bags in, four up.</p>
         </div>
       </div>
 
@@ -1122,7 +1133,7 @@
               <div class="end"><div class="code">Edinburgh</div><div class="time">15:34</div><div class="city">Waverley</div></div>
             </div>
           </div>
-          <p class="tnote">Across London from Heathrow to Kings Cross first, then the LNER service up — lands Waverley just after Robert &amp; Suzanne's ~15:30 meet time.</p>
+          <p class="tnote">Across London from Heathrow to Kings Cross first, then the LNER service up — lands Waverley at 15:34, just after Robert &amp; Suzanne park up.</p>
         </div>
 
         <div class="journey">
@@ -1427,6 +1438,12 @@
         <div class="turn-head"><span class="step">26</span><span class="commit">latest</span></div>
         <div class="msg you"><div class="who">You</div><div class="bubble"><p>Pulled SO &amp; Emily's actual booking confirmations from email (AA/easyJet/LNER/National Express/Hilton) and asked for the itinerary to be brought in line — no rates or costs.</p></div></div>
         <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Corrected SO &amp; Emily's leg times throughout (Buffalo→Boston now 17:00/18:36; easyJet to Crete now 16:55/22:50; the return PHL→BUF leg is now AA5354, 22:20/23:56). Replaced the placeholder London→Edinburgh and Edinburgh→York→Gatwick legs with the confirmed LNER trains (Kings Cross 11:03→Waverley 15:34; Edinburgh 10:30→York 12:52; York 10:31→Gatwick 13:44 via Stevenage). Added the National Express Gatwick→Heathrow coach (09:10→10:20) ahead of the flight home. Confirmed the York hotel (Hampton by Hilton York) and added a new Gatwick airport-hotel night (Hampton by Hilton London Gatwick) for the overnight before the coach.</p></div></div>
+      </article>
+
+      <article class="turn">
+        <div class="turn-head"><span class="step">27</span><span class="commit">latest</span></div>
+        <div class="msg you"><div class="who">You</div><div class="bubble"><p>Hero route map only showed the outbound leg to Crete, not the flight home. Friday 11's "everyone converges" wording was vague now that we have real times — and it muddled the Bathgate meal as if SO &amp; Emily shared it, when they're actually eating on the train.</p></div></div>
+        <div class="msg claude"><div class="who">Claude</div><div class="bubble"><p>Added dashed "home ✈" return arrows from Crete back to Buffalo and Belfast on the hero map. Updated the Friday 11 meet time to the confirmed 15:34 everywhere it appears (subhead, timeline, hero tile, Travel tab note), and noted Robert &amp; Suzanne park up by ~14:00. Labelled the Bathgate stop as Robert &amp; Suzanne's only, and added a note that SO &amp; Emily eat on the train instead.</p></div></div>
       </article>
 
       <p class="editme" style="margin-top:24px">▸ this log grows by hand each time we change something — newest at the bottom</p>
