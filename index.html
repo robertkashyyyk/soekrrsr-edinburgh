@@ -44,6 +44,25 @@
     color:var(--tide);margin:0 0 10px;
   }
 
+  /* ---- weather / daylight strip ---- */
+  .wx{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;margin:14px 0 2px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--harbour-2)}
+  .wx .wxc{display:flex;gap:8px;align-items:baseline}
+  .wx .wxl{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--tide);white-space:nowrap}
+  .wx .wxv{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--foam);white-space:nowrap}
+  .wx .wxsrc{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--mist);letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+  .wxtable{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--harbour-2);margin:4px 0 2px}
+  .wxrow{display:grid;grid-template-columns:70px 1fr 1fr 1.5fr;gap:10px;padding:9px 14px;border-top:1px solid var(--line);font-family:"IBM Plex Mono",monospace;font-size:12.5px;align-items:baseline;color:var(--foam)}
+  .wxrow:first-child{border-top:0}
+  .wxrow.head{color:var(--tide);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+  .wxrow .d{color:var(--brass);font-weight:600}
+  @media(max-width:640px){
+    .wx{gap:6px 14px}
+    .wx .wxv{font-size:11.5px}
+    .wxrow{grid-template-columns:1fr 1fr;font-size:11px;gap:4px 10px}
+    .wxrow .d{grid-column:1 / -1}
+    .wxrow.head{display:none}
+  }
+
   /* ---- hero ---- */
   header{padding:64px 0 38px;position:relative;overflow:hidden}
   .compass{
@@ -515,6 +534,7 @@
   <div class="wrap">
     <div class="s-head"><span class="s-num">01</span><h2>Thursday 10 — SO &amp; Emily set off</h2></div>
     <p class="s-sub">It actually starts a day early, over in Buffalo — SO &amp; Emily fly the Atlantic overnight while Robert &amp; Suzanne are still at home in Belfast.</p>
+    <div class="wx" data-wx="buffalo" data-date="2026-09-10"><div class="wxc"><span class="wxl">Sunrise</span><span class="wxv">06:50 · 6:50 am</span></div><div class="wxc"><span class="wxl">Sunset</span><span class="wxv">19:33 · 7:33 pm</span></div><div class="wxc"><span class="wxl">Buffalo</span><span class="wxv" data-temp>23° / 13°C · 73° / 55°F</span></div><span class="wxsrc" data-src>Sept average</span></div>
     <div class="rail">
 
       <div class="leg">
@@ -545,6 +565,7 @@
   <div class="wrap">
     <div class="s-head"><span class="s-num">02</span><h2>Friday 11 — everyone converges</h2></div>
     <p class="s-sub">Two journeys meet at Waverley at 15:34: Robert &amp; Suzanne over on the ferry and up by car, parking up by ~14:00; SO &amp; Emily off the overnight flight into Heathrow, then the LNER train up to Edinburgh — then over the Forth to the house.</p>
+    <div class="wx" data-wx="edinburgh" data-date="2026-09-11"><div class="wxc"><span class="wxl">Sunrise</span><span class="wxv">06:36 · 6:36 am</span></div><div class="wxc"><span class="wxl">Sunset</span><span class="wxv">19:40 · 7:40 pm</span></div><div class="wxc"><span class="wxl">Edinburgh</span><span class="wxv" data-temp>16° / 9°C · 61° / 48°F</span></div><span class="wxsrc" data-src>Sept average</span></div>
     <div class="rail">
 
       <div class="leg">
@@ -720,6 +741,7 @@
       <div class="dayplan">
         <div class="dwhen"><span>Saturday 12 · Edinburgh + Dundee</span><span class="v">hockey night</span></div>
         <h3>Old Town by day, face-off by night</h3>
+    <div class="wx" data-wx="edinburgh" data-date="2026-09-12"><div class="wxc"><span class="wxl">Sunrise</span><span class="wxv">06:38 · 6:38 am</span></div><div class="wxc"><span class="wxl">Sunset</span><span class="wxv">19:38 · 7:38 pm</span></div><div class="wxc"><span class="wxl">Edinburgh</span><span class="wxv" data-temp>16° / 9°C · 61° / 48°F</span></div><span class="wxsrc" data-src>Sept average</span></div>
         <div class="daypix dp2">
           <figure class="photo"><img src="img/ed-castle.jpg" alt="Edinburgh Castle" loading="lazy" onerror="this.closest('.photo').classList.add('empty')"><figcaption>Edinburgh Castle</figcaption></figure>
           <figure class="photo"><img src="img/greyfriars.jpg" alt="Greyfriars Bobby statue" loading="lazy" onerror="this.closest('.photo').classList.add('empty')"><figcaption>Greyfriars Bobby</figcaption></figure>
@@ -736,6 +758,7 @@
       <div class="dayplan">
         <div class="dwhen"><span>Sunday 13 · Glasgow</span><span class="v">hockey night</span></div>
         <h3>Glasgow &amp; the Clan's home opener</h3>
+    <div class="wx" data-wx="glasgow" data-date="2026-09-13"><div class="wxc"><span class="wxl">Sunrise</span><span class="wxv">06:45 · 6:45 am</span></div><div class="wxc"><span class="wxl">Sunset</span><span class="wxv">19:39 · 7:39 pm</span></div><div class="wxc"><span class="wxl">Glasgow</span><span class="wxv" data-temp>16° / 9°C · 61° / 48°F</span></div><span class="wxsrc" data-src>Sept average</span></div>
         <figure class="photo"><img src="img/glasgow.jpg" alt="Buchanan Street, Glasgow" loading="lazy" onerror="this.closest('.photo').classList.add('empty')"><figcaption>Buchanan Street</figcaption></figure>
         <ul>
           <li>A day in <b>Glasgow</b> — Braehead's ~1h15 from Aberdour</li>
@@ -747,6 +770,7 @@
     </div>
 
     <p class="maybe-head">Mon 14 · Loch Ness — the full-day expedition</p>
+    <div class="wx" data-wx="lochness" data-date="2026-09-14"><div class="wxc"><span class="wxl">Sunrise</span><span class="wxv">06:46 · 6:46 am</span></div><div class="wxc"><span class="wxl">Sunset</span><span class="wxv">19:39 · 7:39 pm</span></div><div class="wxc"><span class="wxl">Loch Ness</span><span class="wxv" data-temp>15° / 7°C · 59° / 45°F</span></div><span class="wxsrc" data-src>Sept average</span></div>
 
     <div class="nessie">
       <div class="nessie-art">
@@ -890,6 +914,7 @@
     <div class="dayplan">
       <div class="dwhen"><span>Tuesday 15 · Edinburgh</span><span class="v">all together</span></div>
       <h3>Tweed, a royal yacht, a hill &amp; a dark tour</h3>
+    <div class="wx" data-wx="edinburgh" data-date="2026-09-15"><div class="wxc"><span class="wxl">Sunrise</span><span class="wxv">06:44 · 6:44 am</span></div><div class="wxc"><span class="wxl">Sunset</span><span class="wxv">19:30 · 7:30 pm</span></div><div class="wxc"><span class="wxl">Edinburgh</span><span class="wxv" data-temp>16° / 9°C · 61° / 48°F</span></div><span class="wxsrc" data-src>Sept average</span></div>
       <div class="daypix dp4">
         <figure class="photo wide"><img src="img/arthurs-seat.jpg" alt="View over Edinburgh from Arthur's Seat" loading="lazy" onerror="this.closest('.photo').classList.add('empty')"><figcaption>Arthur's Seat · the view over Edinburgh</figcaption></figure>
         <figure class="photo"><img src="img/islander.jpg" alt="Islander Harris Tweed handbag" loading="lazy" onerror="this.closest('.photo').classList.add('empty')"><figcaption>Islander tweed</figcaption></figure>
@@ -914,6 +939,7 @@
   <div class="wrap">
     <div class="s-head"><span class="s-num">04</span><h2>Wednesday 16 — onward to Crete</h2></div>
     <p class="s-sub">Out of the house, a shared run into Edinburgh, then the group splits for Crete by two different routes — and meets back up out there.</p>
+    <div class="wx" data-wx="liverpool" data-date="2026-09-16"><div class="wxc"><span class="wxl">Sunrise</span><span class="wxv">06:47 · 6:47 am</span></div><div class="wxc"><span class="wxl">Sunset</span><span class="wxv">19:25 · 7:25 pm</span></div><div class="wxc"><span class="wxl">Liverpool</span><span class="wxv" data-temp>18° / 11°C · 64° / 52°F</span></div><span class="wxsrc" data-src>Sept average</span></div>
     <div class="rail">
 
       <div class="leg key">
@@ -1044,6 +1070,21 @@
   <div class="wrap">
     <div class="s-head"><span class="s-num">06</span><h2>The week in Sissi</h2></div>
     <p class="s-sub">Seven nights, and deliberately not a timetable. One dinner is booked; everything else here is an option rather than a plan — we pick from it on the day, on the weather, and on what we actually feel like. Getting to know Sissi and eastern Crete properly matters more than seeing all of it.</p>
+
+
+    <p class="maybe-head">Light &amp; heat · Sissi, day by day</p>
+    <div class="wxtable">
+      <div class="wxrow head"><span>Day</span><span>Sunrise</span><span>Sunset</span><span>High / low</span></div>
+      <div class="wxrow" data-wx="sissi" data-date="2026-09-17"><span class="d">Thu 17</span><span>07:02 · 7:02 am</span><span>19:22 · 7:22 pm</span><span data-temp>27° / 20°C · 81° / 68°F</span></div>
+      <div class="wxrow" data-wx="sissi" data-date="2026-09-18"><span class="d">Fri 18</span><span>07:02 · 7:02 am</span><span>19:20 · 7:20 pm</span><span data-temp>27° / 20°C · 81° / 68°F</span></div>
+      <div class="wxrow" data-wx="sissi" data-date="2026-09-19"><span class="d">Sat 19</span><span>07:03 · 7:03 am</span><span>19:19 · 7:19 pm</span><span data-temp>27° / 20°C · 81° / 68°F</span></div>
+      <div class="wxrow" data-wx="sissi" data-date="2026-09-20"><span class="d">Sun 20</span><span>07:04 · 7:04 am</span><span>19:17 · 7:17 pm</span><span data-temp>27° / 20°C · 81° / 68°F</span></div>
+      <div class="wxrow" data-wx="sissi" data-date="2026-09-21"><span class="d">Mon 21</span><span>07:05 · 7:05 am</span><span>19:16 · 7:16 pm</span><span data-temp>27° / 20°C · 81° / 68°F</span></div>
+      <div class="wxrow" data-wx="sissi" data-date="2026-09-22"><span class="d">Tue 22</span><span>07:05 · 7:05 am</span><span>19:14 · 7:14 pm</span><span data-temp>27° / 20°C · 81° / 68°F</span></div>
+      <div class="wxrow" data-wx="sissi" data-date="2026-09-23"><span class="d">Wed 23</span><span>07:06 · 7:06 am</span><span>19:13 · 7:13 pm</span><span data-temp>27° / 20°C · 81° / 68°F</span></div>
+      <div class="wxrow" data-wx="sissi" data-date="2026-09-24"><span class="d">Thu 24</span><span>07:07 · 7:07 am</span><span>19:11 · 7:11 pm</span><span data-temp>27° / 20°C · 81° / 68°F</span></div>
+    </div>
+    <p class="fineprint">Every dinner here is built around golden hour, so the sunset column is the one that matters — it slips from 19:22 on the Thursday you land to 19:11 on the day you leave. Temperatures show live forecast once we're inside the window; until then they're the September average.</p>
 
     <p class="maybe-head">The one fixed evening</p>
     <div class="basecard">
@@ -1479,6 +1520,31 @@
       cb.addEventListener('change', ()=>{ try{ localStorage.setItem(key, cb.checked ? '1' : '0'); }catch(e){} });
     }catch(e){}
   });
+
+  /* ---- live weather: replaces the baked September averages when the API answers ---- */
+  (function(){
+    var L={buffalo:[42.8864,-78.8784],edinburgh:[55.9533,-3.1883],glasgow:[55.8642,-4.2518],
+           lochness:[57.3345,-4.4800],liverpool:[53.4084,-2.9916],sissi:[35.3087,25.5232]};
+    var keys=Object.keys(L);
+    var url='https://api.open-meteo.com/v1/forecast'
+      +'?latitude='+keys.map(function(k){return L[k][0]}).join(',')
+      +'&longitude='+keys.map(function(k){return L[k][1]}).join(',')
+      +'&daily=temperature_2m_max,temperature_2m_min&timezone=auto&past_days=5&forecast_days=16';
+    var F=function(c){return Math.round(c*9/5+32)};
+    fetch(url).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(data){
+      var arr=Array.isArray(data)?data:[data], by={};
+      keys.forEach(function(k,i){ if(arr[i]&&arr[i].daily) by[k]=arr[i].daily; });
+      document.querySelectorAll('[data-wx]').forEach(function(el){
+        var d=by[el.getAttribute('data-wx')]; if(!d||!d.time) return;
+        var i=d.time.indexOf(el.getAttribute('data-date')); if(i<0) return;
+        var hi=d.temperature_2m_max[i], lo=d.temperature_2m_min[i];
+        if(hi==null||lo==null) return;
+        var t=el.querySelector('[data-temp]');
+        if(t) t.textContent=Math.round(hi)+'\u00B0 / '+Math.round(lo)+'\u00B0C \u00B7 '+F(hi)+'\u00B0 / '+F(lo)+'\u00B0F';
+        var src=el.querySelector('[data-src]'); if(src) src.textContent='Live forecast';
+      });
+    }).catch(function(){ /* keep the baked averages */ });
+  })();
 </script>
 </body>
 </html>
