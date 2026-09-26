@@ -1,11 +1,20 @@
-# Fife Run — Sep 11–16, 2026 🛳️
+# Trips — a living travel log 🧭
+
+A multi-trip site. The home page (`index.html`) is a menu; each trip is its own page:
+
+- **The Fife Run** (Sep 2026) — `fife.html`
+- **Rome, Barcelona & the Med** (May 2027) — `rome-med.html`
+
+No build step, no framework — plain self-contained HTML pages that share the `img/` folder
+and `favicon.svg`. Edit a file, push, and the site updates.
+
+---
+
+## The Fife Run — Sep 11–16, 2026 🛳️
 
 A living itinerary for Robert & Suzanne (over from Belfast by ferry) and SO & Emily
 (in from Buffalo via London), meeting at **The 1881 – A Period Home, Aberdour** for the
-week — then everyone onward to Crete.
-
-The whole plan lives in `index.html`. Edit that file, push, and the website updates.
-No build step, no framework — it's one self-contained page.
+week — then everyone onward to Crete. The plan now lives in **`fife.html`**.
 
 **Photos:** the page has framed photo slots (the 1881, Cafebar 1912, Loch Ness). Drop JPEGs
 into the [`img/`](img/) folder with the filenames listed in [`img/README.md`](img/README.md)

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rome → Barcelona → the Med · May 2027</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="apple-touch-icon" href="favicon.svg" />
+<meta name="theme-color" content="#0F2330" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --harbour:#0F2330; --harbour-2:#14303F; --harbour-3:#1B3C4D; --paper:#F3EEE0;
+    --brass:#E8B04B; --tide:#5FB0C4; --foam:#F4F0E6; --mist:#90A6B0;
+    --line:rgba(244,240,230,.12); --line-strong:rgba(244,240,230,.22);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--harbour);color:var(--foam);font-family:"Inter",system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+  a{color:var(--tide)}
+  .triplink{display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--tide);text-decoration:none;padding:14px 22px 0;max-width:760px;margin:0 auto}
+
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--tide);margin:0 0 10px}
+  header{padding:40px 0 40px;position:relative;overflow:hidden}
+  .compass{position:absolute;right:-60px;top:-30px;width:240px;height:240px;border-radius:50%;border:1px solid var(--line);opacity:.5}
+  .compass::after{content:"";position:absolute;inset:26px;border-radius:50%;border:1px dashed var(--line)}
+  h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(34px,8vw,58px);line-height:1.02;letter-spacing:-.01em;margin:0 0 18px}
+  h1 .arrow{color:var(--brass);font-weight:400}
+  .dates{font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--mist);display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:26px}
+  .dates b{color:var(--foam);font-weight:500}
+  .crew{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
+  .crew span{font-size:13px;border:1px solid var(--line-strong);border-radius:100px;padding:5px 13px;color:var(--mist)}
+  .crew span b{color:var(--foam);font-weight:600}
+  .board{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .tile{background:var(--harbour-2);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px}
+  .tile .lbl{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--tide);margin-bottom:10px}
+  .tile .time{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:26px;color:var(--brass);line-height:1}
+  .tile .sub{font-size:13px;color:var(--mist);margin-top:7px}
+
+  section{padding:46px 0;border-top:1px solid var(--line)}
+  .s-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+  .s-num{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--brass);padding-top:4px}
+  h2{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(24px,5vw,34px);margin:0;letter-spacing:-.01em}
+  .s-sub{color:var(--mist);font-size:15px;margin:4px 0 24px}
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .card{background:var(--harbour-2);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .card .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--harbour);background:var(--tide);border-radius:100px;padding:3px 9px;margin-bottom:11px}
+  .card h3{margin:0 0 5px;font-size:16.5px;font-weight:600}
+  .card p{margin:0;color:var(--mist);font-size:14px}
+  .card p b{color:var(--foam);font-weight:600}
+  .editme{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--tide);margin-top:16px}
+
+  .note{margin-top:12px;font-size:13.5px;color:var(--foam);background:var(--harbour-2);border-left:2px solid var(--brass);padding:9px 13px;border-radius:0 8px 8px 0}
+  .note b{color:var(--foam)}
+
+  /* cruise feature */
+  .cruise{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--harbour-2)}
+  .cruise-art{line-height:0}
+  .cruise-art svg{display:block;width:100%;height:auto}
+  .cruise-body{padding:22px 22px 24px}
+  .cruise-body .est{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--tide)}
+  .cruise-body h3{font-family:"Fraunces",serif;font-weight:600;font-size:24px;margin:6px 0 12px;letter-spacing:-.01em}
+  .cruise-body p{margin:0 0 12px;color:var(--mist);font-size:14.5px}
+  .cruise-body p:last-of-type{margin-bottom:0}
+  .cruise-body p b{color:var(--foam);font-weight:600}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin:4px 0 14px}
+  .field .k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);margin-bottom:3px}
+  .field .v{font-size:15px;font-weight:500;color:var(--foam)}
+  .itin{margin-top:8px;border-top:1px solid var(--line)}
+  .iday{display:grid;grid-template-columns:72px 1fr;gap:14px;padding:12px 2px;border-bottom:1px solid var(--line)}
+  .iday .when{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--brass);line-height:1.35}
+  .iday .when small{display:block;color:var(--mist);font-size:10.5px;letter-spacing:.06em}
+  .iday .port b{font-size:15px;color:var(--foam);font-weight:600}
+  .iday .port span{display:block;font-size:13px;color:var(--mist);margin-top:2px}
+
+  /* checklist */
+  .ck-group{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--tide);margin:24px 0 4px}
+  .ck-group:first-of-type{margin-top:4px}
+  .ck-group.done{color:var(--mist)}
+  .ck{position:relative;display:grid;grid-template-columns:24px 1fr;gap:13px;align-items:start;padding:13px 2px;border-top:1px solid var(--line);cursor:pointer}
+  .ck input{position:absolute;opacity:0;width:0;height:0;margin:0}
+  .ck .box{width:21px;height:21px;border:2px solid var(--line-strong);border-radius:6px;margin-top:1px;display:grid;place-items:center;transition:background .15s,border-color .15s}
+  .ck:hover .box{border-color:var(--mist)}
+  .ck input:checked + .box{background:var(--brass);border-color:var(--brass)}
+  .ck input:checked + .box::after{content:"✓";color:var(--harbour);font-size:13px;font-weight:700;line-height:1}
+  .ck-body{font-size:14.5px;color:var(--mist);line-height:1.5}
+  .ck-body b{color:var(--foam);font-weight:600}
+  .ck input:checked ~ .ck-body{opacity:.45;text-decoration:line-through;text-decoration-color:var(--line-strong)}
+  .fineprint{font-size:13px;color:var(--mist);margin:16px 0 0}
+
+  footer{padding:40px 0 70px;border-top:1px solid var(--line);color:var(--mist);font-size:14px}
+  footer a{color:var(--tide);text-decoration:none}
+
+  @media (max-width:560px){
+    .board{grid-template-columns:1fr}
+    .cards{grid-template-columns:1fr}
+    .grid2{grid-template-columns:1fr}
+    .compass{display:none}
+  }
+</style>
+</head>
+<body>
+<a href="index.html" class="triplink">← All trips</a>
+
+<header>
+  <div class="wrap">
+    <div class="compass"></div>
+    <p class="eyebrow">Two cities, then seven nights at sea · May 2027</p>
+    <h1>Rome <span class="arrow">→</span> Barcelona <span class="arrow">→</span> the Med</h1>
+    <div class="dates">
+      <span><b>Sun 9</b> – <b>Sun 23</b> May 2027</span>
+      <span>2 weeks</span>
+      <span>Virgin Voyages · Resilient Lady</span>
+    </div>
+    <div class="crew">
+      <span><b>Robert</b> &amp; Suzanne</span>
+      <span><b>SO</b> &amp; Emily</span>
+      <span>all four — meeting in Rome</span>
+    </div>
+    <div class="board">
+      <div class="tile">
+        <div class="lbl">Meet in Rome</div>
+        <div class="time">Sun 9</div>
+        <div class="sub">everyone into Rome</div>
+      </div>
+      <div class="tile">
+        <div class="lbl">To Barcelona</div>
+        <div class="time">Sat 15</div>
+        <div class="sub">over for the ship</div>
+      </div>
+      <div class="tile">
+        <div class="lbl">Set sail</div>
+        <div class="time">Sun 16</div>
+        <div class="sub">Resilient Lady</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ROME -->
+<section>
+  <div class="wrap">
+    <div class="s-head"><span class="s-num">01</span><h2>Rome</h2></div>
+    <p class="s-sub">Sun 9 – Fri 15 May · six days in the city, wide open. Everyone flies into Rome and it starts from there — a few seeds to draw out together.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="tag">The ancient city</div>
+        <h3>Colosseum &amp; the Forum</h3>
+        <p>The <b>Colosseum</b>, <b>Roman Forum</b> and Palatine Hill — a timed ticket, booked ahead, gets you all three.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Vatican City</div>
+        <h3>St Peter's &amp; the Museums</h3>
+        <p><b>St Peter's Basilica</b>, the <b>Vatican Museums</b> and the Sistine Chapel. Pre-book — the queues are legendary.</p>
+      </div>
+      <div class="card">
+        <div class="tag">On foot</div>
+        <h3>The baroque wander</h3>
+        <p><b>Pantheon</b>, <b>Trevi Fountain</b>, Piazza Navona and the Spanish Steps — all walkable in an afternoon.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Evenings</div>
+        <h3>Trastevere &amp; the food</h3>
+        <p>Cobbled lanes and trattorias in <b>Trastevere</b> — cacio e pepe, carbonara, supplì, gelato. Maybe a food tour.</p>
+      </div>
+    </div>
+    <p class="editme">▸ Rome's the open part — edit this section as the days firm up.</p>
+  </div>
+</section>
+
+<!-- ROME -> BARCELONA -->
+<section>
+  <div class="wrap">
+    <div class="s-head"><span class="s-num">02</span><h2>Rome → Barcelona</h2></div>
+    <p class="s-sub">Sat 15 May · over to Barcelona for the ship, with a night in town before we board.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="tag">The hop</div>
+        <h3>Fly Rome → Barcelona</h3>
+        <p>Rome (FCO) → Barcelona (BCN) is about <b>1h55</b> — Vueling, ITA and Ryanair all run it through the day.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Sat night</div>
+        <h3>A night in Barcelona</h3>
+        <p>Land, drop the bags and get a first taste of the city — Gothic Quarter, La Rambla, tapas — before boarding on Sunday.</p>
+      </div>
+    </div>
+    <div class="note">✈ Flights and the Barcelona night are still to book — see <b>Still to plan</b> below.</div>
+  </div>
+</section>
+
+<!-- THE CRUISE -->
+<section>
+  <div class="wrap">
+    <div class="s-head"><span class="s-num">03</span><h2>The cruise</h2></div>
+    <p class="s-sub">Sun 16 – Sun 23 May · seven nights round the western Med, out and back from Barcelona — Cannes, Toulon, Valencia and an overnight in Ibiza.</p>
+    <div class="cruise">
+      <div class="cruise-art">
+        <svg viewBox="0 0 760 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A cruise ship on a Mediterranean sea at sunset">
+          <defs>
+            <linearGradient id="csky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14303F"/><stop offset=".55" stop-color="#6a5560"/><stop offset="1" stop-color="#e0a15a"/></linearGradient>
+            <linearGradient id="csea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f7f8c"/><stop offset="1" stop-color="#14303F"/></linearGradient>
+          </defs>
+          <rect width="760" height="132" fill="url(#csky)"/>
+          <circle cx="560" cy="110" r="34" fill="#E8B04B" opacity=".9"/><circle cx="560" cy="110" r="54" fill="#E8B04B" opacity=".16"/>
+          <rect y="130" width="760" height="70" fill="url(#csea)"/>
+          <rect x="544" y="132" width="32" height="66" fill="#E8B04B" opacity=".22"/>
+          <g fill="#0F2330">
+            <path d="M150 150h210l-16 20a6 6 0 0 1-5 3H171a6 6 0 0 1-5-3l-16-20z"/>
+            <path d="M188 150v-16h108l14 16z"/>
+            <rect x="206" y="122" width="66" height="12" rx="2"/>
+            <rect x="230" y="110" width="12" height="14"/>
+          </g>
+          <g stroke="#5FB0C4" stroke-opacity=".35" stroke-width="1.6" stroke-linecap="round"><line x1="70" y1="168" x2="130" y2="168"/><line x1="600" y1="180" x2="680" y2="180"/><line x1="360" y1="190" x2="430" y2="190"/></g>
+        </svg>
+      </div>
+      <div class="cruise-body">
+        <div class="est">Virgin Voyages · booked ✓</div>
+        <h3>Resilient Lady — French Riviera, Spain &amp; Ibiza</h3>
+        <div class="grid2">
+          <div class="field"><div class="k">Sails</div><div class="v">Sun 16 → Sun 23 May 2027</div></div>
+          <div class="field"><div class="k">Nights</div><div class="v">7 · round-trip Barcelona</div></div>
+          <div class="field"><div class="k">Ship</div><div class="v">Resilient Lady · adults-only</div></div>
+          <div class="field"><div class="k">Highlight</div><div class="v">An overnight in Ibiza</div></div>
+        </div>
+        <p>The western Med, Virgin's way: no kids on board, and <b>tips, WiFi and the restaurants all included</b>. <b>Cannes</b> and <b>Toulon</b> on the French Riviera, <b>Valencia</b> on the Spanish coast, and a rare <b>overnight in Ibiza</b> — so no rushing back for the last tender.</p>
+        <div class="itin">
+          <div class="iday"><div class="when">Sun 16<small>Day 1</small></div><div class="port"><b>Barcelona</b> · embark<span>Departs 17:00 — all aboard by 16:00</span></div></div>
+          <div class="iday"><div class="when">Mon 17<small>Day 2</small></div><div class="port"><b>Cannes</b>, France<span>09:00 – 21:00 · tender port</span></div></div>
+          <div class="iday"><div class="when">Tue 18<small>Day 3</small></div><div class="port"><b>Provence (Toulon)</b>, France<span>08:00 – 18:00</span></div></div>
+          <div class="iday"><div class="when">Wed 19<small>Day 4</small></div><div class="port"><b>At sea</b><span>a full sailing day</span></div></div>
+          <div class="iday"><div class="when">Thu 20<small>Day 5</small></div><div class="port"><b>Valencia</b>, Spain<span>08:00 – 17:00</span></div></div>
+          <div class="iday"><div class="when">Fri 21<small>Day 6</small></div><div class="port"><b>Ibiza</b>, Spain<span>arrives 19:00 — overnight aboard</span></div></div>
+          <div class="iday"><div class="when">Sat 22<small>Day 7</small></div><div class="port"><b>Ibiza</b>, Spain<span>departs 17:00</span></div></div>
+          <div class="iday"><div class="when">Sun 23<small>Day 8</small></div><div class="port"><b>Barcelona</b> · home<span>arrives 06:30</span></div></div>
+        </div>
+        <p class="fineprint">⚓ Ports are set from the booking. <b>Shore Things &amp; dining</b> open on the Virgin app <b>16 Jan 2027</b> — that's when we lock in the Ibiza plans and any excursions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STILL TO PLAN -->
+<section>
+  <div class="wrap">
+    <div class="s-head"><span class="s-num">04</span><h2>Still to plan</h2></div>
+    <p class="s-sub">The cruise is booked — this is everything around it. Tick them off as they're done.</p>
+
+    <p class="ck-group">Book — flights &amp; beds</p>
+    <label class="ck"><input type="checkbox" data-ck="fly-rome"><span class="box"></span><span class="ck-body"><b>Flights to Rome.</b> Everyone into Rome for <b>Sun 9 May</b> — Robert &amp; Suzanne from Belfast, SO &amp; Emily from Buffalo (via a hub). Line the arrivals up so we meet the same day.</span></label>
+    <label class="ck"><input type="checkbox" data-ck="stay-rome"><span class="box"></span><span class="ck-body"><b>Rome stay.</b> Six nights, <b>9–15 May</b> — somewhere central (Trastevere / Monti / near the Pantheon) so it's all walkable.</span></label>
+    <label class="ck"><input type="checkbox" data-ck="fly-bcn"><span class="box"></span><span class="ck-body"><b>Rome → Barcelona flights.</b> <b>Sat 15 May</b>, FCO → BCN (~1h55). Book once the Rome dates are locked.</span></label>
+    <label class="ck"><input type="checkbox" data-ck="stay-bcn"><span class="box"></span><span class="ck-body"><b>Barcelona overnight.</b> One night on the 15th before boarding on the Sunday — handy for the port.</span></label>
+
+    <p class="ck-group">Nearer the time</p>
+    <label class="ck"><input type="checkbox" data-ck="shore"><span class="box"></span><span class="ck-body"><b>Shore Things &amp; dining.</b> Opens <b>16 Jan 2027</b> on the Virgin app — book the Ibiza plans, dinners and any Bar Tab then.</span></label>
+
+    <p class="ck-group done">Done</p>
+    <label class="ck"><input type="checkbox" data-ck="cruise" checked><span class="box"></span><span class="ck-body"><b>The cruise.</b> Resilient Lady, 16–23 May, round-trip Barcelona — booked with Virgin Voyages.</span></label>
+
+    <p class="fineprint">Booking references are kept off this public page.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><a href="index.html">← All trips</a></p>
+    <p style="margin-top:6px">A living plan — edit it in the repo and it updates here. Drawn up Sep 2026.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.ck input[data-ck]').forEach(function(cb){
+    try{
+      var key='rome:'+cb.dataset.ck;
+      var saved=localStorage.getItem(key);
+      if(saved==='1') cb.checked=true;
+      if(saved==='0') cb.checked=false;
+      cb.addEventListener('change',function(){ try{ localStorage.setItem(key, cb.checked?'1':'0'); }catch(e){} });
+    }catch(e){}
+  });
+</script>
+</body>
+</html>
