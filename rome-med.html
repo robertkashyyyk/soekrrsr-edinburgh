@@ -92,12 +92,35 @@
   .ck input:checked ~ .ck-body{opacity:.45;text-decoration:line-through;text-decoration-color:var(--line-strong)}
   .fineprint{font-size:13px;color:var(--mist);margin:16px 0 0}
 
+  /* hotel shortlist */
+  .tierlabel{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin:22px 0 2px}
+  .tierlabel small{color:var(--mist);letter-spacing:.04em;text-transform:none}
+  .hotels{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+  .hotel{background:var(--harbour-2);border:1px solid var(--line);border-radius:14px;padding:15px 17px 14px;display:flex;flex-direction:column;gap:4px}
+  .hotel h4{margin:0;font-size:15.5px;font-weight:600;color:var(--foam);line-height:1.25}
+  .hotel .harea{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--tide)}
+  .hotel .hdesc{font-size:13px;color:var(--mist);margin:3px 0 0}
+  .hotel .hmeta{margin-top:9px;display:flex;flex-wrap:wrap;gap:7px 11px;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:12px}
+  .hotel .hprice{color:var(--brass);font-weight:600}
+  .hotel .hscore{color:var(--foam);background:var(--harbour-3);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
+  .hotel .hlink{margin-left:auto;color:var(--tide);text-decoration:none}
+  .hotel .hlink:hover{color:var(--foam)}
+
+  /* dining rota */
+  .rota{margin-top:10px;border-top:1px solid var(--line)}
+  .rota .r{display:grid;grid-template-columns:104px 1fr;gap:14px;padding:11px 2px;border-bottom:1px solid var(--line)}
+  .rota .r .rd{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--brass);line-height:1.3}
+  .rota .r .rd small{display:block;color:var(--mist);font-size:10px;letter-spacing:.05em}
+  .rota .r .rr b{color:var(--foam);font-weight:600;font-size:15px}
+  .rota .r .rr span{display:block;font-size:12.5px;color:var(--mist);margin-top:1px}
+
   footer{padding:40px 0 70px;border-top:1px solid var(--line);color:var(--mist);font-size:14px}
   footer a{color:var(--tide);text-decoration:none}
 
   @media (max-width:560px){
     .board{grid-template-columns:1fr}
     .cards{grid-template-columns:1fr}
+    .hotels{grid-template-columns:1fr}
     .grid2{grid-template-columns:1fr}
     .compass{display:none}
   }
@@ -166,9 +189,73 @@
       <div class="card">
         <div class="tag">Evenings</div>
         <h3>Trastevere &amp; the food</h3>
-        <p>Cobbled lanes and trattorias in <b>Trastevere</b> — cacio e pepe, carbonara, supplì, gelato. Maybe a food tour.</p>
+        <p>Cobbled lanes and trattorias in <b>Trastevere</b> — cacio e pepe, carbonara, supplì, gelato. Maybe a food tour or a cooking class.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Art &amp; green</div>
+        <h3>Borghese Gallery &amp; gardens</h3>
+        <p>Bernini and Caravaggio in the <b>Galleria Borghese</b> (timed entry, book ahead), then the park — bikes, a rowboat, and the Pincio terrace over the city.</p>
+      </div>
+      <div class="card">
+        <div class="tag">A day out</div>
+        <h3>Out of the city</h3>
+        <p>Eight days is plenty for a day trip — the fountains of <b>Tivoli</b> (Villa d'Este &amp; Hadrian's Villa), or the ruins of <b>Ostia Antica</b>, a short train from town.</p>
       </div>
     </div>
+
+    <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:21px;margin:34px 0 2px;letter-spacing:-.01em">Where we might stay</h3>
+    <p class="s-sub" style="margin:6px 0 0">Six that hit the whole brief — <b>2 bedrooms · 2 bathrooms · a terrace · a washing machine</b> — for the eight nights, all four of us. Two at each budget. Prices are indicative (a quick look at 4 guests); logged in and split over two rooms they often come in lower, so tap through for live rates.</p>
+
+    <p class="tierlabel">Easy on the wallet <small>· around £175–190 / night</small></p>
+    <div class="hotels">
+      <div class="hotel">
+        <div class="harea">Monteverde · the hill</div>
+        <h4>Monteverde 2BDR Penthouse</h4>
+        <p class="hdesc">A proper <b>private roof terrace</b> with an open view over Rome's rooftops — the pick of the value lot. Lift, dishwasher, washer.</p>
+        <div class="hmeta"><span class="hprice">~£175/night</span><span class="hscore">9.3</span><a class="hlink" href="https://www.booking.com/hotel/it/monteverde-2bdr-penthouse.en-gb.html?checkin=2027-05-07&amp;checkout=2027-05-15&amp;group_adults=4&amp;no_rooms=1" target="_blank" rel="noopener">View →</a></div>
+      </div>
+      <div class="hotel">
+        <div class="harea">Residential Rome</div>
+        <h4>Bencivenga Terrace</h4>
+        <p class="hdesc">Bright 2-bed with its own terrace and the highest guest score of the six — quiet, easy metro into the middle.</p>
+        <div class="hmeta"><span class="hprice">~£190/night</span><span class="hscore">9.4</span><a class="hlink" href="https://www.booking.com/hotel/it/bencivenga-terrace.en-gb.html?checkin=2027-05-07&amp;checkout=2027-05-15&amp;group_adults=4&amp;no_rooms=1" target="_blank" rel="noopener">View →</a></div>
+      </div>
+    </div>
+
+    <p class="tierlabel">Middle of the road <small>· around £190–310 / night</small></p>
+    <div class="hotels">
+      <div class="hotel">
+        <div class="harea">Prati · by the Vatican</div>
+        <h4>Collection39 — Luxury Terrace Penthouse</h4>
+        <p class="hdesc">An <b>attico</b> with a private terrace, steps from the Vatican — Robert's find, about <b>£190/night</b> for the whole stay logged in. Smart and central.</p>
+        <div class="hmeta"><span class="hprice">~£190/night</span><span class="hscore">9.1</span><a class="hlink" href="https://www.booking.com/hotel/it/vaticano-attico-luxury-terrazzo.en-gb.html?checkin=2027-05-07&amp;checkout=2027-05-15&amp;group_adults=4&amp;no_rooms=2" target="_blank" rel="noopener">View →</a></div>
+      </div>
+      <div class="hotel">
+        <div class="harea">By Castel Sant'Angelo</div>
+        <h4>Attic Castel Sant'Angelo — Pantheon</h4>
+        <p class="hdesc">Top-floor terrace between the castle and the Pantheon — dead central, with a big pile of happy reviews.</p>
+        <div class="hmeta"><span class="hprice">~£310/night</span><span class="hscore">9.1</span><a class="hlink" href="https://www.booking.com/hotel/it/domus-attic-castel-sant-angelo.en-gb.html?checkin=2027-05-07&amp;checkout=2027-05-15&amp;group_adults=4&amp;no_rooms=1" target="_blank" rel="noopener">View →</a></div>
+      </div>
+    </div>
+
+    <p class="tierlabel">All guns blazing <small>· around £480 / night</small></p>
+    <div class="hotels">
+      <div class="hotel">
+        <div class="harea">Vatican</div>
+        <h4>Domus Lunae — private terrace</h4>
+        <p class="hdesc">A luxury home with its own terrace and a near-perfect score — the plush end of the shortlist.</p>
+        <div class="hmeta"><span class="hprice">~£480/night</span><span class="hscore">9.7</span><a class="hlink" href="https://www.booking.com/hotel/it/domus-lunae.en-gb.html?checkin=2027-05-07&amp;checkout=2027-05-15&amp;group_adults=4&amp;no_rooms=1" target="_blank" rel="noopener">View →</a></div>
+      </div>
+      <div class="hotel">
+        <div class="harea">Colosseum · 450m</div>
+        <h4>Galaxy Colosseum Apartment</h4>
+        <p class="hdesc">Terrace apartment a few minutes from the Colosseum itself — history on the doorstep, two baths, washer.</p>
+        <div class="hmeta"><span class="hprice">~£487/night</span><span class="hscore">9.5</span><a class="hlink" href="https://www.booking.com/hotel/it/galaxy-colosseum-apartment.en-gb.html?checkin=2027-05-07&amp;checkout=2027-05-15&amp;group_adults=4&amp;no_rooms=1" target="_blank" rel="noopener">View →</a></div>
+      </div>
+    </div>
+
+    <div class="note">🏠 All six are filtered for exactly the brief — <b>2 bed / 2 bath / terrace / washing machine</b>. The cheaper two sit up in the hills (best views, a quick hop in); the pricier ones put you right in the thick of it. <b>Re-price for 7–15 May with the four of us</b> when you book, and grab it — some of these move fast.</div>
+
     <p class="editme">▸ Rome's the open part — edit this section as the days firm up.</p>
   </div>
 </section>
@@ -177,20 +264,20 @@
 <section>
   <div class="wrap">
     <div class="s-head"><span class="s-num">02</span><h2>Rome → Barcelona</h2></div>
-    <p class="s-sub">Sat 15 May · over to Barcelona for the ship, with a night in town before we board.</p>
+    <p class="s-sub">Sat 15 May · over to Barcelona for the ship, one night in town before we board. We're not here for a deep dive — just enough to say we saw it.</p>
     <div class="cards">
       <div class="card">
         <div class="tag">The hop</div>
         <h3>Fly Rome → Barcelona</h3>
-        <p>Rome (FCO) → Barcelona (BCN), about <b>1h55</b> direct. <b>Vueling 13:45 → 15:40</b> is the pick — lands mid-afternoon for a first evening in the city; their 17:45 is a touch cheaper if we want more of Rome's Saturday.</p>
+        <p>Rome (FCO) → Barcelona (BCN), about <b>1h55</b> direct. <b>Vueling 13:45 → 15:40</b> is the pick — lands mid-afternoon; their 17:45 is a touch cheaper if we want more of Rome's Saturday.</p>
       </div>
       <div class="card">
-        <div class="tag">Sat night</div>
-        <h3>A night in Barcelona</h3>
-        <p>Land, drop the bags and get a first taste of the city — Gothic Quarter, La Rambla, tapas — before boarding on Sunday.</p>
+        <div class="tag">Do the sights, lightly</div>
+        <h3>The open-top bus</h3>
+        <p>Barcelona's a bit much to fall in love with in an evening — so a <b>couple of hours on the hop-on open-top bus</b> (Bus Turístic) does the job: Sagrada Família, Montjuïc, the waterfront, all from the top deck. Then tapas and an early night before boarding.</p>
       </div>
     </div>
-    <div class="note">✈ Flights and the Barcelona night are still to book — see <b>Still to plan</b> below.</div>
+    <div class="note">✈ Flights and the Barcelona night are still to book — a bed near the <b>World Trade Center / cruise port</b> makes Sunday's roll to the ship painless. See <b>Still to plan</b> below.</div>
   </div>
 </section>
 
@@ -240,27 +327,64 @@
           <div class="iday"><div class="when">Sun 23<small>Day 8</small></div><div class="port"><b>Barcelona</b> · home<span>arrives 06:30</span></div></div>
         </div>
         <p class="fineprint">⚓ Ports are set from the booking. <b>Shore Things &amp; dining</b> open on the Virgin app <b>16 Jan 2027</b> — that's when we lock in the Ibiza plans and any excursions.</p>
+        <div class="note">🎧 <b>Ibiza night (Fri 21):</b> the whole point of the overnight — a proper <b>club night</b>, back aboard whenever. The big rooms are <b>Ushuaïa</b> &amp; <b>Hï</b> (Playa d'en Bossa, near the port), plus <b>Pacha</b>, <b>Amnesia</b> and <b>DC-10</b>. Line-ups and tickets for summer '27 won't drop until <b>early 2027</b> — so we watch the announcements, then pick the night's best set and book.</div>
         <div class="note">✈ <b>Home, Sun 23:</b> the ship’s in at 06:30, then both fly out of Barcelona — Robert &amp; Suzanne on the easyJet direct to Belfast (10:30 → 12:25), SO &amp; Emily back to Buffalo via New York, in at 18:54. <i>(Found, still to book.)</i></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ONBOARD DINING -->
+<section>
+  <div class="wrap">
+    <div class="s-head"><span class="s-num">04</span><h2>Onboard eats</h2></div>
+    <p class="s-sub">Resilient Lady's real party trick: no buffet, twenty-odd spots, and <b>six proper restaurants — all included</b>. The plan's simple — <b>every restaurant at least once</b>, a sit-down breakfast when we fancy it, and no times pinned until the events line-up lands.</p>
+
+    <p class="ck-group" style="color:var(--tide)">Breakfast</p>
+    <div class="cards">
+      <div class="card">
+        <div class="tag">Most mornings</div>
+        <h3>Razzle Dazzle</h3>
+        <p>The easy sit-down — a proper brunch daily, a bit naughty or a bit nice. Our default, including <b>early doors on disembarkation morning (Sun 23)</b> before we roll off.</p>
+      </div>
+      <div class="card">
+        <div class="tag">The lazy one</div>
+        <h3>The Wake · brunch</h3>
+        <p>The grown-up sit-down — brunch on the <b>sea day (Wed 19)</b>, maybe a second lazy port morning too. That's our two-sit-downs-some-days. <b>The Galley</b> does quick grab-and-go on early port starts.</p>
+      </div>
+    </div>
+
+    <p class="ck-group" style="color:var(--tide)">Dinner — one lap of all six</p>
+    <div class="rota">
+      <div class="r"><div class="rd">Sun 16<small>Embark</small></div><div class="rr"><b>Extra Virgin</b><span>Handmade pasta, gelato affogato — a first-night Italian to ease in.</span></div></div>
+      <div class="r"><div class="rd">Mon 17<small>Cannes</small></div><div class="rr"><b>The Wake</b><span>Steak &amp; seafood, 1960s supper-club glamour.</span></div></div>
+      <div class="r"><div class="rd">Tue 18<small>Toulon</small></div><div class="rr"><b>Pink Agave</b><span>Proper Mexican — tlayudas, tacos, a mezcal or three.</span></div></div>
+      <div class="r"><div class="rd">Wed 19<small>At sea</small></div><div class="rr"><b>The Test Kitchen</b><span>The experimental tasting menu — right for a slow sea day.</span></div></div>
+      <div class="r"><div class="rd">Thu 20<small>Valencia</small></div><div class="rr"><b>Gunbae</b><span>Korean BBQ round a shared grill — the loud, fun one.</span></div></div>
+      <div class="r"><div class="rd">Fri 21<small>Ibiza</small></div><div class="rr"><b>Ashore — the club</b><span>Off ship for the overnight and the club night; eat in town.</span></div></div>
+      <div class="r"><div class="rd">Sat 22<small>Ibiza</small></div><div class="rr"><b>Razzle Dazzle by Night</b><span>Back aboard for the sixth and last — New-American with a wink.</span></div></div>
+    </div>
+    <p class="fineprint">🍽️ That's all six covered. Fill the gaps with the casual spots — <b>The Galley</b> food hall, <b>the Pizza Place</b>, the <b>24-hour diner</b>, gelato and <b>Grounds Club</b> coffee. <b>No times locked</b> — dinner bookings open with Shore Things, and we'll slot them around whatever the Ibiza line-up makes us do.</p>
+  </div>
+</section>
+
 <!-- STILL TO PLAN -->
 <section>
   <div class="wrap">
-    <div class="s-head"><span class="s-num">04</span><h2>Still to plan</h2></div>
+    <div class="s-head"><span class="s-num">05</span><h2>Still to plan</h2></div>
     <p class="s-sub">The cruise is booked — this is everything around it. Tick them off as they're done.</p>
 
     <p class="ck-group">Book — flights &amp; beds</p>
     <label class="ck"><input type="checkbox" data-ck="fly-rome"><span class="box"></span><span class="ck-body"><b>Flights to Rome.</b> Everyone in for <b>Fri 7 May</b> — R&amp;S on the easyJet <b>direct</b> from Belfast (07:00→11:00), SO &amp; Emily overnight from Buffalo via New York (JFK), in ~10:10. Found — still to book.</span></label>
-    <label class="ck"><input type="checkbox" data-ck="stay-rome"><span class="box"></span><span class="ck-body"><b>Rome stay.</b> <b>Eight nights, 7–15 May</b> (four adults) — a central apartment (Prati/Vatican, Piazza del Popolo–Spagna, or near the Pantheon). Shortlist drawn up; <b>re-price it for the 7th</b> now the trip starts two nights earlier.</span></label>
+    <label class="ck"><input type="checkbox" data-ck="stay-rome"><span class="box"></span><span class="ck-body"><b>Rome stay.</b> <b>Eight nights, 7–15 May</b>, all four — pick from the <b>six on the shortlist above</b> (2 bed / 2 bath / terrace / washer). Re-price for the four of us and book before the good ones go.</span></label>
     <label class="ck"><input type="checkbox" data-ck="fly-bcn"><span class="box"></span><span class="ck-body"><b>Rome → Barcelona flights.</b> <b>Sat 15 May</b>, FCO → BCN direct (~1h55) — <b>Vueling ~13:45</b> for all four. Found — still to book.</span></label>
     <label class="ck"><input type="checkbox" data-ck="stay-bcn"><span class="box"></span><span class="ck-body"><b>Barcelona overnight.</b> One night on the 15th before boarding — near the <b>World Trade Center</b> / cruise port for an easy roll to the ship on the Sunday.</span></label>
     <label class="ck"><input type="checkbox" data-ck="fly-home"><span class="box"></span><span class="ck-body"><b>Flights home · Sun 23.</b> Off the ship at 06:30, then out of Barcelona — R&amp;S easyJet <b>direct</b> to Belfast (10:30→12:25), SO &amp; Emily to Buffalo via New York (in 18:54). Found — still to book.</span></label>
 
     <p class="ck-group">Nearer the time</p>
-    <label class="ck"><input type="checkbox" data-ck="shore"><span class="box"></span><span class="ck-body"><b>Shore Things &amp; dining.</b> Opens <b>16 Jan 2027</b> on the Virgin app — book the Ibiza plans, dinners and any Bar Tab then.</span></label>
+    <label class="ck"><input type="checkbox" data-ck="shore"><span class="box"></span><span class="ck-body"><b>Shore Things &amp; dining.</b> Opens <b>16 Jan 2027</b> on the Virgin app — book the six dinners (see <b>Onboard eats</b>), any excursions and a Bar Tab then.</span></label>
+    <label class="ck"><input type="checkbox" data-ck="ibiza-club"><span class="box"></span><span class="ck-body"><b>Ibiza club night (Fri 21).</b> Watch for the summer-'27 line-ups (Ushuaïa / Hï / Pacha / Amnesia) — they drop early 2027 — then pick the night and grab tickets.</span></label>
+    <label class="ck"><input type="checkbox" data-ck="barca-bus"><span class="box"></span><span class="ck-body"><b>Barcelona open-top bus.</b> A couple of hours on the Bus Turístic on the 15th — no need to book ahead, but worth a glance for a combo ticket.</span></label>
 
     <p class="ck-group done">Done</p>
     <label class="ck"><input type="checkbox" data-ck="cruise" checked><span class="box"></span><span class="ck-body"><b>The cruise.</b> Resilient Lady, 16–23 May, round-trip Barcelona — booked with Virgin Voyages.</span></label>
